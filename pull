@@ -1,3 +1,2 @@
 #!/bin/bash
-git pull
-git submodule foreach git pull
+git pull origin master
