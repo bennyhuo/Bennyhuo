@@ -82,9 +82,9 @@ deploy:
   repo: https://e.coding.net/bennyhuo/bennyhuo.git
   branch: master
 
-- type: git
-  repo: https://github.com/bennyhuo/Bennyhuo.git
-  branch: master
+# - type: git
+#   repo: https://github.com/bennyhuo/Bennyhuo.git
+#   branch: master
 
 # - type: baidu_url_submitter
 

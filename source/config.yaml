@@ -6,20 +6,12 @@ Add-extensions-to-build-scripts:
   keywords: Gradle Groovy Kotlin KTS
   tags: 'Gradle|Groovy|Kotlin|KTS '
   title: 如何为 Gradle 的 KTS 脚本添加扩展？
-Add-extensions-to-build-scripts copy:
-  abstract: 本质上还是要搞清楚 KTS 是怎么运行的
-  bilibili_id: BV1BU4y1b7Wk
-  date: 2021/05/10
-  file_name: Add-extensions-to-build-scripts copy
-  keywords: Gradle Groovy Kotlin KTS
-  tags: 'Gradle|Groovy|Kotlin|KTS '
-  title: 如何为 Gradle 的 KTS 脚本添加扩展？
 android-studio-shortcuts:
   abstract: 有关 Android Studio 快捷键，看这个视频就够了
-  bilibili_id/BV1g64y1279B: ''
+  bilibili_id: BV1g64y1279B
   date: 2021/05/10
   file_name: android-studio-shortcuts
-  keywords: 'Android-Studio '
+  keywords: IDE 快捷键
   tags: 'Android Studio|技巧|快捷键 '
   title: '[Android Studio 技巧] 快捷键的使用'
 basic-coroutines:

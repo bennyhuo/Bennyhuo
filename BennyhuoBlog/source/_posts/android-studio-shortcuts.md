@@ -1,6 +1,6 @@
 ---
-title:  [Android Studio 技巧] 快捷键的使用 
-keywords: Android-Studio  
+title:  "[Android Studio 技巧] 快捷键的使用"
+keywords: IDE 快捷键 
 date: 2021/05/10
 description: 
 tags: 
@@ -11,7 +11,7 @@ tags:
 
 > 有关 Android Studio 快捷键，看这个视频就够了 
 
-
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1g64y1279B&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <!-- more -->
 
