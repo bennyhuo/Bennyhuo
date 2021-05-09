@@ -1,0 +1,41 @@
+#!/bin/bash
+cleanup () {
+	echo "reset..."
+	git reset
+}
+
+push () {
+    cd $1
+    echo ---push $1---
+    git add . 
+    git status
+
+    read -p "Is this OK? (Y/N)"
+    if [ $REPLY == "N" ]; then
+        cleanup
+        cd -
+        exit
+    fi
+
+    git commit -m '$message'
+    git push origin master
+    cd -
+}
+
+BASE_DIR="$(dirname "$BASH_SOURCE")"
+
+message=$1
+if [ -z "$message" ]
+ then 
+    message="update"
+fi
+
+echo "Commit update: $message"
+
+# 1. copy output file to kotlincn repo.
+echo "Copying kotlincn output..."
+cp -r $BASE_DIR"/source/build/kotlincn/." $BASE_DIR"/KotlinCN/Crack-Kotlin-Coroutines"
+
+# 2. push
+echo $BASE_DIR/KotlinCN
+push $BASE_DIR/KotlinCN

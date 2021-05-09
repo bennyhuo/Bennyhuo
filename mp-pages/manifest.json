@@ -1,0 +1,13 @@
+{
+  "name": "Mp-Pages",
+  "version": "1.0",
+  "description": "Get all mp pages!",
+  "content_scripts": [
+    {
+      "matches": ["https://mp.weixin.qq.com/cgi-bin/home"],
+      "run_at": "document_idle",
+      "js": ["contentScript.js"]
+    }
+  ],
+  "manifest_version": 2
+}

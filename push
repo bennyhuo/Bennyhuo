@@ -1,0 +1,29 @@
+#!/bin/bash
+cleanup () {
+	echo "reset..."
+	git reset
+}
+
+push () {
+    cd $1
+    echo ---push $1---
+    git add . 
+    git status
+
+    # read -p "Is this OK? (Y/N)"
+    # if [ $REPLY == "N" ]; then
+    #     cleanup
+    #     cd -
+    #     exit
+    # fi
+
+    git commit -m 'update'
+    git push -u origin master
+    cd -
+}
+
+BASE_DIR="$(dirname "$BASH_SOURCE")"
+
+echo $BASE_DIR
+push $BASE_DIR/BennyhuoBlog
+push $BASE_DIR

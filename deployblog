@@ -1,0 +1,17 @@
+BASE_DIR="$(dirname "$BASH_SOURCE")"
+
+# 1. copy output file to blog
+echo "Copying blog output..."
+cp -r $BASE_DIR"/source/build/blog/." $BASE_DIR"/BennyhuoBlog/source/_posts"
+
+cd $BASE_DIR"/BennyhuoBlog"
+git pull
+# 2. deploy blog
+hexo d -g
+
+# 3. push to git
+git add .
+git commit -m 'update'
+git push origin master
+
+cd -
