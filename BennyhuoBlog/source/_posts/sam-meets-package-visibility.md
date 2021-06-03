@@ -1,14 +1,22 @@
-# 重构代码的时候千万小心，SAM 转换可能会引发一个奇怪的运行时类不能访问的异常
+---
+title:  重构代码的时候千万小心，SAM 转换可能会引发一个奇怪的运行时类不能访问的异常 
+keywords: Java Kotlin SAM 
+date: 2021/06/04
+description: 
+tags: 
+    - java
+    - kotlin
+    - sam 
+---
 
-**Java Kotlin SAM**
+> SAM 转换是很香，不过兼容 Java  
 
-> SAM 转换是很香，不过兼容 Java 
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1wB4y1g79W&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-==  Java|Kotlin|SAM ==
+<!-- more -->
 
-/bilibili_id/BV1wB4y1g79W/
 
-## SAM 是什么
+
 
 SAM 转换是一个非常有用的特性，这个特性不只在 Kotlin 当中有，Java 当中也有。
 
@@ -152,3 +160,38 @@ class com.bennyhuo.kotlin.samissue.sub.SubSamKt$main$1
 ## 小结
 
 SAM 转换其实是 Kotlin 非常吸引人的一个特性，1.4 引入的 fun interface 则让它更加强大。不过，请大家千万注意，Lambda 不管是在 Java 还是 Kotlin 当中，编译时都大概率会生成一个类（有时候也会只生成几条指令），这往往也是引发问题的根源所在。
+
+---
+
+
+C 语言是所有程序员应当认真掌握的基础语言，不管你是 Java 还是 Python 开发者，欢迎大家关注我的新课 《C 语言系统精讲》：
+
+**扫描二维码或者点击链接[《C 语言系统精讲》](https://coding.imooc.com/class/463.html)即可进入课程**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/program_in_c.png)
+
+
+--- 
+
+Kotlin 协程对大多数初学者来讲都是一个噩梦，即便是有经验的开发者，对于协程的理解也仍然是懵懵懂懂。如果大家有同样的问题，不妨阅读一下我的新书《深入理解 Kotlin 协程》，彻底搞懂 Kotlin 协程最难的知识点：
+
+**扫描二维码或者点击链接[《深入理解 Kotlin 协程》](https://item.jd.com/12898592.html)购买本书**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/understanding_kotlin_coroutines.png)
+
+---
+
+如果大家想要快速上手 Kotlin 或者想要全面深入地学习 Kotlin 的相关知识，可以关注我基于 Kotlin 1.3.50 全新制作的入门课程：
+
+**扫描二维码或者点击链接[《Kotlin 入门到精通》](https://coding.imooc.com/class/398.html)即可进入课程**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/40b0da7d-0147-44b3-9d08-5755dbf33b0b/media/exported_qrcode_image_256.png)
+
+---
+
+Android 工程师也可以关注下《破解Android高级面试》，这门课涉及内容均非浅尝辄止，除知识点讲解外更注重培养高级工程师意识：
+
+**扫描二维码或者点击链接[《破解Android高级面试》](https://s.imooc.com/SBS30PR)即可进入课程**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/9ab6e571-684b-4108-9600-a9e3981e7aca/media/15520936284634.jpg)
+
