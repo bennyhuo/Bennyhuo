@@ -241,7 +241,7 @@ lazy-evaluation:
   tags: 'Kotlin|Swift|Scala|Lazy '
   title: Kotlin、Swift、Scala 的延迟求值
 sam-meets-package-visibility:
-  abstract: 'SAM 转换是很香，不过兼容 Java '
+  abstract: SAM 转换是很香，不过还是要小心遇到坑
   bilibili_id: BV1wB4y1g79W
   date: 2021/06/04
   file_name: sam-meets-package-visibility

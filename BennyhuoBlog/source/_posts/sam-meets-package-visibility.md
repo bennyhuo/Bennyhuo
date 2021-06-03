@@ -9,7 +9,7 @@ tags:
     - sam 
 ---
 
-> SAM 转换是很香，不过兼容 Java  
+> SAM 转换是很香，不过还是要小心遇到坑 
 
 <iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1wB4y1g79W&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 

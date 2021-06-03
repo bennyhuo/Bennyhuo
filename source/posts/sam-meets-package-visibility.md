@@ -2,7 +2,7 @@
 
 **Java Kotlin SAM**
 
-> SAM 转换是很香，不过兼容 Java 
+> SAM 转换是很香，不过还是要小心遇到坑
 
 ==  Java|Kotlin|SAM ==
 
