@@ -5,6 +5,5 @@ echo "Copying blog output..."
 cp -r $BASE_DIR"/source/build/blog/." $BASE_DIR"/BennyhuoBlog/source/_posts"
 
 cd $BASE_DIR"/BennyhuoBlog"
-git pull
 # 2. deploy blog
 hexo d -g

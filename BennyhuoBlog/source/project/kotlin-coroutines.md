@@ -61,7 +61,11 @@ title: 深入理解 Kotlin 协程
 106 | 2020.6 | 在引入取消响应的概念之前，所有的挂起函数都不支持<font color="red">挂起</font> | 在引入取消响应的概念之前，所有的挂起函数都不支持**取消** | 论坛 ID： [zaze8736](https://discuss.kotliner.cn/u/zaze8736/summary)
 124 | 2020.6 | Kotlin 协程的官方框架 <font color="red">kotlin.coroutines</font> 是一套独立于标准库之外的... | Kotlin 协程的官方框架 kotlin**x**.coroutines 是一套独立于标准库之外的... | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 142 | 2020.6 | val broadcastChannel = <font color="red">b</font>roadCastChannel<Int>(5) | val broadcastChannel = **B**roadCastChannel<Int>(5) | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
+148 | 2020.10 | 当然这个过程稍<font color="red">些</font>复杂 | 当然这个过程稍显复杂 | huml
+161 | 2020.10 | 那么 onJoin 就是 SelectClause<font color="red">N</font>类型 | 那么 onJoin 就是 SelectClause0 类型 | huml
 205 | 2020.6 | 包括浏览器上的 window<font color="red">s</font> 和 document | 包括浏览器上的 **window** 和 document | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 209 | 2020.6 | window<font color="red">s</font>.asCoroutineDispatcher | **window**.asCoroutineDispatcher | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 
-> **说明：** 以上部分问题已经在 2020.10 版修正。
+> **说明：**
+>  1. 2020.6 版本的问题已经在 2020.10 版修正。
+>  2. 2020.10 版本的问题计划在 2021.7 版修正。
