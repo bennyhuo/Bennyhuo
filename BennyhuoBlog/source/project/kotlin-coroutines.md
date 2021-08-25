@@ -55,6 +55,8 @@ title: 深入理解 Kotlin 协程
 ---------| ---------|----------|--------- | ------
  38 | 2020.6 | 在代码清单 3-<font color="red">8</font> 的①处 | 在代码清单 3-**7** 的①处 | 论坛 ID： [jkwar](https://discuss.kotliner.cn/u/jkwar/summary)
  45 | 2020.10 | 都会异步挂起（见代码清单 3-<font color="red">8</font> ） | 都会异步挂起（见代码清单 3-**7** ） | [silladus](mailto:silladus@163.com)
+ 77 | 2021.7 |  图 5.1 <img src="/assets/coroutines/5.1.delay_origin.png" width="300"/> | 图 5.1 <img src="/assets/coroutines/5.1.delay_fixed.png" width="300"/> | [luozejiaqun](https://github.com/luozejiaqun)
+ 112 | 2021.7 |  图 5.10 <img src="/assets/coroutines/5.10.exception_handling_origin.png" width="300"/> | 图 5.10 <img src="/assets/coroutines/5.10.exception_handling_fixed.png" width="300"/> | [luozejiaqun](https://github.com/luozejiaqun)
  85 | 2020.6 | block.startCoroutine(completion<font color="red">, completion</font>) | block.startCoroutine(completion) | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
  91 | 2020.6 | block.startCoroutine(completion<font color="red">, completion</font>) | block.startCoroutine(completion) | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 105 | 2020.6 | <font color="red">resumeWith Exception</font> | resumeWithException | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
