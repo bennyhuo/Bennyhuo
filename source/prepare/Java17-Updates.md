@@ -819,6 +819,29 @@ System.out.println(unsafe.getInt(handle));
 
 ![img](media/Java17-Updates/78650EAC.jpg)
 
+另外，新 API 还提供了一套内存布局相关的 API：
+
+![image-20210923070228075](media/Java17-Updates/image-20210923070228075.png)
+
+这套 API 的目的就是可以降低访问堆外内存时的代码复杂度，例如：
+
+```java
+SequenceLayout intArrayLayout = MemoryLayout.sequenceLayout(25, MemoryLayout.valueLayout(32, ByteOrder.nativeOrder()));
+MemorySegment segment = MemorySegment.allocateNative(intArrayLayout, newImplicitScope());
+VarHandle indexedElementHandle = intArrayLayout.varHandle(int.class, PathElement.sequenceElement());
+for (int i = 0; i < intArrayLayout.elementCount().getAsLong(); i++) {
+    indexedElementHandle.set(segment, (long) i, i);
+}
+```
+
+这样我们在开辟内存空间的时候只需要通过 SequenceLayout 描述清楚我们需要什么样的内存（32bit，Native 字节序），多少个（25 个），然后用它去开辟空间，并完成读写。
+
+* PaddingLayout 会在我们需要的数据后添加额外的内存空间，主要用于内存对齐。
+* ValueLayout 用来映射基本的数值类型，例如 int、float 等等。
+* GroupLayout 可以用来组合其他的 MemoryLayout，它有两种类型，分别是 STRUCT 和 UNION，熟悉 C 语言的小伙伴们一下就明白了，在调用 C 函数的时候它非常有用，可以用来映射 C 的结构体和联合体。
+
+在调用 C 函数时，我们可以很方便地使用这些 MemoryLayout 映射到 C 类型。
+
 #### 堆外内存的作用域
 
 作用域这个东西实在是关键。
@@ -834,3 +857,16 @@ System.out.println(unsafe.getInt(handle));
 * GLOBAL：这实际上是一个匿名内部类对象，它是全局作用域，使用它开辟的堆外内存不会自动释放。
 * ImplicitScopeImpl：我们在前面演示新 API 的使用时已经提到过，调用 `ResourceScope.newImplicitScope()` 返回的正是 ImplicitScopeImpl。这种类型的 Scope 不能被主动关闭，不过使用它开辟的内存会在持有内存的 MemorySegment 对象不再被持有时释放。这个逻辑在 CleanerImpl 当中通过 ReferenceQueue 配合 PhantomReference 来实现。
 * SharedScope：最主要的能力就是提供了多线程共享访问的支持；是 ImplicitScopeImpl 的父类，二者的差别在于 SharedScope 可以被主动关闭，不过必须确保只能被关闭一次。
+* ConfinedScope：单线程作用域，只能在所属的线程内访问，比较适合局部环境下的内存管理。
+
+我们再看一个例子：
+
+```java
+try(var scope = ResourceScope.newConfinedScope()) {
+    MemorySegment memorySegment = MemorySegment.allocateNative(100, scope);
+    ...
+}
+```
+
+这个例子当中我们使用 ConfinedScope 来开辟内存，由于这个 scope 在 try-resource 语句结束之后就会被关闭，因此其中开辟的内存也会在语句结束的时候理解回收。
+
