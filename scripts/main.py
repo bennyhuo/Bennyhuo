@@ -78,13 +78,13 @@ def retrieve_post_meta(post_file):
                 if tags_match:
                     post_meta['tags'] = tags_match.group(1)
 
-                while True:
-                    next_line = skip_white_lines(post_file)
-                    kv = re.search(r'\s*/(.*)/(.*)/\s*', next_line)
-                    if kv:
-                        post_meta[kv.group(1)] = kv.group(2)
-                    else:
-                        break
+                # while True:
+                #     next_line = skip_white_lines(post_file)
+                #     kv = re.search(r'\s*/(.*)/(.*)/\s*', next_line)
+                #     if kv:
+                #         post_meta[kv.group(1)] = kv.group(2)
+                #     else:
+                #         break
             else:
                 post_meta['title'] = post_meta['file_name']
                 print(f"Not found title in post, use file name: {post_meta['title']}")
