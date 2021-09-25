@@ -6,20 +6,13 @@ Add-extensions-to-build-scripts:
   keywords: Gradle Groovy Kotlin KTS
   tags: 'Gradle|Groovy|Kotlin|KTS '
   title: 如何为 Gradle 的 KTS 脚本添加扩展？
-Java17-Updates-01:
-  abstract: Java 17 更新了，我们将按照 JEP 提案的顺序依次为大家介绍这些更新的内容。
-  date: 2021/09/24
-  file_name: Java17-Updates-01
+Java17-Updates-01-intro:
+  abstract: 2021 年 9月 23 日，Java 17 发布了，更新的内容还真不少，足足肝了我一星期才把这些内容整理完。
+  date: 2021/09/26
+  file_name: Java17-Updates-01-intro
   keywords: Java Java17
   tags: 'Java|Java17 '
-  title: Java 17 更新（1）：历史包袱有点儿多，删了点儿没用的功能
-Java17-Updates-02:
-  abstract: Java 17 更新了，我们将按照 JEP 提案的顺序依次为大家介绍这些更新的内容。
-  date: 2021/09/25
-  file_name: Java17-Updates-02
-  keywords: Java Java17
-  tags: 'Java|Java17 '
-  title: Java 17 更新（2）：密封类终于转正，访问外部函数的 API 越搞越复杂？
+  title: Java 17 更新（1）：更快的 LTS 节奏
 android-studio-shortcuts:
   abstract: 有关 Android Studio 快捷键，看这个视频就够了
   bilibili_id: BV1g64y1279B
