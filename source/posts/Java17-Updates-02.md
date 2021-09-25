@@ -6,6 +6,7 @@
 
 ==  Java|Java17 ==
 
+我们书接上回，继续聊 Java 17 的更新。
 
 ## JEP 409: Sealed Classes
 
