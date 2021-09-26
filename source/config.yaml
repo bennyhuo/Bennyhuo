@@ -20,6 +20,27 @@ Java17-Updates-02-strictfp:
   keywords: Java Java17
   tags: 'Java|Java17|strictfp '
   title: Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了
+Java17-Updates-03-random:
+  abstract: JDK 当中的随机数生成器其实对于普通开发者来讲基本够用，不过对于一些比较复杂的场景来讲，原有的类结构对扩展并不是很友好。
+  date: 2021/09/27
+  file_name: Java17-Updates-03-random
+  keywords: Java Java17
+  tags: 'Java|Java17|random '
+  title: Java 17 更新（3）：随机数生成器来了一波稳稳的增强
+Java17-Updates-04-mac:
+  abstract: mac 这几年的变化还是挺大的，Java 也必须做一些适应性的变化，不然都没法外接高分显示器了。
+  date: 2021/09/27
+  file_name: Java17-Updates-04-mac
+  keywords: Java Java17
+  tags: 'Java|Java17|mac '
+  title: Java 17 更新（4）：这波更新，居然利好 mac 用户
+Java17-Updates-05-removed:
+  abstract: 这次更新有好几条关于移除老代码的，我们来集中介绍一下。
+  date: 2021/09/27
+  file_name: Java17-Updates-05-removed
+  keywords: Java Java17
+  tags: 'Java|Java17|applet|rmi|aot|jit|SecurityManager '
+  title: Java 17 更新（5）：历史包袱有点儿大，JDK 也在删代码啦
 android-studio-shortcuts:
   abstract: 有关 Android Studio 快捷键，看这个视频就够了
   bilibili_id: BV1g64y1279B
