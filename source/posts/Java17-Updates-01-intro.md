@@ -26,9 +26,9 @@ Java 17 更新了，作为一个 10 年的 Java 程序员，还是有亿点点�
 
 从 2017 年 9 月发布 Java 9 开始，Java 进入每 6 个月一个版本的节奏。这对于开发者来讲是好事，喜欢尝鲜的开发者可以很快地在非 LTS 版本当中体验到 Java 的新特性。
 
-![img](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-01-intro/02EFAF65.jpg)
-
 做出这个改变的时间点是非常微妙的，因为 Kotlin 1.0 是 2016 年 2 月发布的，Google 在 2017 年 5 月官宣 Kotlin 为 Android 的一级开发语言（首选语言的宣布是在 2019 年的 IO 大会上）。
+
+![img](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-01-intro/02EFAF65.jpg)
 
 后来我们就看到，Java 越来越像 Kotlin 了，Java 10 有了 var：
 
@@ -83,15 +83,13 @@ System.out.println( p.x() );
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/6F181E49.png)
 
-然后更有趣的事情发生了。Java 就这么疯狂的发版发了三年之后，Kotlin 慌了，它终于在花了将近两年时间憋完 1.4 这个编译器重写的大版本之后宣布以后每半年发一个版本。
+然后更有趣的事情发生了。Java 就这么疯狂的发版发了三年之后，Kotlin 慌了，它终于在花了将近两年时间憋完 1.4 这个编译器重写的大版本之后宣布，后续每半年发一个版本。
 
 ![img](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-01-intro/02F416C6.jpg)
 
-艾玛，我当时就觉得我啥也别干了，每天只要写它们更新了点儿啥就可以了。做为一个最近专注于发 C++ 视频的 Kotlin 布道师，这几天爆肝 Java 17 的更新，真实给我乐坏了。
-
-你们快卷起来啊。
+哈哈，看来我再也不用发愁选题了。​做为一个最近专注于发 C++ 视频的 Kotlin 补刀师，连续研究了一周 Java 17 的更新，真是给我乐坏了：你们快卷起来啊。
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/6F17BC34.jpg)
 
-好了，这一篇算是这一系列的开篇，为了降低大家的阅读成本，我把主要的更新内容，其实就是合入的 JEP 拆成了十几篇文章，后面尽快发出来。另外，有些比较有意思的内容，我也许大概率也会提供配套视频介绍，欢迎大家关注我的 Bilibili 频道：**bennyhuo 不是算命的**。
+好了，这一篇算是这一系列的开篇，为了降低大家的阅读成本，我会把主要的更新内容，其实就是合入的 JEP 拆成了十几篇文章，后面尽快发出来。另外，有些比较有意思的内容，我也许大概率也会提供配套视频介绍，欢迎大家关注我的 Bilibili 频道：**bennyhuo 不是算命的**。
 

@@ -13,6 +13,13 @@ Java17-Updates-01-intro:
   keywords: Java Java17
   tags: 'Java|Java17 '
   title: Java 17 更新（1）：更快的 LTS 节奏
+Java17-Updates-02-strictfp:
+  abstract: strictfp 可能是最没有存在感的关键字了，很多人写了多年 Java 甚至都不知道它的存在。接下来，它也没有必要继续存在了。
+  date: 2021/09/26
+  file_name: Java17-Updates-02-strictfp
+  keywords: Java Java17
+  tags: 'Java|Java17|strictfp '
+  title: Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了
 android-studio-shortcuts:
   abstract: 有关 Android Studio 快捷键，看这个视频就够了
   bilibili_id: BV1g64y1279B
