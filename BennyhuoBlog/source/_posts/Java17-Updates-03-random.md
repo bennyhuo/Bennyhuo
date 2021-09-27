@@ -21,8 +21,6 @@ tags:
 * [Java 17 更新（1）：更快的 LTS 节奏](https://www.bennyhuo.com/2021/09/26/Java17-Updates-01-intro/)
 * [Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了](https://www.bennyhuo.com/2021/09/26/Java17-Updates-02-strictfp/)
 
-
-
 这一条更新来自：**JEP 356: Enhanced Pseudo-Random Number Generators**，相比之下，这一条实用多了。
 
 我们都用过随机数，不过一般情况下我们很少去认真的对待随机数的具体结果，就好像它是真的随机一样。

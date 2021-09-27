@@ -1,10 +1,26 @@
-## JEP 403: Strongly Encapsulate JDK Internals
+# Java 17 更新（6）：制裁！我自己私有的 API 你们怎么随便一个人都想用？
 
-这一条对于使用 JDK 内部 API 的应用场景来讲会比较受影响。
+**Java Java17**
 
-实际上 JDK 给开发者提供了相当长的过渡期，从 Java 9 引入模块化开始，JDK 对于其内部的 API 的访问限制就已经明确开始落地，只是当时我们可以通过启动参数 --illegal-access=permit 来继续使用 JDK 的内部 API，其中 Java 9 - Java  15 默认 permit，Java 16 默认 deny。
+> 说实话，我们总是用人家 JDK 的内部 API，是不是有点儿欺负人。
 
-现在不可以了。在 Java 17 当中使用 --illegal-access 将会得到以下警告，并且没有任何效果：
+==  Java|Java17|internal ==
+
+
+* [Java 17 更新（1）：更快的 LTS 节奏](https://www.bennyhuo.com/2021/09/26/Java17-Updates-01-intro/)
+* [Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了](https://www.bennyhuo.com/2021/09/26/Java17-Updates-02-strictfp/)
+* [Java 17 更新（3）：随机数生成器来了一波稳稳的增强](https://www.bennyhuo.com/2021/09/27/Java17-Updates-03-random/)
+* [Java 17 更新（4）：这波更新，居然利好 mac 用户](https://www.bennyhuo.com/2021/09/27/Java17-Updates-04-mac/)
+* [Java 17 更新（5）：历史包袱有点儿大，JDK 也在删代码啦](https://www.bennyhuo.com/2021/09/27/Java17-Updates-05-removed/)
+
+
+今天我们来聊聊 **JEP 403: Strongly Encapsulate JDK Internals**。这一条对于使用 JDK 内部 API 的应用场景来讲会比较受影响。
+
+JDK 的动作还是很慢的，它给开发者提供了相当长的过渡期。从 Java 9 引入模块化开始，JDK 对于其内部的 API 的访问限制就已经明确开始落地，只是当时我们可以通过配置启动参数 --illegal-access 来继续使用 JDK 的内部 API，其中 Java 9 - Java  15 这个参数默认 permit，Java 16 默认 deny。
+
+![](media/Java17-Updates-06-internals/0B223765.jpg)
+
+不过，现在不可以了。在 Java 17 当中使用 --illegal-access 将会得到以下警告，并且没有任何效果：
 
 ```
 Java HotSpot(TM) 64-Bit Server VM warning: Ignoring option --illegal-access=permit; support was removed in 17.0
@@ -39,7 +55,7 @@ public final class WeakCache<K, V> {
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/738DD603.png)
 
-不是，不是。。。好的程序员不应该 CV 代码。。。所以我直接使用它。
+不是，不是。。。优秀的程序员不应该 CV 代码。。。所以我直接使用它。
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/image-20210921083515465.png)
 
@@ -92,7 +108,7 @@ WARNING: All illegal access operations will be denied in a future release
 bennyhuo
 ```
 
-不过正如我们前面所说，Java 17 当中这个参数无效了
+不过正如我们前面所说，Java 17 当中这个参数无效了：
 
 ```
 # java --illegal-access=permit com.bennyhuo.java17.ReflectionsInternal
@@ -110,7 +126,9 @@ d
 
 这就是上帝在关门的时候（Java 9），顺便也提醒我们窗户也马上要关上了，还不赶紧给我出去？然后上帝又花了三年把窗户也关上了。不过，它总算是还留了一个通气孔。。。
 
- Java  17 当中 --add-opens 仍然有效，通过开启它可以让我们的程序还可以在运行时通过反射访问指定的类：
+![](media/Java17-Updates-06-internals/0B24BC5A.png)
+
+Java 17 当中 --add-opens 仍然有效，通过开启它可以让我们的程序在运行时通过反射访问指定的类：
 
 ```
 --add-opens java.desktop/com.sun.beans=ALL-UNNAMED
@@ -124,9 +142,10 @@ d
 bennyhuo
 ```
 
-所以这波是要来真的，赶快跑吧！
+所以这波限制是要来真的，赶快跑吧！
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/739B92AC.jpg)
 
-大家也可以参考 [受影响的 API 清单](https://cr.openjdk.java.net/~mr/jigsaw/jdk8-packages-strongly-encapsulated) 来规划自己的 JDK 升级。
+大家也可以参考 [受影响的 API 清单](https://cr.openjdk.java.net/~mr/jigsaw/jdk8-packages-strongly-encapsulated) 来规划自己的 JDK 升级。顺便说一句，著名的 Unsafe 类不在这一波制裁的名单以内，可能是 Unsafe 应用太广泛了吧，而且 Java 官方也没有找到合适的替代品来满足需求，就先放着了（Unsafe 我们在后面访问堆外内存的内容中还会有介绍）。
 
+好啦，关于加强控制内部 API 的限制的更新，我们也就介绍这么多，对大家的影响嘛，应该也不大（只要不升级）。
