@@ -53,7 +53,7 @@ def retrieve_post_meta(post_file):
         post_meta['date'] = post_config['date']
     else:
         import time
-        post_meta['date'] = time.strftime("%Y/%m/%d", time.localtime())
+        post_meta['date'] = time.strftime("%Y/%m/%d %H:%m:%S", time.localtime())
 
     for line in post_file:
         if line:

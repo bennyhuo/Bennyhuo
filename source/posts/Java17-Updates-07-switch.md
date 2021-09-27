@@ -60,9 +60,23 @@ static String formatterPatternSwitch(Object o) {
 
 对于每一个 case 语句，我们都可以使用类型模式匹配，如果 o 的类型是 Integer，那么它就可以匹配到第一个 case 分支，并且在这个分支内部可以用新变量 i 来替代 o。
 
-请注意，switch 语句在 Java 14 正式支持了表达式，有些朋友可能对这个语法不是很熟悉， 每一个 case  语句后面的 `->` 都是一个表达式，并且不会落到下一个 case 分支，所以大家也不会在这里看到 break。
+请注意，switch 语句在 Java 14 正式支持了表达式，有些朋友可能对这个语法不是很熟悉， 每一个 case  语句后面的 `->` 都是一个表达式，并且不会落到下一个 case 分支，所以大家也不会在这里看到 break。不仅如此，switch 表达式的参数 o 的类型也做了放宽，我们在后面介绍密封类的时候还可以看到对这一点的运用。
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/74379640.jpg)
+
+不仅如此，这次 switch 表达式还添加了对 null 的支持：
+
+```java
+static void testFooBar(String s) {
+    switch (s) {
+        case null         -> System.out.println("Oops");
+        case "Foo", "Bar" -> System.out.println("Great");
+        default           -> System.out.println("Ok");
+    }
+}
+```
+
+这样我们就可以把 null 放到第一个分支来实现空检查了，非常方便。
 
 模式匹配在 Java 的近亲 Scala 上得到了广泛的运用，当然 Scala 的模式匹配要复杂得多，下面是我从 Scala 官网摘的例子：
 
@@ -106,3 +120,4 @@ Kotlin 在演进的过程中曾经也一度想要把 when 表达式做成模式�
 稍微提一下，如果想要体验预览特性，需要为 Java 编译器和 Java 运行时添加 `--enable-preview` 参数。
 
 好，关于预览的 switch 模式匹配我们就先介绍这么多。
+
