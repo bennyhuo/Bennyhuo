@@ -70,6 +70,27 @@ Java17-Updates-09-foreignapi-memory:
   keywords: Java Java17
   tags: 'Java|Java17|direct memory '
   title: Java 17 更新（9）：Unsafe 不 safe，我们来一套 safe 的 API 访问堆外内存
+Java17-Updates-10-foreignapi-callfunction:
+  abstract: 'JNI 不安全还繁琐，所以 Java 搞了一套新的 API，结果把这事儿搞得更复杂了。。。 '
+  date: 2021/10/02 20:10:08
+  file_name: Java17-Updates-10-foreignapi-callfunction
+  keywords: Java Java17
+  tags: 'Java|Java17|foreign function api '
+  title: Java 17 更新（10）：访问外部函数的新 API，JNI 要凉了？
+Java17-Updates-11-vector:
+  abstract: Java 17 将继续孵化对矢量计算的支持。
+  date: 2021/10/02 20:10:09
+  file_name: Java17-Updates-11-vector
+  keywords: Java Java17
+  tags: 'Java|Java17 '
+  title: Java 17 更新（11）：支持矢量运算，利好科学计算？
+Java17-Updates-12-contextserialfilter:
+  abstract: Java 的序列化机制虽然有些问题，不过毕竟亲儿子，更新怎么能落下呢。
+  date: 2021/10/02 20:10:10
+  file_name: Java17-Updates-12-contextserialfilter
+  keywords: Java Java17
+  tags: 'Java|Java17 '
+  title: Java 17 更新（12）：支持上下文的序列化过滤器，又一次给序列化打补丁
 android-studio-shortcuts:
   abstract: 有关 Android Studio 快捷键，看这个视频就够了
   bilibili_id: BV1g64y1279B
