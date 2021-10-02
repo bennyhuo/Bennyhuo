@@ -29,18 +29,47 @@ Java17-Updates-03-random:
   title: Java 17 更新（3）：随机数生成器来了一波稳稳的增强
 Java17-Updates-04-mac:
   abstract: mac 这几年的变化还是挺大的，Java 也必须做一些适应性的变化，不然都没法外接高分显示器了。
-  date: 2021/09/27
+  date: 2021/09/27 08:00:00
   file_name: Java17-Updates-04-mac
   keywords: Java Java17
   tags: 'Java|Java17|mac '
   title: Java 17 更新（4）：这波更新，居然利好 mac 用户
 Java17-Updates-05-removed:
   abstract: 这次更新有好几条关于移除老代码的，我们来集中介绍一下。
-  date: 2021/09/27
+  date: 2021/09/28
   file_name: Java17-Updates-05-removed
   keywords: Java Java17
   tags: 'Java|Java17|applet|rmi|aot|jit|SecurityManager '
   title: Java 17 更新（5）：历史包袱有点儿大，JDK 也在删代码啦
+Java17-Updates-06-internals:
+  abstract: 说实话，我们总是用人家 JDK 的内部 API，是不是有点儿欺负人。
+  date: 2021/10/02 19:10:55
+  file_name: Java17-Updates-06-internals
+  keywords: Java Java17
+  tags: 'Java|Java17|internal '
+  title: Java 17 更新（6）：制裁！我自己私有的 API 你们怎么随便一个人都想用？
+Java17-Updates-07-switch:
+  abstract: 说实话，我们总是用人家 JDK 的内部 API，是不是有点儿欺负人。
+  date: 2021/10/02 19:10:56
+  file_name: Java17-Updates-07-switch
+  keywords: Java Java17
+  tags: 'Java|Java17|switch '
+  title: Java 17 更新（7）：模式匹配要支持 switch 啦
+Java17-Updates-08-sealedclass:
+  abstract: Java 看 Kotlin 实现了密封类，马上给自己搞了密封类和密封接口，Kotlin 一看也立马支持了密封接口。
+  date: 2021/10/02 19:10:57
+  file_name: Java17-Updates-08-sealedclass
+  keywords: Java Java17
+  tags: 'Java|Java17|sealed class '
+  title: Java 17 更新（8）：密封类终于转正
+Java17-Updates-09-foreignapi-memory:
+  abstract: 使用 Unsafe 直接访问堆外内存存在各种安全性问题，对于使用者的要求也比较高，不太适合在业务当中广泛使用。于是，Java 在新孵化的 API
+    当中提供了更安全的方案。
+  date: 2021/10/02 19:10:58
+  file_name: Java17-Updates-09-foreignapi-memory
+  keywords: Java Java17
+  tags: 'Java|Java17|direct memory '
+  title: Java 17 更新（9）：Unsafe 不 safe，我们来一套 safe 的 API 访问堆外内存
 android-studio-shortcuts:
   abstract: 有关 Android Studio 快捷键，看这个视频就够了
   bilibili_id: BV1g64y1279B

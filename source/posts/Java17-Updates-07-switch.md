@@ -40,7 +40,7 @@ if (o is String) {
 }
 ```
 
-![](media/Java17-Updates-07-switch/0B330ECC.gif)
+![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-07-switch/0B330ECC.gif)
 
 不过，模式匹配可以做的事情更多。
 

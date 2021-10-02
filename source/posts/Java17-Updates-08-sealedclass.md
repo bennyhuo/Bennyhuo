@@ -12,7 +12,7 @@
 
 Kotlin 从 1.0 开始就有密封类，并且对子类定义位置的限制从父类内部（Kotlin 1.0）到同一个文件（Kotlin 1.1）再到同一个包内（Kotlin 1.5），但实际使用上没有什么特别大的变化 —— 直到 Java 也支持密封类和密封接口，Kotlin 才也对密封接口做了支持。
 
-![img](media/Java17-Updates-08-sealedclass/0D23EF1D.jpg)
+![img](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-08-sealedclass/0D23EF1D.jpg)
 
 从定义上来讲，二者的密封类、接口都是限制直接子类的定义，使得直接子类是可数的。例如：
 

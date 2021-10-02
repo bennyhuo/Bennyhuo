@@ -18,7 +18,7 @@
 
 JDK 的动作还是很慢的，它给开发者提供了相当长的过渡期。从 Java 9 引入模块化开始，JDK 对于其内部的 API 的访问限制就已经明确开始落地，只是当时我们可以通过配置启动参数 --illegal-access 来继续使用 JDK 的内部 API，其中 Java 9 - Java  15 这个参数默认 permit，Java 16 默认 deny。
 
-![](media/Java17-Updates-06-internals/0B223765.jpg)
+![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-06-internals/0B223765.jpg)
 
 不过，现在不可以了。在 Java 17 当中使用 --illegal-access 将会得到以下警告，并且没有任何效果：
 
@@ -59,7 +59,7 @@ public final class WeakCache<K, V> {
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/image-20210921083515465.png)
 
-啊，不行。那我可以反射呀~ 我可真是个小机灵鬼。这波反射下来真实无人能敌。
+啊，不行。那我可以反射呀~ 我可真是个小机灵鬼。这波反射下来真是无人能敌。
 
 ```java
 try {
@@ -124,9 +124,9 @@ d
         at com.bennyhuo.java17.ReflectionsInternal.main(ReflectionsInternal.java:10)
 ```
 
-这就是上帝在关门的时候（Java 9），顺便也提醒我们窗户也马上要关上了，还不赶紧给我出去？然后上帝又花了三年把窗户也关上了。不过，它总算是还留了一个通气孔。。。
+这就是上帝在关门的时候（Java 9），顺便也提醒我们窗户也马上要关上了，还不赶紧滚出去？然后上帝又花了三年把窗户也关上了（Java 17）。不过，它总算是还留了一个通气孔。。。
 
-![](media/Java17-Updates-06-internals/0B24BC5A.png)
+![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-06-internals/0B24BC5A.png)
 
 Java 17 当中 --add-opens 仍然有效，通过开启它可以让我们的程序在运行时通过反射访问指定的类：
 
@@ -146,6 +146,8 @@ bennyhuo
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/739B92AC.jpg)
 
-大家也可以参考 [受影响的 API 清单](https://cr.openjdk.java.net/~mr/jigsaw/jdk8-packages-strongly-encapsulated) 来规划自己的 JDK 升级。顺便说一句，著名的 Unsafe 类不在这一波制裁的名单以内，可能是 Unsafe 应用太广泛了吧，而且 Java 官方也没有找到合适的替代品来满足需求，就先放着了（Unsafe 我们在后面访问堆外内存的内容中还会有介绍）。
+大家也可以参考 [受影响的 API 清单](https://cr.openjdk.java.net/~mr/jigsaw/jdk8-packages-strongly-encapsulated) 来规划自己的 JDK 升级。
+
+顺便说一句，著名的 Unsafe 类不在这一波制裁的名单以内，可能是 Unsafe 应用太广泛了吧，而且 Java 官方也没有找到合适的替代品来满足需求，就先放着了（Unsafe 我们在后面访问堆外内存的内容中还会有介绍）。
 
 好啦，关于加强控制内部 API 的限制的更新，我们也就介绍这么多，对大家的影响嘛，应该也不大（只要不升级）。
