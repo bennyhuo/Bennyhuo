@@ -9,7 +9,7 @@ tags:
     - switch 
 ---
 
-> 说实话，我们总是用人家 JDK 的内部 API，是不是有点儿欺负人。 
+> Java 的 switch 又加强啦！ 
 
 
 
