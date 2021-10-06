@@ -91,7 +91,7 @@ public ObjectInputFilter apply(ObjectInputFilter objectInputFilter, ObjectInputF
 
 ![](https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-12-contextserialfilter/24A164DA.png)
 
-接下来我们再看一下提案当中给出的例子（实际的 JDK API 与提案的例子有些调整，以下代码时调整之后的）：
+接下来我们再看一下提案当中给出的例子（实际的 JDK API 与提案的例子有些调整，以下代码是调整之后的）：
 
 ```java
 public class FilterInThread implements BinaryOperator<ObjectInputFilter> {

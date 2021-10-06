@@ -49,7 +49,7 @@ Java17-Updates-06-internals:
   tags: 'Java|Java17|internal '
   title: Java 17 更新（6）：制裁！我自己私有的 API 你们怎么随便一个人都想用？
 Java17-Updates-07-switch:
-  abstract: 说实话，我们总是用人家 JDK 的内部 API，是不是有点儿欺负人。
+  abstract: Java 的 switch 又加强啦！
   date: 2021/10/02 19:10:56
   file_name: Java17-Updates-07-switch
   keywords: Java Java17
