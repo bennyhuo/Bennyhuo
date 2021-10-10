@@ -80,4 +80,16 @@ public func withCheckedThrowingContinuation<T>(
 ) async throws -> T
 ```
 
-如果我们的异步函数不会抛出异常，那就用 withCheckedContinuation 来获取 Continuation；如果会抛出异常，那就用 withCheckedThrowingContinuation。
+如果我们的异步函数不会抛出异常，那就用 withCheckedContinuation 来获取 Continuation；如果会抛出异常，那就用 withCheckedThrowingContinuation。这么看来，改造前面的回调的方法就显而易见了：
+
+```swift
+func helloAsync() async -> Int {
+    await withCheckedContinuation { continuation in
+        DispatchQueue.global().async {
+            continuation.resume(returning: Int(rand()))
+        }
+    }
+}
+```
+
+
