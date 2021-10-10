@@ -11,10 +11,6 @@
 1. 异步函数是谁提供的？我可以自己定义吗？我该怎么正确地定义一个异步函数？
 2. 既然普通函数不能调用异步函数，那定义好的这些异步函数该从哪儿开始调用呢？
 
-这一篇文章将回答第一个问题，而第二个问题将在下一篇文章当中给出答案。
-
-
-
 异步函数谁都可以提供，不然它的应用范围就会大大受限制，因此我们既可以有机会使用到系统或者第三方框架提供的异步函数，也自然有机会自己去定义。那关键的问题就是如何定义异步函数了。
 
 我们先随便定义一个函数：
@@ -38,8 +34,50 @@ func hello() async -> Int{
 async 关键字并不会真正带来异步，那么异步的能力是谁提供的？这时候我们就要想想，过去我们见到的异步函数都是什么样的：
 
 ```swift
-func helloAsync(onComplete: (Int) -> Void) {
-    // 
-    onComplete(1)
+func helloAsync(onComplete: @escaping (Int) -> Void) {
+    DispatchQueue.global().async {
+        onComplete(Int(rand()))
+    }
 }
 ```
+
+这是一个很简单的例子，我们在 helloAsync 当中通过 DispatchQueue 将代码逻辑调度到 global() 上，使得回调 onComplete 的调用脱离了 helloAsync 的调用栈。调用这个函数的样子就像这样：
+
+```swift
+helloAsync { result in
+    print("Got result from callback: \(result)")
+}
+```
+
+这么看来，我们在异步函数当中都应该有这么个切换调用栈的过程，并且有个类似于回调的东西将结果能传递出去。那在 Swift 协程当中，谁来扮演这个角色呢？
+
+这里就要稍微提一下 Swift 协程的设计原理了。它采用了一种叫做 Continuation Passing Style 的设计思路（熟悉 Kotlin 的朋友是不是觉得非常熟悉？），而这个所谓的Continuation 就充当了回调的作用。我们把 Swift 标准库当中提供的 Continuation 的定义给出来，大家简单了解一下它的形式即可：
+
+```swift
+@frozen public struct UnsafeContinuation<T, E> where E : Error {
+
+    public func resume(returning value: T) where E == Never
+
+    public func resume(returning value: T)
+
+    public func resume(throwing error: E)
+}
+```
+
+注意到它实际上有两种类型的函数，一种是 returning，一种是 throwing。也就是说，对于任何一段代码逻辑，其执行的结果都无非返回结果和抛出异常两种。Continuation 其实就是描述协程当中异步代码在挂起点的状态，而当程序需要恢复执行时，调用它对应的 resume 函数即可。
+
+好了，现在我们知道有了 Continuation 这个东西了，相当于我们已经知道对于 Swift 的 async 函数而言，我们可以通过 Continuation 来传递异步结果。那么下一个问题就是如何获取这个 Continuation 的实例呢？Swift 标准库提供了相应的函数来做到这一点：
+
+```swift 
+public func withCheckedContinuation<T>(
+    function: String = #function, 
+    _ body: (CheckedContinuation<T, Never>) -> Void
+) async -> T
+
+public func withCheckedThrowingContinuation<T>(
+    function: String = #function, 
+    _ body: (CheckedContinuation<T, Error>) -> Void
+) async throws -> T
+```
+
+如果我们的异步函数不会抛出异常，那就用 withCheckedContinuation 来获取 Continuation；如果会抛出异常，那就用 withCheckedThrowingContinuation。
