@@ -8,8 +8,9 @@
 
 我们前面已经简单介绍了 Swift 的协程，可以确认的一点是，如果你只是看了上一篇文章，那么你肯定还是不会用这一个特性。你一定还有一些疑问：
 
-1. 异步函数是谁提供的？我可以自己定义吗？我该怎么正确地定义一个异步函数？
-2. 既然普通函数不能调用异步函数，那定义好的这些异步函数该从哪儿开始调用呢？
+* 异步函数是谁提供的？
+* 我可以自己定义吗？
+* 我该怎么正确地定义一个异步函数？
 
 异步函数谁都可以提供，不然它的应用范围就会大大受限制，因此我们既可以有机会使用到系统或者第三方框架提供的异步函数，也自然有机会自己去定义。那关键的问题就是如何定义异步函数了。
 
@@ -92,4 +93,22 @@ func helloAsync() async -> Int {
 }
 ```
 
+如果需要抛出异常，那么：
 
+```swift
+func helloAsync() async -> Int {
+    await withCheckedContinuation { continuation in
+        DispatchQueue.global().async {
+            do {
+                let result = doSomethingThrowing() // 可能抛异常
+                continuation.resume(returning: result)
+            } catch {
+                continuation.resume(throwing: error)
+            }
+            
+        }
+    }
+}
+```
+
+好了，现在我们已经学会如何将异步回调转成异步函数了，距离最终的目标又近了一步。下一篇文章当中我们将介绍如何从程序入口调用异步函数，试着把程序跑起来。
