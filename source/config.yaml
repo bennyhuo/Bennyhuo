@@ -333,6 +333,13 @@ sam-meets-package-visibility:
   keywords: Java Kotlin SAM
   tags: 'Java|Kotlin|SAM '
   title: 重构代码的时候千万小心，SAM 转换可能会引发一个奇怪的运行时类不能访问的异常
+swift-coroutines-01-intro:
+  abstract: 2021 年 9 月 20 日，Apple 发版了 Swift 5.5，这个版本当中最亮眼的特性就是对 async await 的支持了。
+  date: 2021/10/11 21:10:53
+  file_name: swift-coroutines-01-intro
+  keywords: Swift Swift5.5
+  tags: 'Swift|Coroutines|async await '
+  title: 闲话 Swift 协程（1）：Swift 协程长什么样？
 understanding-kotlin-coroutines:
   abstract: 没想到 Kotlin 的协程居然会成为一个有争议的话题，谁让官方材料太少呢。
   date: 2020/06/23
