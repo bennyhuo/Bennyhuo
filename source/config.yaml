@@ -340,6 +340,13 @@ swift-coroutines-01-intro:
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（1）：Swift 协程长什么样？
+swift-coroutines-02-wrap-callback:
+  abstract: 最理想的情况下，系统、第三方框架当中使用回调的 API 都最好在一夜之间改成 async 函数，显然这不太现实。
+  date: 2021/10/13 21:10:14
+  file_name: swift-coroutines-02-wrap-callback
+  keywords: Swift Swift5.5
+  tags: 'Swift|Coroutines|async await '
+  title: 闲话 Swift 协程（2）：将回调改写成 async 函数
 understanding-kotlin-coroutines:
   abstract: 没想到 Kotlin 的协程居然会成为一个有争议的话题，谁让官方材料太少呢。
   date: 2020/06/23
