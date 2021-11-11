@@ -5,8 +5,8 @@ date: 2018-10-03 20:10:50
 
 # 基本信息
 
-* 前腾讯客户端高级工程师，团队负责人
-* Kotlin GDE（谷歌开发专家）
+* 前腾讯客户端高级工程师、猿辅导资深客户端工程师；团队负责人
+* [Kotlin GDE（Google 开发专家）](https://developers.google.com/community/experts/directory/profile/profile-bingqian-huo)
 * Kotlin 布道师/社区组织者
 * **微信公众号：Kotlin**：2016年10月至今，专注于 Kotlin 技术布道
 * **bilibili：[bennyhuo 不是算命的](https://space.bilibili.com/28615855)**
