@@ -61,6 +61,7 @@ title: 深入理解 Kotlin 协程
  91 | 2020.6 | block.startCoroutine(completion<font color="red">, completion</font>) | block.startCoroutine(completion) | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 105 | 2020.6 | <font color="red">resumeWith Exception</font> | resumeWithException | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 106 | 2020.6 | 在引入取消响应的概念之前，所有的挂起函数都不支持<font color="red">挂起</font> | 在引入取消响应的概念之前，所有的挂起函数都不支持**取消** | 论坛 ID： [zaze8736](https://discuss.kotliner.cn/u/zaze8736/summary)
+114 | 2021.7 | 主从作用域：与协<font color="red">程</font>作用域... | 主从作用域：与协**同**作用域... | [SMAXLYB](https://github.com/SMAXLYB)
 124 | 2020.6 | Kotlin 协程的官方框架 <font color="red">kotlin.coroutines</font> 是一套独立于标准库之外的... | Kotlin 协程的官方框架 kotlin**x**.coroutines 是一套独立于标准库之外的... | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 142 | 2020.6 | val broadcastChannel = <font color="red">b</font>roadCastChannel<Int>(5) | val broadcastChannel = **B**roadCastChannel<Int>(5) | 论坛 ID： [llt](https://discuss.kotliner.cn/u/llt/summary)
 148 | 2020.10 | 当然这个过程稍<font color="red">些</font>复杂 | 当然这个过程稍显复杂 | huml

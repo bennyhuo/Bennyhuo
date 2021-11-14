@@ -1,0 +1,161 @@
+---
+title:  闲话 Swift 协程（2）：将回调改写成 async 函数 
+keywords: Swift Swift5.5 
+date: 2021/10/13 21:10:14
+description: 
+tags: 
+    - swift
+    - coroutines
+    - async await 
+---
+
+> 最理想的情况下，系统、第三方框架当中使用回调的 API 都最好在一夜之间改成 async 函数，显然这不太现实。 
+
+
+
+<!-- more -->
+
+
+
+
+我们前面已经简单介绍了 Swift 的协程，可以确认的一点是，如果你只是看了上一篇文章，那么你肯定还是不会用这一个特性。你一定还有一些疑问：
+
+* 异步函数是谁提供的？
+* 我可以自己定义吗？
+* 我该怎么正确地定义一个异步函数？
+
+异步函数谁都可以提供，不然它的应用范围就会大大受限制，因此我们既可以有机会使用到系统或者第三方框架提供的异步函数，也自然有机会自己去定义。那关键的问题就是如何定义异步函数了。
+
+我们先随便定义一个函数：
+
+```swift
+func hello() -> Int{
+    1
+}
+```
+
+这个函数返回了一个整数 1。接下来我们把它改造成异步函数，只需要加上 async 关键字：
+
+```swift
+func hello() async -> Int{
+    1
+}
+```
+
+那么，它现在真的是异步的吗？当然不是，它只是长得像罢了。
+
+async 关键字并不会真正带来异步，那么异步的能力是谁提供的？这时候我们就要想想，过去我们见到的异步函数都是什么样的：
+
+```swift
+func helloAsync(onComplete: @escaping (Int) -> Void) {
+    DispatchQueue.global().async {
+        onComplete(Int(rand()))
+    }
+}
+```
+
+这是一个很简单的例子，我们在 helloAsync 当中通过 DispatchQueue 将代码逻辑调度到 global() 上，使得回调 onComplete 的调用脱离了 helloAsync 的调用栈。调用这个函数的样子就像这样：
+
+```swift
+helloAsync { result in
+    print("Got result from callback: \(result)")
+}
+```
+
+这么看来，我们在异步函数当中都应该有这么个切换调用栈的过程，并且有个类似于回调的东西将结果能传递出去。那在 Swift 协程当中，谁来扮演这个角色呢？
+
+这里就要稍微提一下 Swift 协程的设计原理了。它采用了一种叫做 Continuation Passing Style 的设计思路（熟悉 Kotlin 的朋友是不是觉得非常熟悉？），而这个所谓的Continuation 就充当了回调的作用。我们把 Swift 标准库当中提供的 Continuation 的定义给出来，大家简单了解一下它的形式即可：
+
+```swift
+@frozen public struct UnsafeContinuation<T, E> where E : Error {
+
+    public func resume(returning value: T) where E == Never
+
+    public func resume(returning value: T)
+
+    public func resume(throwing error: E)
+}
+```
+
+注意到它实际上有两种类型的函数，一种是 returning，一种是 throwing。也就是说，对于任何一段代码逻辑，其执行的结果都无非返回结果和抛出异常两种。Continuation 其实就是描述协程当中异步代码在挂起点的状态，而当程序需要恢复执行时，调用它对应的 resume 函数即可。
+
+好了，现在我们知道有了 Continuation 这个东西了，相当于我们已经知道对于 Swift 的 async 函数而言，我们可以通过 Continuation 来传递异步结果。那么下一个问题就是如何获取这个 Continuation 的实例呢？Swift 标准库提供了相应的函数来做到这一点：
+
+```swift 
+public func withCheckedContinuation<T>(
+    function: String = #function, 
+    _ body: (CheckedContinuation<T, Never>) -> Void
+) async -> T
+
+public func withCheckedThrowingContinuation<T>(
+    function: String = #function, 
+    _ body: (CheckedContinuation<T, Error>) -> Void
+) async throws -> T
+```
+
+如果我们的异步函数不会抛出异常，那就用 withCheckedContinuation 来获取 Continuation；如果会抛出异常，那就用 withCheckedThrowingContinuation。这么看来，改造前面的回调的方法就显而易见了：
+
+```swift
+func helloAsync() async -> Int {
+    await withCheckedContinuation { continuation in
+        DispatchQueue.global().async {
+            continuation.resume(returning: Int(rand()))
+        }
+    }
+}
+```
+
+如果需要抛出异常，那么：
+
+```swift
+func helloAsync() async -> Int {
+    await withCheckedContinuation { continuation in
+        DispatchQueue.global().async {
+            do {
+                let result = doSomethingThrowing() // 可能抛异常
+                continuation.resume(returning: result)
+            } catch {
+                continuation.resume(throwing: error)
+            }
+            
+        }
+    }
+}
+```
+
+好了，现在我们已经学会如何将异步回调转成异步函数了，距离最终的目标又近了一步。下一篇文章当中我们将介绍如何从程序入口调用异步函数，试着把程序跑起来。
+
+---
+
+
+C 语言是所有程序员应当认真掌握的基础语言，不管你是 Java 还是 Python 开发者，欢迎大家关注我的新课 《C 语言系统精讲》：
+
+**扫描二维码或者点击链接[《C 语言系统精讲》](https://coding.imooc.com/class/463.html)即可进入课程**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/program_in_c.png)
+
+
+--- 
+
+Kotlin 协程对大多数初学者来讲都是一个噩梦，即便是有经验的开发者，对于协程的理解也仍然是懵懵懂懂。如果大家有同样的问题，不妨阅读一下我的新书《深入理解 Kotlin 协程》，彻底搞懂 Kotlin 协程最难的知识点：
+
+**扫描二维码或者点击链接[《深入理解 Kotlin 协程》](https://item.jd.com/12898592.html)购买本书**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/understanding_kotlin_coroutines.png)
+
+---
+
+如果大家想要快速上手 Kotlin 或者想要全面深入地学习 Kotlin 的相关知识，可以关注我基于 Kotlin 1.3.50 全新制作的入门课程：
+
+**扫描二维码或者点击链接[《Kotlin 入门到精通》](https://coding.imooc.com/class/398.html)即可进入课程**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/40b0da7d-0147-44b3-9d08-5755dbf33b0b/media/exported_qrcode_image_256.png)
+
+---
+
+Android 工程师也可以关注下《破解Android高级面试》，这门课涉及内容均非浅尝辄止，除知识点讲解外更注重培养高级工程师意识：
+
+**扫描二维码或者点击链接[《破解Android高级面试》](https://s.imooc.com/SBS30PR)即可进入课程**
+
+![](https://kotlinblog-1251218094.costj.myqcloud.com/9ab6e571-684b-4108-9600-a9e3981e7aca/media/15520936284634.jpg)
+
