@@ -53,6 +53,7 @@ title: 深入理解 Kotlin 协程
 
 页码 | 发现版本 | 原内容 | 修改为 | 致谢 
 ---------| ---------|----------|--------- | ------
+ 13 | 2021.7 | 它解决了异步结果<font color="red">不</font>阻塞主调用流程的问题 | 它解决了异步结果阻塞主调用流程的问题 | [Hepan](https://github.com/HeCaser)
  38 | 2020.6 | 在代码清单 3-<font color="red">8</font> 的①处 | 在代码清单 3-**7** 的①处 | 论坛 ID： [jkwar](https://discuss.kotliner.cn/u/jkwar/summary)
  45 | 2020.10 | 都会异步挂起（见代码清单 3-<font color="red">8</font> ） | 都会异步挂起（见代码清单 3-**7** ） | [silladus](mailto:silladus@163.com)
  77 | 2021.7 |  图 5.1 <img src="/assets/coroutines/5.1.delay_origin.png" width="300"/> | 图 5.1 <img src="/assets/coroutines/5.1.delay_fixed.png" width="300"/> | [luozejiaqun](https://github.com/luozejiaqun)
