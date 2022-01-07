@@ -6,11 +6,12 @@ date: 2018-10-03 20:10:50
 # 基本信息
 
 * 前腾讯客户端高级工程师、猿辅导资深客户端工程师；团队负责人
-* [Kotlin GDE（Google 开发专家）](https://developers.google.com/community/experts/directory/profile/profile-bingqian-huo)
+* [Kotlin GDE（Google 认证开发专家）](https://developers.google.com/community/experts/directory/profile/profile-bingqian-huo)
 * Kotlin 布道师/社区组织者
+* **GitHub**: [bennyhuo](https://github.com/bennyhuo)
 * **微信公众号：Kotlin**：2016年10月至今，专注于 Kotlin 技术布道
 * **bilibili：[bennyhuo 不是算命的](https://space.bilibili.com/28615855)**
-* **知乎：[bennyhuo](https://www.zhihu.com/people/bennyhuo)**
+* **YouTube：[Benny Huo](https://www.youtube.com/channel/UCt47g8sEoUkI6R855ol3Gdw)**
 
 # 技术书籍
 
@@ -29,16 +30,14 @@ date: 2018-10-03 20:10:50
 
 # 大会分享
 
+* 2021.11/2021.12 Kotlin 中文大会 & GDG Devfest: **[Kotlin 元编程：从注解处理器 KAPT到符号处理器 KSP](https://www.bilibili.com/video/BV1JY411H7pb)**
+* 2021.07 GDG 社区说: **[Kotlin 编译器插件：我们究竟在期待什么](https://www.bilibili.com/video/BV1Tf4y157ku)**
 * 2020.11 2020 全球移动开发者峰会 & GDG Kotlin Day: **[Kotlin多平台在移动端应用与展望](https://live.csdn.net/room/zxff716/Dl55vGUZ)**
 * 2020.05 2020 GDG Android 11 Meetup: **[Kotlin 协程那些事儿](https://www.bilibili.com/video/BV1MV411z7pM)**
-* 2018.11 2018 JetBrains 北京开发者大会: **[如何优雅的使用 Data Class](https://v.qq.com/x/page/n08227okqh9.html)**
+* 2018.11 2018 JetBrains 北京开发者大会: **[如何优雅的使用 Kotlin Data Class](https://v.qq.com/x/page/n08227okqh9.html)**
 * 2017.11 2017 Android 技术大会: **[效率的抉择 - 将 Kotlin 投入 Android 应用开发当中 ](http://play.itdks.com/watch/3740769?player=)**
 
 # 相关网站
 
 * **个人主页**：https://www.bennyhuo.com
 * **GitHub**：https://github.com/bennyhuo
-* **[Kotlin 中文官网](https://www.kotlincn.net)**: 同步翻译官网，为国内开发者提供最权威的参考资料
-* **[Kotlin 中文博客](https://www.kotliner.cn)**: 同步翻译博客，为国内开发者提供最新的 Kotlin 官方动态
-* **[Kotlin 中文论坛](https://discuss.kotliner.cn)**: 提供讨论的平台，方便 Kotlin 爱好者交流
-
