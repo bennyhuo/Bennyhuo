@@ -3,11 +3,12 @@ BASE_DIR="$(dirname "$BASH_SOURCE")"
 
 # 0. upload images
 cd $BASE_DIR"/source/posts"
-[ -f media ] && tinify media/* || echo "No images to tinify."
+[ -e media ] && pngquant -f -v --quality=60 --ext .png media/*.png
+
 upload --debug
 cd -
 
-# 1. compile
+1. compile
 cd $BASE_DIR
 python3 scripts/main.py source
 cd -
