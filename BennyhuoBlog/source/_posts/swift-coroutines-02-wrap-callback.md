@@ -49,7 +49,7 @@ async 关键字并不会真正带来异步，那么异步的能力是谁提供�
 ```swift
 func helloAsync(onComplete: @escaping (Int) -> Void) {
     DispatchQueue.global().async {
-        onComplete(Int(rand()))
+        onComplete(Int(arc4random()))
     }
 }
 ```
@@ -99,7 +99,7 @@ public func withCheckedThrowingContinuation<T>(
 func helloAsync() async -> Int {
     await withCheckedContinuation { continuation in
         DispatchQueue.global().async {
-            continuation.resume(returning: Int(rand()))
+            continuation.resume(returning: Int(arc4random()))
         }
     }
 }
@@ -108,20 +108,21 @@ func helloAsync() async -> Int {
 如果需要抛出异常，那么：
 
 ```swift
-func helloAsync() async -> Int {
-    await withCheckedContinuation { continuation in
+func helloAsyncThrows() async throws -> Int {
+    try await withCheckedThrowingContinuation { continuation in
         DispatchQueue.global().async {
             do {
-                let result = doSomethingThrowing() // 可能抛异常
+                let result = try doSomethingThrows() // 可能抛异常
                 continuation.resume(returning: result)
             } catch {
                 continuation.resume(throwing: error)
             }
-            
         }
     }
 }
 ```
+
+注意 Swift 要求对于标记为 throws 的函数需要使用 try 关键字来调用。
 
 好了，现在我们已经学会如何将异步回调转成异步函数了，距离最终的目标又近了一步。下一篇文章当中我们将介绍如何从程序入口调用异步函数，试着把程序跑起来。
 
