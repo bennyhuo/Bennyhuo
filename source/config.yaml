@@ -361,6 +361,13 @@ swift-coroutines-03-call-async-func:
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（3）：在程序当中调用异步函数
+swift-coroutines-04-structured-concurrency:
+  abstract: 上一篇文章我们提到了结构化并发，这听上去很高级。
+  date: 2022/01/22 21:01:22
+  file_name: swift-coroutines-04-structured-concurrency
+  keywords: Swift Swift5.5
+  tags: 'Swift|Coroutines|async await '
+  title: 闲话 Swift 协程（4）：TaskGroup 与结构化并发
 understanding-kotlin-coroutines:
   abstract: 没想到 Kotlin 的协程居然会成为一个有争议的话题，谁让官方材料太少呢。
   date: 2020/06/23
