@@ -2,7 +2,7 @@
 
 **Swift Swift5.5**
 
-> 2021 年 9 月 20 日，Apple 发版了 Swift 5.5，这个版本当中最亮眼的特性就是对 async await 的支持了。
+> 2021 年 9 月 20 日，Apple 发布了 Swift 5.5，这个版本当中最亮眼的特性就是对 async await 的支持了。
 
 ==  Swift|Coroutines|async await ==
 
