@@ -341,7 +341,7 @@ summary-2021:
   tags: '2021 '
   title: 2021 总结 - bennyhuo
 swift-coroutines-01-intro:
-  abstract: 2021 年 9 月 20 日，Apple 发版了 Swift 5.5，这个版本当中最亮眼的特性就是对 async await 的支持了。
+  abstract: 2021 年 9 月 20 日，Apple 发布了 Swift 5.5，这个版本当中最亮眼的特性就是对 async await 的支持了。
   date: 2021/10/11 21:10:53
   file_name: swift-coroutines-01-intro
   keywords: Swift Swift5.5
@@ -368,6 +368,13 @@ swift-coroutines-04-structured-concurrency:
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（4）：TaskGroup 与结构化并发
+swift-coroutines-05-cancellation:
+  abstract: 但凡是个任务，就有可能被取消。取消了该怎么办呢？
+  date: 2022/01/28 22:01:40
+  file_name: swift-coroutines-05-cancellation
+  keywords: Swift Swift5.5
+  tags: 'Swift|Coroutines|async await '
+  title: 闲话 Swift 协程（5）：Task 的取消
 understanding-kotlin-coroutines:
   abstract: 没想到 Kotlin 的协程居然会成为一个有争议的话题，谁让官方材料太少呢。
   date: 2020/06/23

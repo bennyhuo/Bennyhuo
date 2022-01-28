@@ -38,14 +38,14 @@ success()
 
 ```swift
 let task = Task {
-    log("task start")
+    print("task start")
     await Task.sleep(10_000_000_000)
-    log("task finish, isCancelled: \(Task.isCancelled)")
+    print("task finish, isCancelled: \(Task.isCancelled)")
 }
 
 await Task.sleep(500_000_000)
 task.cancel()
-log(await task.result)
+print(await task.result)
 ```
 
 运行结果如下：
@@ -61,10 +61,10 @@ success()
 ```swift
 Task {
     if !Task.isCancelled {
-        log("task start")
+        print("task start")
         await Task.sleep(10_000_000_000)
         if !Task.isCancelled {
-            log("task finish, isCancelled: \(Task.isCancelled)")
+            print("task finish, isCancelled: \(Task.isCancelled)")
         }
     }
 }
@@ -93,14 +93,14 @@ public static func sleep(nanoseconds duration: UInt64) async throws
 
 ```swift
 let task = Task {
-    log("task start")
+    print("task start")
     try await Task.sleep(nanoseconds: 10_000_000_000)
-    log("task finish, isCancelled: \(Task.isCancelled)")
+    print("task finish, isCancelled: \(Task.isCancelled)")
 }
 
 await Task.sleep(500_000_000)
 task.cancel()
-log(await task.result)
+print(await task.result)
 ```
 
 运行结果如下：
@@ -120,11 +120,11 @@ failure(Swift.CancellationError())
 
 ```swift
 let task = Task {
-    log("task start")
+    print("task start")
     for i in 0...10000 {
         doHardWork(i) 
     }
-    log("task finish, isCancelled: \(Task.isCancelled)")
+    print("task finish, isCancelled: \(Task.isCancelled)")
 }
 ```
 
@@ -132,14 +132,14 @@ let task = Task {
 
 ```swift
 let task = Task {
-    log("task start")
+    print("task start")
     for i in 0...10000 {
         if Task.isCancelled {
             throw CancellationError()
         }
         doHardWork(i)
     }
-    log("task finish, isCancelled: \(Task.isCancelled)")
+    print("task finish, isCancelled: \(Task.isCancelled)")
 }
 ```
 
@@ -147,12 +147,12 @@ let task = Task {
 
 ```swift
 let task = Task {
-    log("task start")
+    print("task start")
     for i in 0...10000 {
         try Task.checkCancellation()
         doHardWork(i)
     }
-    log("task finish, isCancelled: \(Task.isCancelled)")
+    print("task finish, isCancelled: \(Task.isCancelled)")
 }
 ```
 
@@ -172,12 +172,164 @@ public static func checkCancellation() throws {
 * 调用其他支持响应取消的异步函数，在取消时它会抛出 CancellationError
 * 自己的代码当中主动检查取消状态，并抛出 CancellationError（或者直接退出执行逻辑）
 
-在真实的业务场景中，其实还有一种情况，解决起来要稍微复杂一些，例如：
+但如果异步的逻辑封装在第三方代码当中，我们只能想办法在 Task 取消时调用第三方的取消逻辑来完成响应，这时候情况就复杂一些了。我们就以 GCD 的异步 API 为例，首先我们对 DispatchWorkItem 做个包装：
 
 ```swift
+class ContinuationWorkItem<T, E> where E: Error {
 
+    var continuation: CheckedContinuation<T, E>?
+    let block: (ContinuationWorkItem) -> T
+
+    lazy var dispatchItem: DispatchWorkItem = DispatchWorkItem {
+        self.continuation?.resume(returning: self.block(self))
+    }
+
+    var isCancelled: Bool {
+        get {
+            self.dispatchItem.isCancelled
+        }
+    }
+
+    init(block: @escaping (ContinuationWorkItem<T, E>) -> T) {
+        self.block = block
+    }
+
+    func installContinuation(continuation: CheckedContinuation<T, E>) {
+        self.continuation = continuation
+    }
+
+    func cancel() {
+        dispatchItem.cancel()
+    }
+
+}
 ```
+
+这个包装的目的在于支持 `installContinuation`，通过获取 Task 的 continuation 来实现异步结果的返回。
+
+这里还有一个细节，block 的类型与 DispatchWorkItem 的 block 多了个参数：
+
+```swift
+let block: (ContinuationWorkItem) -> T
+```
+
+这主要是为了方面我们在 block 当中可以读取到 GCD 的任务是否被取消了。
+
+接下来我们试着用 Task 来封装 GCD 的异步任务，并且实现对取消的响应：
+
+```swift
+let task = Task { () -> Int in
+    let asyncRequest = ContinuationWorkItem<Int, Never> { item in
+        print("async start")
+        var i = 0
+        while i < 10 && !item.isCancelled {
+            // 单位 秒
+            Thread.sleep(forTimeInterval: 0.1)
+            i += 1
+            print("i = \(i)")
+        }
+        if item.isCancelled {
+            print("async cancelled, \(i)")
+            return 0
+        } else {
+            print("async finish")
+            return 1
+        }
+    }
+
+    return await withTaskCancellationHandler {
+        await withCheckedContinuation { (continuation: CheckedContinuation<Int, Never>) in
+            asyncRequest.installContinuation(continuation: continuation)
+            DispatchQueue.global().async(execute: asyncRequest.dispatchItem)
+        }
+    } onCancel: {
+        asyncRequest.cancel()
+    }
+}
+
+await Task.sleep(500_000_000)
+task.cancel()
+print(await task.result)
+```
+
+asyncRequest 其实就是我们创建的对 ContinuationWorkItem 实例，它对 DispatchWorkItem 做了包装，在后面的代码当中传给了 DispatchQueue 去异步执行。为了能够及时感知到 Task 的取消状态变化，我们用到了 withTaskCancellationHandler 这个函数，它的定义如下：
+
+```swift
+public func withTaskCancellationHandler<T>(
+    operation: () async throws -> T, 
+    onCancel handler: @Sendable () -> Void
+) async rethrows -> T
+```
+
+显然，这个函数也是个异步函数，它有两个参数，分别是：
+* operation，即我们要在当前 Task 当中执行的代码逻辑
+* onCancel，在 operation 执行时，如果 Task 被取消，该回调立即执行
+
+有了这个函数，我们就可以在调用第三方异步操作时，及时感知到 Task 的取消状态，并通知第三方取消异步操作。
+
+## TaskGroup 的取消
+
+TaskGroup 也可以被取消，很容易理解，所有从属于 TaskGroup 的 Task 在前者被取消以后也会被取消。下面我们给出一个非常简单的例子来说明这个问题：
+
+```swift
+let max = 10
+let taskCount = 10
+
+await withTaskGroup(of: (Int, Int).self) { group -> Void in
+    for i in 0..<taskCount {
+        group.addTask {
+            var count = 0
+            while !Task.isCancelled && count < max {
+                await Task.sleep(1000_000_000 + UInt64(arc4random_uniform(500_000_000)))
+                count += 1
+
+                print("Task: \(i), count: \(count)")
+            }
+            return (i, count)
+        }
+    }
+
+    await Task.sleep(5500_000_000)
+    group.cancelAll()
+
+    for await result in group {
+        print("result: \(result)")
+    }
+}
+```
+我们在 TaskGroup 当中启动了 10 个 Task， 这些 Task 每隔约 1 ~ 1.5 秒就会令 count 加 1，最终把 Task 的序号和 count 的值返回。TaskGroup 则在启动了所有的 Task 之后 5.5 秒的时候取消，因此前面的 Task 大多只能将 count 增加到 5 左右。运行结果如下：
+
+```swift
+Task: 4, count: 1
+Task: 6, count: 1
+...
+Task: 2, count: 4
+Task: 8, count: 4
+result: (8, 4)
+Task: 9, count: 4
+result: (9, 4)
+Task: 5, count: 4
+Task: 7, count: 4
+result: (5, 4)
+result: (7, 4)
+Task: 4, count: 5
+result: (4, 5)
+Task: 6, count: 5
+Task: 3, count: 5
+result: (6, 5)
+result: (3, 5)
+Task: 2, count: 5
+Task: 0, count: 5
+result: (2, 5)
+result: (0, 5)
+Task: 1, count: 5
+result: (1, 5)
+```
+
+我们省略了部分相似的输出，大家只需要关注包含 result 的行，其中 Task 9 返回的 count 为 4，Task 1 返回的 count 为 5。这说明 TaskGroup 在取消时其中的 Task 确实都被取消了。
 
 ## 小结
 
-本文我们简单介绍了一下 TaskGroup 的用法，大家可以基于这些内容开始做一些简单的尝试了。结构化并发当中还有一些重要的概念我们将在接下来的几篇文章当中逐步介绍。
+本文我们重点讨论了 Task 的取消的设计，包括取消状态的概念，如何在不同情况下响应取消状态；最后也通过一个简单地例子了解了一下 TaskGroup 的取消。
+
+大家只需要牢记一点，Task 的取消只是一个状态，需要内部执行逻辑的响应。
