@@ -285,6 +285,10 @@ Mutation of captured parameter 'group' in concurrently-executing code
 
 正如前面提到不能把 TaskGroup 的实例泄漏到外面一样，它也同样不能泄漏到子 Task 的执行体当中。道理也很简单，子 Task 的执行体可能会被调度到不同的线程上，这样就导致对 TaskGroup 的修改是并发的，不安全。
 
+## async let 
+
+
+
 ## 小结
 
 本文我们简单介绍了一下 TaskGroup 的用法，大家可以基于这些内容开始做一些简单的尝试了。结构化并发当中还有一些重要的概念我们将在接下来的几篇文章当中逐步介绍。
