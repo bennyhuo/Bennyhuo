@@ -35,23 +35,6 @@ Task {
 }
 ```
 
-Task 本身也有结果，由于它本身是异步的，因此对结果的访问也是异步的：
-
-```swift
-// Task
-public var value: Success { get async throws }
-```
-
-如果我们乐意，我们当然可以在其他异步函数当中使用 await 来获取它的结果：
-
-```swift
-let task = Task {
-    await helloAsync()
-}
-
-print(try await task.value)
-```
-
 除了直接构造 Task 之外，还可以调用 Task 的 detach 函数来创建一个不一样的 Task：
 
 ```swift
@@ -139,6 +122,60 @@ Thread.sleep(forTimeInterval: 1)
 嗯，这是两个随机数。在这个例子当中，我们既没有定义 Actor，也没有定义 TaskLocal，因此创建出来的两个 Task 其实是没有什么本质的区别的。
 
 > 说明：Swift 的协程需要 macOS 12.0，iOS 15.0 及以上版本才可以运行，因此大家可以在 iOS 15.0 的设备或者模拟器上体验异步函数的调用。有趣的是，在 Windows 和 Linux 上安装 Swift 5.5 的编译器之后，上述程序是可以运行的。
+
+## Task 的结果
+
+Task 的闭包有返回值作为它的结果返回。由于 Task 是异步执行的，它的结果自然也是异步的：
+
+```swift
+// Task
+public var value: Success { get async throws }
+```
+
+我们可以在其他异步函数当中使用 await 来获取它的结果：
+
+```swift
+let task = Task {
+    await helloAsync()
+}
+
+print(try await task.value)
+```
+
+由于 Task 的闭包可以抛出异常，因此对于每一个 Task 来讲，异常也是结果的一种可能。如果我们只是任性地启动了一个 Task 而不去获取它的结果的话，Task 内部抛出的任何异常都与外部无关：
+
+```swift
+func errorThrown() async throws {
+    throw "Runtime Error"
+}
+
+func taskWithError() async throws {
+    let task = Task {
+        try await errorThrown()
+    }
+
+    // 避免程序过早退出，等 1s
+    await Task.sleep(1000_000_000)
+}
+```
+
+如果我们想要看看 Task 究竟抛出了什么异常，我们可以在读取它的 value 时对异常进行捕获：
+
+```swift
+func taskWithError() async throws {
+    let task = Task {
+        try await errorThrown()
+    }
+
+    do {
+        try await task.value
+    } catch {
+        print(error)
+    }
+}
+```
+
+我们前面定义的 Task 时传入的闭包会抛异常，这样一来 Task 的第二个泛型参数 Failure 就不可能是 Never。这种情况下获取 value 的操作需要使用 try 关键字。
 
 ## 异步 main 函数
 

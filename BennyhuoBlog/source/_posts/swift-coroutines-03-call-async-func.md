@@ -47,23 +47,6 @@ Task {
 }
 ```
 
-Task 本身也有结果，由于它本身是异步的，因此对结果的访问也是异步的：
-
-```swift
-// Task
-public var value: Success { get async throws }
-```
-
-如果我们乐意，我们当然可以在其他异步函数当中使用 await 来获取它的结果：
-
-```swift
-let task = Task {
-    await helloAsync()
-}
-
-print(try await task.value)
-```
-
 除了直接构造 Task 之外，还可以调用 Task 的 detach 函数来创建一个不一样的 Task：
 
 ```swift
@@ -152,6 +135,60 @@ Thread.sleep(forTimeInterval: 1)
 
 > 说明：Swift 的协程需要 macOS 12.0，iOS 15.0 及以上版本才可以运行，因此大家可以在 iOS 15.0 的设备或者模拟器上体验异步函数的调用。有趣的是，在 Windows 和 Linux 上安装 Swift 5.5 的编译器之后，上述程序是可以运行的。
 
+## Task 的结果
+
+Task 的闭包有返回值作为它的结果返回。由于 Task 是异步执行的，它的结果自然也是异步的：
+
+```swift
+// Task
+public var value: Success { get async throws }
+```
+
+我们可以在其他异步函数当中使用 await 来获取它的结果：
+
+```swift
+let task = Task {
+    await helloAsync()
+}
+
+print(try await task.value)
+```
+
+由于 Task 的闭包可以抛出异常，因此对于每一个 Task 来讲，异常也是结果的一种可能。如果我们只是任性地启动了一个 Task 而不去获取它的结果的话，Task 内部抛出的任何异常都与外部无关：
+
+```swift
+func errorThrown() async throws {
+    throw "Runtime Error"
+}
+
+func taskWithError() async throws {
+    let task = Task {
+        try await errorThrown()
+    }
+
+    // 避免程序过早退出，等 1s
+    await Task.sleep(1000_000_000)
+}
+```
+
+如果我们想要看看 Task 究竟抛出了什么异常，我们可以在读取它的 value 时对异常进行捕获：
+
+```swift
+func taskWithError() async throws {
+    let task = Task {
+        try await errorThrown()
+    }
+
+    do {
+        try await task.value
+    } catch {
+        print(error)
+    }
+}
+```
+
+我们前面定义的 Task 时传入的闭包会抛异常，这样一来 Task 的第二个泛型参数 Failure 就不可能是 Never。这种情况下获取 value 的操作需要使用 try 关键字。
+
 ## 异步 main 函数
 
 通过创建 Task 的方式适用于所有在同步函数当中需要调用异步函数的情形。当然，对于命令行程序来讲，我们还可以直接把 main 函数定义为 async 函数：
@@ -205,35 +242,11 @@ struct App {
 
 ---
 
+### 关于作者
 
-C 语言是所有程序员应当认真掌握的基础语言，不管你是 Java 还是 Python 开发者，欢迎大家关注我的新课 《C 语言系统精讲》：
+**霍丙乾 bennyhuo**，Kotlin 布道师，Google 认证 Kotlin 开发专家（Kotlin GDE）；**《深入理解 Kotlin 协程》** 作者（机械工业出版社，2020.6）；前腾讯高级工程师，现就职于猿辅导
 
-**扫描二维码或者点击链接[《C 语言系统精讲》](https://coding.imooc.com/class/463.html)即可进入课程**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/program_in_c.png)
-
-
---- 
-
-Kotlin 协程对大多数初学者来讲都是一个噩梦，即便是有经验的开发者，对于协程的理解也仍然是懵懵懂懂。如果大家有同样的问题，不妨阅读一下我的新书《深入理解 Kotlin 协程》，彻底搞懂 Kotlin 协程最难的知识点：
-
-**扫描二维码或者点击链接[《深入理解 Kotlin 协程》](https://item.jd.com/12898592.html)购买本书**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/understanding_kotlin_coroutines.png)
-
----
-
-如果大家想要快速上手 Kotlin 或者想要全面深入地学习 Kotlin 的相关知识，可以关注我基于 Kotlin 1.3.50 全新制作的入门课程：
-
-**扫描二维码或者点击链接[《Kotlin 入门到精通》](https://coding.imooc.com/class/398.html)即可进入课程**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/40b0da7d-0147-44b3-9d08-5755dbf33b0b/media/exported_qrcode_image_256.png)
-
----
-
-Android 工程师也可以关注下《破解Android高级面试》，这门课涉及内容均非浅尝辄止，除知识点讲解外更注重培养高级工程师意识：
-
-**扫描二维码或者点击链接[《破解Android高级面试》](https://s.imooc.com/SBS30PR)即可进入课程**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/9ab6e571-684b-4108-9600-a9e3981e7aca/media/15520936284634.jpg)
-
+* GitHub：https://github.com/bennyhuo
+* 博客：https://www.bennyhuo.com
+* bilibili：[**bennyhuo不是算命的**](https://space.bilibili.com/28615855)
+* 微信公众号：**bennyhuo**

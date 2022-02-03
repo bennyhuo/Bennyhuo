@@ -162,6 +162,50 @@ public static func sleep(nanoseconds duration: UInt64) async throws
 
 除抛异常这个点以外，ThrowingTaskGroup 的用法与 TaskGroup 完全一致。
 
+## 子 Task 的异常处理
+
+在 TaskGroup 当中，子 Task 如果抛出了异常，当外部调用者试图通过 TaskGroup 实例获取它的结果时也会抛出这个异常。需要注意的是，由于子 Task 结果的获取顺序取决于实际 Task 的完成时间，因此获取结果时需要注意对单个 Task 的结果进行异常捕获，以免影响其他 Task 的结果：
+
+```swift
+let result = await withThrowingTaskGroup(of: Int.self) { group -> Int in
+    group.addTask {
+        await Task.sleep(500_000_000)
+        return -1
+    }
+
+    group.addTask {
+        await Task.sleep(1000_000_000)
+        try await errorThrown()
+        return 0
+    }
+
+    group.addTask {
+        await Task.sleep(1500_000_000)
+        return 1
+    }
+
+    while(!group.isEmpty) {
+        do {
+            print(try await group.next() ?? "Nil")
+        } catch {
+            print(error)
+        }
+    }
+
+    return 100
+}
+```
+
+这个例子当中，返回 0 的子 Task 抛了异常，我们在试图遍历 group 时就会遇到这个异常：
+
+```
+-1
+Runtime Error
+1
+```
+
+而其他的子 Task 的结果是可以正常获取的。可见 TaskGroup 当中的 Task 抛异常并不会影响其他 Task 的运行。
+
 ## 不要把 TaskGroup 的实例泄漏到外部
 
 从前面的例子我们大致可以看出，Swift 的 TaskGroup 的 API 设计还是非常谨慎的，TaskGroup 的实例只有在 `withTaskGroup` 的闭包参数当中使用，外部没有办法直接获取。

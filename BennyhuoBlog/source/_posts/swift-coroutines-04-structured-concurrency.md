@@ -174,6 +174,50 @@ public static func sleep(nanoseconds duration: UInt64) async throws
 
 除抛异常这个点以外，ThrowingTaskGroup 的用法与 TaskGroup 完全一致。
 
+## 子 Task 的异常处理
+
+在 TaskGroup 当中，子 Task 如果抛出了异常，当外部调用者试图通过 TaskGroup 实例获取它的结果时也会抛出这个异常。需要注意的是，由于子 Task 结果的获取顺序取决于实际 Task 的完成时间，因此获取结果时需要注意对单个 Task 的结果进行异常捕获，以免影响其他 Task 的结果：
+
+```swift
+let result = await withThrowingTaskGroup(of: Int.self) { group -> Int in
+    group.addTask {
+        await Task.sleep(500_000_000)
+        return -1
+    }
+
+    group.addTask {
+        await Task.sleep(1000_000_000)
+        try await errorThrown()
+        return 0
+    }
+
+    group.addTask {
+        await Task.sleep(1500_000_000)
+        return 1
+    }
+
+    while(!group.isEmpty) {
+        do {
+            print(try await group.next() ?? "Nil")
+        } catch {
+            print(error)
+        }
+    }
+
+    return 100
+}
+```
+
+这个例子当中，返回 0 的子 Task 抛了异常，我们在试图遍历 group 时就会遇到这个异常：
+
+```
+-1
+Runtime Error
+1
+```
+
+而其他的子 Task 的结果是可以正常获取的。可见 TaskGroup 当中的 Task 抛异常并不会影响其他 Task 的运行。
+
 ## 不要把 TaskGroup 的实例泄漏到外部
 
 从前面的例子我们大致可以看出，Swift 的 TaskGroup 的 API 设计还是非常谨慎的，TaskGroup 的实例只有在 `withTaskGroup` 的闭包参数当中使用，外部没有办法直接获取。
@@ -259,35 +303,11 @@ Mutation of captured parameter 'group' in concurrently-executing code
 
 ---
 
+### 关于作者
 
-C 语言是所有程序员应当认真掌握的基础语言，不管你是 Java 还是 Python 开发者，欢迎大家关注我的新课 《C 语言系统精讲》：
+**霍丙乾 bennyhuo**，Kotlin 布道师，Google 认证 Kotlin 开发专家（Kotlin GDE）；**《深入理解 Kotlin 协程》** 作者（机械工业出版社，2020.6）；前腾讯高级工程师，现就职于猿辅导
 
-**扫描二维码或者点击链接[《C 语言系统精讲》](https://coding.imooc.com/class/463.html)即可进入课程**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/program_in_c.png)
-
-
---- 
-
-Kotlin 协程对大多数初学者来讲都是一个噩梦，即便是有经验的开发者，对于协程的理解也仍然是懵懵懂懂。如果大家有同样的问题，不妨阅读一下我的新书《深入理解 Kotlin 协程》，彻底搞懂 Kotlin 协程最难的知识点：
-
-**扫描二维码或者点击链接[《深入理解 Kotlin 协程》](https://item.jd.com/12898592.html)购买本书**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/understanding_kotlin_coroutines.png)
-
----
-
-如果大家想要快速上手 Kotlin 或者想要全面深入地学习 Kotlin 的相关知识，可以关注我基于 Kotlin 1.3.50 全新制作的入门课程：
-
-**扫描二维码或者点击链接[《Kotlin 入门到精通》](https://coding.imooc.com/class/398.html)即可进入课程**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/40b0da7d-0147-44b3-9d08-5755dbf33b0b/media/exported_qrcode_image_256.png)
-
----
-
-Android 工程师也可以关注下《破解Android高级面试》，这门课涉及内容均非浅尝辄止，除知识点讲解外更注重培养高级工程师意识：
-
-**扫描二维码或者点击链接[《破解Android高级面试》](https://s.imooc.com/SBS30PR)即可进入课程**
-
-![](https://kotlinblog-1251218094.costj.myqcloud.com/9ab6e571-684b-4108-9600-a9e3981e7aca/media/15520936284634.jpg)
-
+* GitHub：https://github.com/bennyhuo
+* 博客：https://www.bennyhuo.com
+* bilibili：[**bennyhuo不是算命的**](https://space.bilibili.com/28615855)
+* 微信公众号：**bennyhuo**
