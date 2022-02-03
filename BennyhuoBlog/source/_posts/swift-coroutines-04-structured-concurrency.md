@@ -297,6 +297,123 @@ Mutation of captured parameter 'group' in concurrently-executing code
 
 正如前面提到不能把 TaskGroup 的实例泄漏到外面一样，它也同样不能泄漏到子 Task 的执行体当中。道理也很简单，子 Task 的执行体可能会被调度到不同的线程上，这样就导致对 TaskGroup 的修改是并发的，不安全。
 
+## async let 
+
+除了使用 TaskGroup 添加子 Task 的方式来构造结构化并发以外，我们还有一种比较便捷的方式，那就是使用 async let。async let 一方面可以让子 Task 的创建和结果的返回变得更加简单，另一方面也可以解决子 Task 的结果不好定位的问题（因为遍历 TaskGroup 时子 Task 的结果返回顺序不确定）。
+
+下面我们给出一个简单的例子来说明这个问题：
+
+```swift
+struct User {
+    let name: String
+    let info: String
+    let followers: [String]
+    let projects: [String]
+}
+```
+
+定义一个数据结构 User，我们现在需要通过访问网络情况来构造这样一个实例，其中：
+
+```swift
+func getUserInfo(_ user: String) async -> String {
+    ...
+}
+
+func getFollowers(_ user: String) async -> [String] {
+    ...
+}
+
+func getProjects(_ user: String) async -> [String] {
+    ...
+}
+```
+
+以上三个函数将发送异步网络请求去获取对应字段的数据。如果使用 TaskGroup，代码写起来将会比较复杂：
+
+```swift
+enum Result {
+    case info(value: String)
+    case followers(value: [String])
+    case projects(value: [String])
+}
+
+func getUser(name: String) async -> User {
+    await withTaskGroup(of: Result.self) { group in
+        group.addTask {
+            .info(value: await getUserInfo(name))
+        }
+
+        group.addTask {
+            .followers(value: await getFollowers(name))
+        }
+
+        group.addTask {
+            .projects(value: await getProjects(name))
+        }
+
+        var info: String? = nil
+        var followers: [String]? = nil
+        var projects: [String]? = nil
+        for await r in group {
+            switch r {
+            case .info(value: let value):
+                info = value
+            case .followers(value: let value):
+                followers = value
+            case .projects(value: let value):
+                projects = value
+            }
+        }
+
+        return User(name: name, info: info ?? "", followers: followers ?? [], projects: projects ?? [])
+    }
+}
+```
+
+前面多次提到对 TaskGroup 进行遍历获取子 Task 的结果时存在顺序的不确定性，为了解决这个问题我们定义了一个枚举 Result 将子 Task 的结果与枚举值进行绑定，方便后续读取结果。这个过程异常繁琐，且引入额外的类型实现结果的绑定让问题变得更加复杂。
+
+如果使用 async let，这个问题就会变得非常简单：
+
+```swift
+func getUser(name: String) async -> User {
+    async let info = getUserInfo(name)
+    async let followers = getFollowers(name)
+    async let projects = getProjects(name)
+
+    return User(name: name, info: await info, followers: await followers, projects: await projects)
+}
+```
+
+async let 会创建一个子 Task 来完成后面的调用，并且把结果绑定到对应的变量当中。以 info 为例，当我们需要读取其结果时，只需要 await info 即可，这样就大大降低了我们获取异步子 Task 的结果的复杂度。
+
+另外稍微提一句的是，在 Swift 当中，async 函数的调用必须使用 await 来等待这个限制会强制我们等待异步函数的结果，如果希望同时触发多个异步函数的调用，async let 能解决的问题也是有限的。例如我们想要并发获取多个 User 的数据，需要实现以下函数：
+
+```swift
+func getUsers(names:[String]) async -> [User]
+```
+
+我们可以基于前面的 getUser 来实现这个函数，为了保证 User 数据的获取的并发性，我们需要同时创建多个 Task 来完成请求：
+
+```swift
+func getUsers(names:[String]) async -> [User] {
+    await withTaskGroup(of: User.self) { group in
+        for name in names {
+            group.addTask {
+                await getUser(name: name)
+            }
+        }
+
+        return await group.reduce(into: Array<User>()) { (partialResult, user) in
+            partialResult.append(user)
+        }
+    }
+}
+```
+
+这种情况下 async let 就显得有点儿力不从心了。
+
+当然，如果要求返回的 User 跟传入的 name 能够在顺序上一一对应，swift 的实现就会比较麻烦，因为对 group 的遍历得到的结果顺序是子 Task 完成的顺序。
+
 ## 小结
 
 本文我们简单介绍了一下 TaskGroup 的用法，大家可以基于这些内容开始做一些简单的尝试了。结构化并发当中还有一些重要的概念我们将在接下来的几篇文章当中逐步介绍。
