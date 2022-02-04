@@ -412,7 +412,31 @@ func getUsers(names:[String]) async -> [User] {
 
 这种情况下 async let 就显得有点儿力不从心了。
 
-当然，如果要求返回的 User 跟传入的 name 能够在顺序上一一对应，swift 的实现就会比较麻烦，因为对 group 的遍历得到的结果顺序是子 Task 完成的顺序。
+更进一步，如果这里要求返回的 User 跟传入的 name 能够在顺序上一一对应，使用 TaskGroup 实现就会比较麻烦，因为 TaskGroup 的结果顺序是子 Task 完成的顺序。
+
+实际上，保证结果的顺序与 Task 的添加顺序一致是有实际需求的，我们也可以使用一组 Task 而不是 TaskGroup 来实现这个需求：
+
+```swift
+func getUsers(names: [String]) async throws -> [User] {
+    let tasks = names.map { name in
+        Task { () -> User in
+            return await getUser(name: name)
+        }
+    }
+
+    return try await withTaskCancellationHandler(operation: {
+        var users = Array<User>()
+        for task in tasks {
+            users.append(try await task.value)
+        }
+        return users
+    }, onCancel: {
+        tasks.forEach { task in task.cancel() }
+    })
+}
+```
+
+由于这时候我们创建的 Task 都是不隶属于 TaskGroup 的（即非结构化并发），此时我们要小心处理 Task 取消的情况，以免出现内存泄漏和逻辑错误。
 
 ## 小结
 
