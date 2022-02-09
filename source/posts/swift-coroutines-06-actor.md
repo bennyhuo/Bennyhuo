@@ -1,4 +1,4 @@
-# 闲话 Swift 协程（6）：Actor 和线程安全
+# 闲话 Swift 协程（6）：Actor 和异步函数的调度
 
 **Swift Swift5.5**
 
