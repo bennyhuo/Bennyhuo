@@ -1,10 +1,22 @@
-# 闲话 Swift 协程（6）：Actor 和属性隔离
+---
+title:  闲话 Swift 协程（6）：Actor 和属性隔离 
+keywords: Swift Swift5.5 
+date: 2022/02/12 06:02:30
+description: 
+tags: 
+    - swift
+    - coroutines
+    - async await 
+---
 
-**Swift Swift5.5**
+> 异步函数大多数情况下会并发地执行在不同的线程，那么线程安全怎么来保证？ 
 
-> 异步函数大多数情况下会并发地执行在不同的线程，那么线程安全怎么来保证？
 
-==  Swift|Coroutines|async await ==
+
+<!-- more -->
+
+
+
 
 ## 什么是 actor
 
@@ -206,3 +218,14 @@ public protocol Actor : AnyObject, Sendable {
 本文我们主要介绍了 Swift 协程当中的 actor 的基本用法，并重点对属性隔离做了详细介绍。
 
 有关 actor 的调度器的内容，我们将在下一篇文章当中详细介绍。
+
+---
+
+### 关于作者
+
+**霍丙乾 bennyhuo**，Kotlin 布道师，Google 认证 Kotlin 开发专家（Kotlin GDE）；**《深入理解 Kotlin 协程》** 作者（机械工业出版社，2020.6）；前腾讯高级工程师，现就职于猿辅导
+
+* GitHub：https://github.com/bennyhuo
+* 博客：https://www.bennyhuo.com
+* bilibili：[**bennyhuo不是算命的**](https://space.bilibili.com/28615855)
+* 微信公众号：**bennyhuo**

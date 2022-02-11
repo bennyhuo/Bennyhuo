@@ -1,10 +1,22 @@
-# 闲话 Swift 协程（7）：GlobalActor 和异步函数的调度
+---
+title:  闲话 Swift 协程（7）：GlobalActor 和异步函数的调度 
+keywords: Swift Swift5.5 
+date: 2022/02/12 06:02:30
+description: 
+tags: 
+    - swift
+    - coroutines
+    - async await 
+---
 
-**Swift Swift5.5**
+> 我们已经知道可以使用 actor 来确保数据的线程安全，但对于数据的保护总是需要定义专门的 actor 实例是不是太麻烦了一些？ 
 
-> 我们已经知道可以使用 actor 来确保数据的线程安全，但对于数据的保护总是需要定义专门的 actor 实例是不是太麻烦了一些？
 
-==  Swift|Coroutines|async await ==
+
+<!-- more -->
+
+
+
 
 ## 什么是 GlobalActor
 
@@ -315,3 +327,14 @@ Task 的两种不同的构造方式对于 TaskLocal 的继承情况同样如此�
 本文我们详细介绍了 GlobalActor 的设计初衷、实现方式以及使用方法，也探讨了 Swift 协程的调度细节，相信读者看到这里时，已经掌握了绝大多数 Swift 协程的相关知识。
 
 下一篇文章我们将简单介绍一下 TaskLocal 的使用方法。
+
+---
+
+### 关于作者
+
+**霍丙乾 bennyhuo**，Kotlin 布道师，Google 认证 Kotlin 开发专家（Kotlin GDE）；**《深入理解 Kotlin 协程》** 作者（机械工业出版社，2020.6）；前腾讯高级工程师，现就职于猿辅导
+
+* GitHub：https://github.com/bennyhuo
+* 博客：https://www.bennyhuo.com
+* bilibili：[**bennyhuo不是算命的**](https://space.bilibili.com/28615855)
+* 微信公众号：**bennyhuo**
