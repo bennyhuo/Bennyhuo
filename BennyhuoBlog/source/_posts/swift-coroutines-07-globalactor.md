@@ -1,7 +1,7 @@
 ---
 title:  闲话 Swift 协程（7）：GlobalActor 和异步函数的调度 
 keywords: Swift Swift5.5 
-date: 2022/02/12 06:02:30
+date: 2022/02/12 07:02:30
 description: 
 tags: 
     - swift
@@ -71,7 +71,7 @@ public protocol GlobalActor {
 
 我们在前面提到过，`sharedUnownedExecutor` 要与 `shared.unownedExecutor` 一致，这里很显然二者本质上都是 `Builtin.buildMainActorExecutorRef()`。
 
-此外，`MainActor` 被 `@globalActor` 修饰之后，自己就可以被用于修饰属性或者函数，我们给出几个简单的 `MainActor` 的例子：
+此外，`MainActor` 被 `@globalActor` 修饰之后，自己就可以被用于修饰属性、函数或者类型，我们给出几个简单的 `MainActor` 的例子：
 
 修饰属性：
 
@@ -99,9 +99,26 @@ func runOnMain(block: @MainActor @escaping () -> Void) async {
 }
 ```
 
-这些被 `@MainActor` 修饰的函数在调用时，如果当前不在主线程，则必须异步调度到主线程上执行；同样地，被修饰的属性在被其他线程访问时，也必须异步调度到主线程上处理。
+修饰类：
+
+```swift
+@MainActor
+class UiState {
+    var value: Int = 0
+
+    func update(value: Int) {
+        self.value = value
+    }
+}
+```
+
+被 `@MainActor` 修饰的函数在调用时，如果当前不在主线程，则必须异步调度到主线程上执行；同样地，被修饰的属性在被其他线程访问时，也必须异步调度到主线程上处理。
+
+被 `@MainActor` 修饰的类的构造器、属性、函数都需要调度到主线程上执行。需要注意的是，为了保证继承的一致性，被修饰的类需要满足或没有父类、或同样被 `@MainActor` 修饰、或父类是 `NSObject`；被修饰的类的子类也将会隐式获得 `@MainActor` 上的状态隔离。
 
 这里的异步访问逻辑实际上与 actor 类型的状态和函数的关系相同，即被 `@MainActor` 修饰的函数内部访问同样被 `@MainActor` 修饰的属性时则不需要异步执行，就好像它们都被定义到 `MainActor` 这个 actor 类型当中一样。
+
+以上使用方法和细节同样适用于其他 `GlobalActor` 的实现。
 
 ## 自定义 GlobalActor 的实现
 
@@ -150,7 +167,7 @@ final class MyExecutor : SerialExecutor {
 }
 ```
 
-大家可以简单阅读代码的注释来了解他们的作用。注意到 `MyActor` 也实现了 `GlobalActor` 协议，我们也使用 `@globalActor` 来修饰 `MyActor`，这样我们就可以用 `@MyActor` 像 `@MainActor` 那样去修饰函数和属性，并让它调度到我们自己实现的调度器上了。
+大家可以简单阅读代码的注释来了解他们的作用。注意到 `MyActor` 也实现了 `GlobalActor` 协议，我们也使用 `@globalActor` 来修饰 `MyActor`，这样我们就可以用 `@MyActor` 像 `@MainActor` 那样去修饰函数、属性和类，并让它调度到我们自己实现的调度器上了。
 
 有关 `MyActor` 的使用示例，我们将在下一节进一步讨论。
 
