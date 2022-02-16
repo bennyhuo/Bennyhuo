@@ -396,6 +396,13 @@ swift-coroutines-08-tasklocal:
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（8）：TaskLocal
+swift-coroutines-09-interop:
+  abstract: 现在很多 iOS APP 还是用 Objective-C 写的，异步函数在 Objective-C 当中怎么调用也是个问题。
+  date: 2022/02/16 23:02:59
+  file_name: swift-coroutines-09-interop
+  keywords: Swift Swift5.5
+  tags: 'Swift|Coroutines|async await '
+  title: 闲话 Swift 协程（9）：异步函数与其他语言的互调用
 understanding-kotlin-coroutines:
   abstract: 没想到 Kotlin 的协程居然会成为一个有争议的话题，谁让官方材料太少呢。
   date: 2020/06/23
