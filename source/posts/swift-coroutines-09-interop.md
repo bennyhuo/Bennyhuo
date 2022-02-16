@@ -2,7 +2,7 @@
 
 **Swift Swift5.5**
 
-> 现在很多 iOS 应用还是用 Objective-C 写的，异步函数怎么调用也是个问题。
+> 现在很多 iOS APP 还是用 Objective-C 写的，异步函数在 Objective-C 当中怎么调用也是个问题。
 
 ==  Swift|Coroutines|async await ==
 
@@ -26,7 +26,7 @@ public func responseData(
 
 这个函数有很多参数，不过我们只需要关心最后一个：completionHandler，它是一个闭包，接收一个参数为 `AFDataResponse<Data>` 的类型作为请求结果。
 
-有了异步函数之后，我们可以把它做一下包装：
+从 Swift 5.5 开始，我们可以将其包装成异步函数，添加对结果的异步返回、异常的传播以及对取消响应的支持：
 
 ```swift
 func responseDataAsync(
@@ -54,11 +54,13 @@ func responseDataAsync(
 }
 ```
 
-这个包装包括结果的异步返回、异常的传播以及对取消的支持。从异步回调到异步函数总是要经过这样一个包装的过程，这个过程实际上并不轻松。我们更希望第三方开发者在提供异步回调的时候同时提供异步函数的版本来方便我们按需使用。
+从异步回调到异步函数总是要经过这样一个包装的过程，这个过程实际上并不轻松。因此我们也更希望第三方开发者在提供异步回调的时候同时提供异步函数的版本来方便我们按需使用。
 
 ## Objective-C 的异步回调
 
-在以前的 iOS SDK 当中，接收 completionHandler 回调的 Objective-C 函数有 1000 多个。例如：
+### Objective-C 回调函数的自动转换
+
+在以前的 iOS SDK 当中，接收形如 completionHandler 这样的回调的 Objective-C 函数有 1000 多个。例如：
 
 ```objective-c
 - (void)signData:(NSData *)signData 
@@ -66,7 +68,15 @@ withSecureElementPass:(PKSecureElementPass *)secureElementPass
       completion:(void (^)(NSData *signedData, NSData *signature, NSError *error))completion;
 ```
 
-如果我们需要对这些函数一个一个完成包装，那必然会非常痛苦。因此 Swift 对接收 completionHandler 并符合一定条件的 Objective-C 函数自动做了一些转换，上述函数就可以被自动转换为：
+这个函数相当于 Swift 的如下函数声明：
+
+```swift
+func sign(_ signData: Data, 
+    using secureElementPass: PKSecureElementPass, 
+completion: @escaping (Data?, Data?, Error?) -> Void)
+```
+
+如果我们对这些函数一个一个完成包装，那必然会耗费大量的时间和精力。因此，Swift 对接收类似的回调并符合一定条件的 Objective-C 函数自动做了一些转换，以上述 signData 函数为例，可以被自动转换为：
 
 ```swift
 func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async throws -> (Data, Data)
@@ -74,8 +84,8 @@ func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async 
 
 我们来简单分析一下这个转换过程。
 
-1. 参数 completion 被移除了。 completion 是 Objective-C 的 block，其实就是个回调，可以用了处理异步结果的返回。
-2. 转换后的异步函数的返回值 (Data, Data)，它实际上对应于 completion 除 `NSError *` 之外的两个参数。
+1. 参数 completion 被移除了。 completion 的类型是 Objective-C 的 block，可以用来处理异步结果的返回。
+2. 转换后的异步函数的返回值 (Data, Data)，它实际上对应于 completion 除 `NSError *` 之外的两个参数。需要注意的是，回调当中的 signedData 和 signature 的类型均为 `NSData *`，它们实际上是可以为 nil 的，单纯考虑类型的映射，它们应该映射成 Swift 的 `Data?` 类型，而在转换之后的异步函数当中则为 `Data` 类型，这是因为逻辑上如果这俩个 `Data` 返回 nil，则应该通过参数 `NSError *` 来使得异步函数抛出异常。这个细节一定要注意。
 3. completion 的参数 `NSError *` 表示结果有可能会出现异常，因此转换后的异步函数是会抛出异常的，声明为 throws。
 
 那这个转换需要符合什么条件呢？
@@ -87,7 +97,7 @@ func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async 
   * 函数有多个参数，且最后一个是回调，并且它的标签为 completion，withCompletion，completionHandler，withCompletionHandler，completionBlock，withCompletionBlock，replyTo，withReplyTo，reply 或者 replyTo。
   * 函数有多个参数，且最后一个参数的标签以一个参数的情况当中列出的标签结尾，最后一个参数是回调。
 
-我们再给一个例子：
+我们再给一个例子，请大家注意它的函数名：
 
 ```objective-c
 -(void)getUserAsync:(NSString *)name completion:(void (^)(User *, NSError *))completion;
@@ -99,11 +109,13 @@ func sign(_ signData: Data, using secureElementPass: PKSecureElementPass) async 
 func userAsync(_ name: String!) async throws -> User?
 ```
 
-注意函数转换之后，函数名当中的 get 被去除了，这是一个比较特殊的情况。其他规则与前面提到的一致。
+对于以 get 开头的 Objective-C 函数，转换之后函数名当中的 get 被去除了。除此之外其他规则与前面提到的一致。
 
-有了这个转换，很多旧 SDK 当中的 Objective-C 回调函数都可以当成 Swift 的异步函数来调用，可以极大的简化我们的开发。
+有了这个转换，很多旧 SDK 当中的 Objective-C 回调函数都可以当成 Swift 的异步函数来调用，可以极大的简化我们的开发流程。
 
-反过来，如果我们定义了 Swift 的异步函数，并且希望在 Objective-C 当中调用，则可以声明成 @objc 异步函数，例如：
+### 在 Objective-C 当中调用 Swift 的异步函数
+
+相反地，如果我们定义了 Swift 的异步函数，并且希望在 Objective-C 当中调用，则可以声明成 @objc 异步函数，例如：
 
 ```swift
 @objc class GitHubApiAsync: NSObject {
@@ -113,7 +125,7 @@ func userAsync(_ name: String!) async throws -> User?
 }
 ```
 
-listFollowers 函数相当于：
+GitHubApiAsync 类当中的 listFollowers 函数相当于：
 
 ```objective-c
 @interface GitHubApiAsync : NSObject
@@ -173,7 +185,7 @@ func greet() async throws -> String {
 }
 ```
 
-当然这里还有一些细节的问题。Kotlin 1.5.30 当中也对此做了跟进，在生成的 Objective-C 头文件当中添加了对 `_Nullable_result` 的支持，这使得 Kotlin 的挂起函数在返回可空类型时，能够正确被转化成返回 optional 类型的 Swift 异步函数，例如：
+当然这里还有一些细节的问题。Kotlin 1.5.30 当中也对此做了一点点跟进，在生成的 Objective-C 头文件当中添加了对 `_Nullable_result` 的支持，这使得 Kotlin 的挂起函数在返回可空类型时，能够正确被转化成返回 optional 类型的 Swift 异步函数，例如：
 
 ```swift
 suspend fun greetingAsyncNullable(): String? {
@@ -197,7 +209,7 @@ suspend fun greetingAsyncNullable(): String? {
 // kotlin
 @Throws(Throwable::class)
 suspend fun greetingAsync(): String {
-    throw IllegalArgumentException("error from kotlin")
+    throw IllegalArgumentException("error from Kotlin")
     return "Hello, ${Platform().platform}"
 }
 ```
@@ -216,9 +228,16 @@ do {
 程序输出如下：
 
 ```
-Error Domain=KotlinException Code=0 "error from kotlin" UserInfo={NSLocalizedDescription=error from kotlin, KotlinException=kotlin.IllegalArgumentException: error from kotlin, KotlinExceptionOrigin=}
+Error Domain=KotlinException Code=0 "error from Kotlin" UserInfo={NSLocalizedDescription=error from Kotlin, KotlinException=kotlin.IllegalArgumentException: error from Kotlin, KotlinExceptionOrigin=}
 ```
 
+### 上下文零传递
+
+Cancellation, dispatchers, coroutine context, task locals et
+
+尽管目前 Kotlin 的挂起函数可以被当做 Swift 的异步函数去调用，但 Kotlin 侧仍没有专门仔细地针对 Swift 异步函数调用的场景进行专门的设计和定制。因此像 Swift 侧的取消状态（在 Kotlin 挂起函数中获取 Swift 的 Task 的取消状态）、调度器（Swift 的 actor 以及与 Task 绑定的调度器）、TaskLocal 变量以及 Kotlin 侧挂起函数执行时的调度器、协程上下文等状态都是没有实现传递的。
+
+基于这一点，大家在使用过程中应当尽可能将函数的设计进行简化，避免场景过于复杂而引发令人难以理解的问题。
 
 ## 小结
 
