@@ -186,7 +186,7 @@ __attribute__((swift_name("Greeting")))
 - (void)greetingAsyncWithCompletionHandler:(void (^)(NSString * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("greetingAsync(completionHandler:)")));
 ```
 
-## 支持 Swift 异步函数
+### 支持 Swift 异步函数
 
 Kotlin 挂起函数对于 Objective-C 回调的支持，正好命中了前面讨论的回调自动转换成 Swift 异步函数的条件，因此理论上在 Swift 5.5 当中，我们也可以直接把 Kotlin 的挂起函数当成 Swift 的异步函数去调用：
 
