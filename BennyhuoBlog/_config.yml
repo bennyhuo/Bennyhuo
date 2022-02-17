@@ -73,7 +73,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+# theme: next
+theme: hexo-theme-next-7.8.0
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -108,6 +109,12 @@ baidusitemap:
 #  host: https://www.bennyhuo.com ## 在百度站长平台中注册的域名
 #  token: 4CinbQ9ToG0A1eVZ ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
 #  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
 
 include:
   - .nojekyll
