@@ -186,7 +186,7 @@ __attribute__((swift_name("Greeting")))
 - (void)greetingAsyncWithCompletionHandler:(void (^)(NSString * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("greetingAsync(completionHandler:)")));
 ```
 
-### 支持 Swift 异步函数
+## 支持 Swift 异步函数
 
 Kotlin 挂起函数对于 Objective-C 回调的支持，正好命中了前面讨论的回调自动转换成 Swift 异步函数的条件，因此理论上在 Swift 5.5 当中，我们也可以直接把 Kotlin 的挂起函数当成 Swift 的异步函数去调用：
 
@@ -244,6 +244,8 @@ Error Domain=KotlinException Code=0 "error from Kotlin" UserInfo={NSLocalizedDes
 ```
 
 ### 上下文零传递
+
+Cancellation, dispatchers, coroutine context, task locals et
 
 尽管目前 Kotlin 的挂起函数可以被当做 Swift 的异步函数去调用，但 Kotlin 侧仍没有专门仔细地针对 Swift 异步函数调用的场景进行专门的设计和定制。因此像 Swift 侧的取消状态（在 Kotlin 挂起函数中获取 Swift 的 Task 的取消状态）、调度器（Swift 的 actor 以及与 Task 绑定的调度器）、TaskLocal 变量以及 Kotlin 侧挂起函数执行时的调度器、协程上下文等状态都是没有实现传递的。
 
