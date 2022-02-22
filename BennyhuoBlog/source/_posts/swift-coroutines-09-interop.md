@@ -18,6 +18,16 @@ tags:
 
 
 
+- [闲话 Swift 协程（1）：Swift 协程长什么样？](https://www.bennyhuo.com/2021/10/11/swift-coroutines-01-intro/)
+- [闲话 Swift 协程（2）：将回调改写成 async 函数](https://www.bennyhuo.com/2021/10/13/swift-coroutines-02-wrap-callback/)
+- [闲话 Swift 协程（3）：在程序当中调用异步函数](https://www.bennyhuo.com/2022/01/21/swift-coroutines-03-call-async-func/)
+- [闲话 Swift 协程（4）：TaskGroup 与结构化并发](https://www.bennyhuo.com/2022/01/22/swift-coroutines-04-structured-concurrency/)
+- [闲话 Swift 协程（5）：Task 的取消](https://www.bennyhuo.com/2022/01/28/swift-coroutines-05-cancellation/)
+- [闲话 Swift 协程（6）：Actor 和属性隔离](https://www.bennyhuo.com/2022/02/12/swift-coroutines-06-actor/)
+- [闲话 Swift 协程（7）：GlobalActor 和异步函数的调度](https://www.bennyhuo.com/2022/02/12/swift-coroutines-07-globalactor/)
+- [闲话 Swift 协程（8）：TaskLocal](https://www.bennyhuo.com/2022/02/12/swift-coroutines-08-tasklocal/)
+- [闲话 Swift 协程（9）：异步函数与其他语言的互调用](https://www.bennyhuo.com/2022/02/16/swift-coroutines-09-interop/)
+
 ## 从异步回调到异步函数
 
 截止目前，我们已经详细探讨了 Swift 协程当中的绝大多数语法设计，这其中最基本也是最重要的就是异步函数。
@@ -186,7 +196,7 @@ __attribute__((swift_name("Greeting")))
 - (void)greetingAsyncWithCompletionHandler:(void (^)(NSString * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("greetingAsync(completionHandler:)")));
 ```
 
-## 支持 Swift 异步函数
+### 支持 Swift 异步函数
 
 Kotlin 挂起函数对于 Objective-C 回调的支持，正好命中了前面讨论的回调自动转换成 Swift 异步函数的条件，因此理论上在 Swift 5.5 当中，我们也可以直接把 Kotlin 的挂起函数当成 Swift 的异步函数去调用：
 
@@ -244,8 +254,6 @@ Error Domain=KotlinException Code=0 "error from Kotlin" UserInfo={NSLocalizedDes
 ```
 
 ### 上下文零传递
-
-Cancellation, dispatchers, coroutine context, task locals et
 
 尽管目前 Kotlin 的挂起函数可以被当做 Swift 的异步函数去调用，但 Kotlin 侧仍没有专门仔细地针对 Swift 异步函数调用的场景进行专门的设计和定制。因此像 Swift 侧的取消状态（在 Kotlin 挂起函数中获取 Swift 的 Task 的取消状态）、调度器（Swift 的 actor 以及与 Task 绑定的调度器）、TaskLocal 变量以及 Kotlin 侧挂起函数执行时的调度器、协程上下文等状态都是没有实现传递的。
 
