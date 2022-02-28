@@ -7,124 +7,100 @@ Add-extensions-to-build-scripts:
   keywords: Gradle Groovy Kotlin KTS
   tags: 'Gradle|Groovy|Kotlin|KTS '
   title: 如何为 Gradle 的 KTS 脚本添加扩展？
-Java17-Updates-01-intro: null
-Java17-Updates-02-strictfp: null
-Java17-Updates-03-random: null
-Java17-Updates-04-mac: null
-Java17-Updates-05-removed: null
-Java17-Updates-06-internals: null
-Java17-Updates-07-switch: null
-Java17-Updates-08-sealedclass: null
-Java17-Updates-09-foreignapi-memory: null
-Java17-Updates-10-foreignapi-callfunction: null
-Java17-Updates-11-vector: null
-Java17-Updates-12-contextserialfilter: null
-Java17_time-Updates-01-intro:
+Java17-Updates-01-intro:
   abstract: 2021 年 9月 23 日，Java 17 发布了，更新的内容还真不少，足足肝了我一星期才把这些内容整理完。
   date: 2021/09/26
   date_time: 2021/09/26
   file_name: Java17-Updates-01-intro
-  file_name_time: Java17-Updates-01-intro
   keywords: Java Java17
   tags: 'Java|Java17 '
   title: Java 17 更新（1）：更快的 LTS 节奏
-Java17_time-Updates-02-strictfp:
+Java17-Updates-02-strictfp:
   abstract: strictfp 可能是最没有存在感的关键字了，很多人写了多年 Java 甚至都不知道它的存在。接下来，它也没有必要继续存在了。
   date: 2021/09/26
   date_time: 2021/09/26
   file_name: Java17-Updates-02-strictfp
-  file_name_time: Java17-Updates-02-strictfp
   keywords: Java Java17
   tags: 'Java|Java17|strictfp '
   title: Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了
-Java17_time-Updates-03-random:
+Java17-Updates-03-random:
   abstract: JDK 当中的随机数生成器其实对于普通开发者来讲基本够用，不过对于一些比较复杂的场景来讲，原有的类结构对扩展并不是很友好。
   date: 2021/09/27
   date_time: 2021/09/27
   file_name: Java17-Updates-03-random
-  file_name_time: Java17-Updates-03-random
   keywords: Java Java17
   tags: 'Java|Java17|random '
   title: Java 17 更新（3）：随机数生成器来了一波稳稳的增强
-Java17_time-Updates-04-mac:
+Java17-Updates-04-mac:
   abstract: mac 这几年的变化还是挺大的，Java 也必须做一些适应性的变化，不然都没法外接高分显示器了。
   date: 2021/09/27
   date_time: 2021/09/27 08:00:00
   file_name: Java17-Updates-04-mac
-  file_name_time: Java17-Updates-04-mac
   keywords: Java Java17
   tags: 'Java|Java17|mac '
   title: Java 17 更新（4）：这波更新，居然利好 mac 用户
-Java17_time-Updates-05-removed:
+Java17-Updates-05-removed:
   abstract: 这次更新有好几条关于移除老代码的，我们来集中介绍一下。
   date: 2021/09/28
   date_time: 2021/09/28
   file_name: Java17-Updates-05-removed
-  file_name_time: Java17-Updates-05-removed
   keywords: Java Java17
   tags: 'Java|Java17|applet|rmi|aot|jit|SecurityManager '
   title: Java 17 更新（5）：历史包袱有点儿大，JDK 也在删代码啦
-Java17_time-Updates-06-internals:
+Java17-Updates-06-internals:
   abstract: 说实话，我们总是用人家 JDK 的内部 API，是不是有点儿欺负人。
   date: 2021/10/02
   date_time: 2021/10/02 19:10:55
   file_name: Java17-Updates-06-internals
-  file_name_time: Java17-Updates-06-internals
   keywords: Java Java17
   tags: 'Java|Java17|internal '
   title: Java 17 更新（6）：制裁！我自己私有的 API 你们怎么随便一个人都想用？
-Java17_time-Updates-07-switch:
+Java17-Updates-07-switch:
   abstract: Java 的 switch 又加强啦！
   date: 2021/10/02
   date_time: 2021/10/02 19:10:56
   file_name: Java17-Updates-07-switch
-  file_name_time: Java17-Updates-07-switch
   keywords: Java Java17
   tags: 'Java|Java17|switch '
   title: Java 17 更新（7）：模式匹配要支持 switch 啦
-Java17_time-Updates-08-sealedclass:
+Java17-Updates-08-sealedclass:
   abstract: Java 看 Kotlin 实现了密封类，马上给自己搞了密封类和密封接口，Kotlin 一看也立马支持了密封接口。
   date: 2021/10/02
   date_time: 2021/10/02 19:10:57
   file_name: Java17-Updates-08-sealedclass
-  file_name_time: Java17-Updates-08-sealedclass
   keywords: Java Java17
   tags: 'Java|Java17|sealed class '
   title: Java 17 更新（8）：密封类终于转正
-Java17_time-Updates-09-foreignapi-memory:
+Java17-Updates-09-foreignapi-memory:
   abstract: 使用 Unsafe 直接访问堆外内存存在各种安全性问题，对于使用者的要求也比较高，不太适合在业务当中广泛使用。于是，Java 在新孵化的 API
     当中提供了更安全的方案。
   date: 2021/10/02
   date_time: 2021/10/02 19:10:58
   file_name: Java17-Updates-09-foreignapi-memory
-  file_name_time: Java17-Updates-09-foreignapi-memory
   keywords: Java Java17
   tags: 'Java|Java17|direct memory '
   title: Java 17 更新（9）：Unsafe 不 safe，我们来一套 safe 的 API 访问堆外内存
-Java17_time-Updates-10-foreignapi-callfunction:
+Java17-Updates-10-foreignapi-callfunction:
   abstract: 'JNI 不安全还繁琐，所以 Java 搞了一套新的 API，结果把这事儿搞得更复杂了。。。 '
   date: 2021/10/02
   date_time: 2021/10/02 20:10:08
   file_name: Java17-Updates-10-foreignapi-callfunction
-  file_name_time: Java17-Updates-10-foreignapi-callfunction
   keywords: Java Java17
   tags: 'Java|Java17|foreign function api '
   title: Java 17 更新（10）：访问外部函数的新 API，JNI 要凉了？
-Java17_time-Updates-11-vector:
+Java17-Updates-11-vector:
   abstract: Java 17 将继续孵化对矢量计算的支持。
   date: 2021/10/02
   date_time: 2021/10/02 20:10:09
   file_name: Java17-Updates-11-vector
-  file_name_time: Java17-Updates-11-vector
   keywords: Java Java17
   tags: 'Java|Java17 '
   title: Java 17 更新（11）：支持矢量运算，利好科学计算？
-Java17_time-Updates-12-contextserialfilter:
+Java17-Updates-12-contextserialfilter:
   abstract: Java 的序列化机制虽然有些问题，不过毕竟亲儿子，更新怎么能落下呢。
   date: 2021/10/02
   date_time: 2021/10/02 20:10:10
   file_name: Java17-Updates-12-contextserialfilter
-  file_name_time: Java17-Updates-12-contextserialfilter
   keywords: Java Java17
   tags: 'Java|Java17 '
   title: Java 17 更新（12）：支持上下文的序列化过滤器，又一次给序列化打补丁
