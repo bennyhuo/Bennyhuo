@@ -13,6 +13,7 @@ Java17-Updates-01-intro:
   date_time: 2021/09/26
   file_name: Java17-Updates-01-intro
   keywords: Java Java17
+  position: 298
   tags: 'Java|Java17 '
   title: Java 17 更新（1）：更快的 LTS 节奏
 Java17-Updates-02-strictfp:
@@ -21,6 +22,7 @@ Java17-Updates-02-strictfp:
   date_time: 2021/09/26
   file_name: Java17-Updates-02-strictfp
   keywords: Java Java17
+  position: 409
   tags: 'Java|Java17|strictfp '
   title: Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了
 Java17-Updates-03-random:
@@ -29,6 +31,7 @@ Java17-Updates-03-random:
   date_time: 2021/09/27
   file_name: Java17-Updates-03-random
   keywords: Java Java17
+  position: 407
   tags: 'Java|Java17|random '
   title: Java 17 更新（3）：随机数生成器来了一波稳稳的增强
 Java17-Updates-04-mac:
@@ -37,6 +40,7 @@ Java17-Updates-04-mac:
   date_time: 2021/09/27 08:00:00
   file_name: Java17-Updates-04-mac
   keywords: Java Java17
+  position: 348
   tags: 'Java|Java17|mac '
   title: Java 17 更新（4）：这波更新，居然利好 mac 用户
 Java17-Updates-05-removed:
@@ -45,6 +49,7 @@ Java17-Updates-05-removed:
   date_time: 2021/09/28
   file_name: Java17-Updates-05-removed
   keywords: Java Java17
+  position: 346
   tags: 'Java|Java17|applet|rmi|aot|jit|SecurityManager '
   title: Java 17 更新（5）：历史包袱有点儿大，JDK 也在删代码啦
 Java17-Updates-06-internals:
@@ -53,6 +58,7 @@ Java17-Updates-06-internals:
   date_time: 2021/10/02 19:10:55
   file_name: Java17-Updates-06-internals
   keywords: Java Java17
+  position: 345
   tags: 'Java|Java17|internal '
   title: Java 17 更新（6）：制裁！我自己私有的 API 你们怎么随便一个人都想用？
 Java17-Updates-07-switch:
@@ -61,6 +67,7 @@ Java17-Updates-07-switch:
   date_time: 2021/10/02 19:10:56
   file_name: Java17-Updates-07-switch
   keywords: Java Java17
+  position: 250
   tags: 'Java|Java17|switch '
   title: Java 17 更新（7）：模式匹配要支持 switch 啦
 Java17-Updates-08-sealedclass:
@@ -69,6 +76,7 @@ Java17-Updates-08-sealedclass:
   date_time: 2021/10/02 19:10:57
   file_name: Java17-Updates-08-sealedclass
   keywords: Java Java17
+  position: 345
   tags: 'Java|Java17|sealed class '
   title: Java 17 更新（8）：密封类终于转正
 Java17-Updates-09-foreignapi-memory:
@@ -78,6 +86,7 @@ Java17-Updates-09-foreignapi-memory:
   date_time: 2021/10/02 19:10:58
   file_name: Java17-Updates-09-foreignapi-memory
   keywords: Java Java17
+  position: 478
   tags: 'Java|Java17|direct memory '
   title: Java 17 更新（9）：Unsafe 不 safe，我们来一套 safe 的 API 访问堆外内存
 Java17-Updates-10-foreignapi-callfunction:
@@ -86,6 +95,7 @@ Java17-Updates-10-foreignapi-callfunction:
   date_time: 2021/10/02 20:10:08
   file_name: Java17-Updates-10-foreignapi-callfunction
   keywords: Java Java17
+  position: 357
   tags: 'Java|Java17|foreign function api '
   title: Java 17 更新（10）：访问外部函数的新 API，JNI 要凉了？
 Java17-Updates-11-vector:
@@ -94,6 +104,7 @@ Java17-Updates-11-vector:
   date_time: 2021/10/02 20:10:09
   file_name: Java17-Updates-11-vector
   keywords: Java Java17
+  position: 273
   tags: 'Java|Java17 '
   title: Java 17 更新（11）：支持矢量运算，利好科学计算？
 Java17-Updates-12-contextserialfilter:
@@ -102,6 +113,7 @@ Java17-Updates-12-contextserialfilter:
   date_time: 2021/10/02 20:10:10
   file_name: Java17-Updates-12-contextserialfilter
   keywords: Java Java17
+  position: 345
   tags: 'Java|Java17 '
   title: Java 17 更新（12）：支持上下文的序列化过滤器，又一次给序列化打补丁
 android-studio-shortcuts:
@@ -386,6 +398,7 @@ summary-2021:
   date_time: 2022/01/20 14:01:22
   file_name: summary-2021
   keywords: 2021 总结
+  position: 180
   tags: '2021 '
   title: 2021 总结 - bennyhuo
 swift-coroutines-01-intro:
@@ -395,6 +408,7 @@ swift-coroutines-01-intro:
   file_name: swift-coroutines-01-intro
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 265
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（1）：Swift 协程长什么样？
 swift-coroutines-02-wrap-callback:
@@ -404,6 +418,7 @@ swift-coroutines-02-wrap-callback:
   file_name: swift-coroutines-02-wrap-callback
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 288
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（2）：将回调改写成 async 函数
 swift-coroutines-03-call-async-func:
@@ -413,6 +428,7 @@ swift-coroutines-03-call-async-func:
   file_name: swift-coroutines-03-call-async-func
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 302
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（3）：在程序当中调用异步函数
 swift-coroutines-04-structured-concurrency:
@@ -422,6 +438,7 @@ swift-coroutines-04-structured-concurrency:
   file_name: swift-coroutines-04-structured-concurrency
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 213
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（4）：TaskGroup 与结构化并发
 swift-coroutines-05-cancellation:
@@ -431,6 +448,7 @@ swift-coroutines-05-cancellation:
   file_name: swift-coroutines-05-cancellation
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 199
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（5）：Task 的取消
 swift-coroutines-06-actor:
@@ -440,6 +458,7 @@ swift-coroutines-06-actor:
   file_name: swift-coroutines-06-actor
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 239
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（6）：Actor 和属性隔离
 swift-coroutines-07-globalactor:
@@ -449,6 +468,7 @@ swift-coroutines-07-globalactor:
   file_name: swift-coroutines-07-globalactor
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 313
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（7）：GlobalActor 和异步函数的调度
 swift-coroutines-08-tasklocal:
@@ -458,6 +478,7 @@ swift-coroutines-08-tasklocal:
   file_name: swift-coroutines-08-tasklocal
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 212
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（8）：TaskLocal
 swift-coroutines-09-interop:
@@ -467,6 +488,7 @@ swift-coroutines-09-interop:
   file_name: swift-coroutines-09-interop
   group: swift-coroutines
   keywords: Swift Swift5.5
+  position: 268
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（9）：异步函数与其他语言的互调用
 understanding-kotlin-coroutines:

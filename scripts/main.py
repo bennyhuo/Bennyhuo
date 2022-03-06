@@ -74,46 +74,46 @@ def retrieve_post_meta(post, config):
         post_meta['date'] = time.strftime("%Y/%m/%d", time.localtime())
 
     with open(post, "r") as post_file:
-        for line in post_file:
-            if line:
-                m = re.search(r"^\s*#\s*([^#]+)\n", line)
-                if m:
-                    post_meta['title'] = m.group(1)
-                    print(f"Found title in post: {post_meta['title']}")
+        next_line = skip_white_lines(post_file)
+        title_match = re.search(r"^\s*#\s*([^#]+)\n", next_line)
+        if title_match:
+            post_meta['title'] = title_match.group(1)
+            print(f"Found title in post: {post_meta['title']}")
 
-                    # read keywords/abstract
-                    next_line = skip_white_lines(post_file)
-                    keywords_match = re.search(r'\s*^\*\*(.*)\*\*$\s*', next_line)
-                    if keywords_match:
-                        post_meta['keywords'] = keywords_match.group(1)
+            # read keywords/abstract
+            next_line = skip_white_lines(post_file)
+            keywords_match = re.search(r'\s*^\*\*(.*)\*\*$\s*', next_line)
+            if keywords_match:
+                post_meta['keywords'] = keywords_match.group(1)
 
-                    next_line = skip_white_lines(post_file)
-                    abstract_match = re.search(r'\s*^>\s*(.*)\s*', next_line)
-                    if abstract_match:
-                        post_meta['abstract'] = abstract_match.group(1)
+            next_line = skip_white_lines(post_file)
+            abstract_match = re.search(r'\s*^>\s*(.*)\s*', next_line)
+            if abstract_match:
+                post_meta['abstract'] = abstract_match.group(1)
 
-                    next_line = skip_white_lines(post_file)
-                    tags_match = re.search(r'\s*==\s*(.*)\s*==', next_line)
-                    if tags_match:
-                        post_meta['tags'] = tags_match.group(1)
+            next_line = skip_white_lines(post_file)
+            tags_match = re.search(r'\s*==\s*(.*)\s*==', next_line)
+            if tags_match:
+                post_meta['tags'] = tags_match.group(1)
 
-                    next_line = skip_white_lines(post_file)
-                    group_match = re.search(r'\s*<(.*)>', next_line)
-                    if group_match:
-                        post_meta['group'] = group_match.group(1)                    
+            next_line = skip_white_lines(post_file)
+            group_match = re.search(r'\s*<(.*)>', next_line)
+            if group_match:
+                post_meta['group'] = group_match.group(1)                    
 
-                    # while True:
-                    #     next_line = skip_white_lines(post_file)
-                    #     kv = re.search(r'\s*/(.*)/(.*)/\s*', next_line)
-                    #     if kv:
-                    #         post_meta[kv.group(1)] = kv.group(2)
-                    #     else:
-                    #         break
-                else:
-                    post_meta['title'] = post_meta['file_name']
-                    print(f"Not found title in post, use file name: {post_meta['title']}")
+            # while True:
+            #     next_line = skip_white_lines(post_file)
+            #     kv = re.search(r'\s*/(.*)/(.*)/\s*', next_line)
+            #     if kv:
+            #         post_meta[kv.group(1)] = kv.group(2)
+            #     else:
+            #         break
+        else:
+            post_meta['title'] = post_meta['file_name']
+            print(f"Not found title in post, use file name: {post_meta['title']}")
                 
-                break
+
+        post_meta['position'] = post_file.tell()
 
     config[file_name] = post_meta
     return post_meta
@@ -177,6 +177,9 @@ def build_category(posts, category, config, groups):
         file_name = os.path.basename(post).rsplit('.', 1)[0]
         post_meta = config[file_name]
 
+        post_file.seek(post_meta["position"])
+
+
         # if category == 'csdn':
         #     # escape '()' for csdn
         #     post_meta['title'] = post_meta['title'].replace('(', '&#40;').replace(')', '&#41;')
@@ -186,7 +189,8 @@ def build_category(posts, category, config, groups):
 
         header_content = header_file.read()
         for _, k in enumerate(post_meta):
-            header_content = header_content.replace("{{" + k + "}}", post_meta[k])
+            if k != "position":
+                header_content = header_content.replace("{{" + k + "}}", post_meta[k])
 
         if "group" in post_meta:
             print(groups)
@@ -248,7 +252,7 @@ def build_gitbook(posts, config, groups):
 
         group = post_meta["group"]
 
-        output_path = os.path.join(build_dir, os.path.basename(post))
+        output_path = os.path.join(build_dir, group, os.path.basename(post))
         print(f"Build {post} into {output_path}")
         header_file.seek(0)
         footer_file.seek(0)
@@ -256,19 +260,17 @@ def build_gitbook(posts, config, groups):
         if os.path.exists(output_path):
             os.remove(output_path)
 
+        os.makedirs(os.path.join(build_dir, group), exist_ok=True)
+
         post_file = open(post, 'r', encoding='UTF-8')
+        post_file.seek(post_meta["position"])
+
         output_file = open(output_path, 'w', encoding='UTF-8')
-
-        # if category == 'csdn':
-        #     # escape '()' for csdn
-        #     post_meta['title'] = post_meta['title'].replace('(', '&#40;').replace(')', '&#41;')
-
-        if category == 'blog':
-            post_meta['tags_str'] = "\n".join(map(lambda e: f"    - {e.lower()}", post_meta['tags'].split("|")))
 
         header_content = header_file.read()
         for _, k in enumerate(post_meta):
-            header_content = header_content.replace("{{" + k + "}}", post_meta[k])
+            if k != "position":
+                header_content = header_content.replace("{{" + k + "}}", post_meta[k])
 
         if "group" in post_meta:
             print(groups)
@@ -321,7 +323,10 @@ def main():
     CATEGORIES = get_categories()
     print(f"Categories: {CATEGORIES}")
     for category in CATEGORIES:
-        build_category(posts, category, config, groups)
+        if category == "gitbook":
+            build_gitbook(posts, config, groups)
+        else:
+            build_category(posts, category, config, groups)
 
 
 def init_working_dir():
