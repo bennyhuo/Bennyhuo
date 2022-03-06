@@ -4,7 +4,7 @@ keywords: {{keywords}}
 date: {{date_time}}
 description: 
 tags: 
-{{tags}}
+{{tags_str}}
 ---
 
 > {{abstract}} 

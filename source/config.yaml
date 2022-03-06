@@ -393,6 +393,7 @@ swift-coroutines-01-intro:
   date: 2021/10/11
   date_time: 2021/10/11 21:10:53
   file_name: swift-coroutines-01-intro
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（1）：Swift 协程长什么样？
@@ -401,6 +402,7 @@ swift-coroutines-02-wrap-callback:
   date: 2021/10/13
   date_time: 2021/10/13 21:10:14
   file_name: swift-coroutines-02-wrap-callback
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（2）：将回调改写成 async 函数
@@ -409,6 +411,7 @@ swift-coroutines-03-call-async-func:
   date: 2022/01/21
   date_time: 2022/01/21 22:01:01
   file_name: swift-coroutines-03-call-async-func
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（3）：在程序当中调用异步函数
@@ -417,6 +420,7 @@ swift-coroutines-04-structured-concurrency:
   date: 2022/01/22
   date_time: 2022/01/22 21:01:22
   file_name: swift-coroutines-04-structured-concurrency
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（4）：TaskGroup 与结构化并发
@@ -425,6 +429,7 @@ swift-coroutines-05-cancellation:
   date: 2022/01/28
   date_time: 2022/01/28 22:01:40
   file_name: swift-coroutines-05-cancellation
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（5）：Task 的取消
@@ -433,6 +438,7 @@ swift-coroutines-06-actor:
   date: 2022/02/12
   date_time: 2022/02/12 06:02:30
   file_name: swift-coroutines-06-actor
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（6）：Actor 和属性隔离
@@ -441,6 +447,7 @@ swift-coroutines-07-globalactor:
   date: 2022/02/12
   date_time: 2022/02/12 07:02:30
   file_name: swift-coroutines-07-globalactor
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（7）：GlobalActor 和异步函数的调度
@@ -449,6 +456,7 @@ swift-coroutines-08-tasklocal:
   date: 2022/02/12
   date_time: 2022/02/12 21:02:24
   file_name: swift-coroutines-08-tasklocal
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（8）：TaskLocal
@@ -457,6 +465,7 @@ swift-coroutines-09-interop:
   date: 2022/02/16
   date_time: 2022/02/16 23:02:59
   file_name: swift-coroutines-09-interop
+  group: swift-coroutines
   keywords: Swift Swift5.5
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（9）：异步函数与其他语言的互调用
