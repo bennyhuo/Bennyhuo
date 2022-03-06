@@ -8,3 +8,5 @@
 ---
 
 > {{abstract}} 
+
+{{group_refs}}

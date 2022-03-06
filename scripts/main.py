@@ -133,9 +133,10 @@ def update_config(posts):
 
 def build_groups(config):
     groups = {}
-    for file_name,meta in enumerate(config):
+    for file_name, meta in config.items():
         if "group" in meta:
             group = meta["group"]
+            print(f"group: {file_name} -> {group}")
             if group in groups:
                 groups[group]["metas"].append(meta)
             else:
@@ -143,8 +144,8 @@ def build_groups(config):
                     "metas": [meta]
                 }
 
-    for group, value in enumerate(groups):
-        value["refs"] = "\n".join([ f"- [{meta.title}](https://www.bennyhuo.com/{meta.date}/{meta.file_name}/)" for meta in value["metas"]])
+    for group, value in groups.items():
+        value["refs"] = "\n".join([ f"- [{meta['title']}](https://www.bennyhuo.com/{meta['date']}/{meta['file_name']}/)" for meta in value["metas"]])
 
     return groups
 
@@ -187,6 +188,7 @@ def build_category(posts, category, config, groups):
             header_content = header_content.replace("{{" + k + "}}", post_meta[k])
 
         if "group" in post_meta:
+            print(groups)
             group = groups[post_meta["group"]]
             group_refs = group["refs"]
             header_content = header_content.replace("{{group_refs}}", group_refs)

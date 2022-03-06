@@ -13,4 +13,5 @@ tags:
 
 <!-- more -->
 
+{{group_refs}}
 
