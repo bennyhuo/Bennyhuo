@@ -491,6 +491,16 @@ swift-coroutines-09-interop:
   position: 268
   tags: 'Swift|Coroutines|async await '
   title: 闲话 Swift 协程（9）：异步函数与其他语言的互调用
+swift-coroutines-README:
+  abstract: ''
+  date: 2021/10/11
+  date_time: 2021/10/11 17:03:16
+  file_name: swift-coroutines-README
+  group: swift-coroutines
+  keywords: Swift Swift5.5
+  position: 119
+  tags: 'Swift|Coroutines|async await '
+  title: 闲话 Swift 协程（0）：前言
 understanding-kotlin-coroutines:
   abstract: 没想到 Kotlin 的协程居然会成为一个有争议的话题，谁让官方材料太少呢。
   date: 2020/06/23

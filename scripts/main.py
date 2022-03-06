@@ -137,13 +137,17 @@ def build_groups(config):
     for file_name, meta in config.items():
         if "group" in meta:
             group = meta["group"]
-            print(f"group: {file_name} -> {group}")
             if group in groups:
                 groups[group]["metas"].append(meta)
             else:
                 groups[group] = {
                     "metas": [meta]
                 }
+            title_match = re.search(r'.*（(\d+)）\s*：\s*(.*)\s*', meta["title"])
+            if title_match:
+                meta["title_in_group"] = f"{title_match.group(1)}. {title_match.group(2)}"
+            else:
+                meta["title_in_group"] = meta["title"]
 
     for group, value in groups.items():
         value["refs"] = "\n".join([ f"- [{meta['title']}](https://www.bennyhuo.com/{meta['date']}/{meta['file_name']}/)" for meta in value["metas"]])
@@ -193,7 +197,6 @@ def build_category(posts, category, config, groups):
                 header_content = header_content.replace("{{" + k + "}}", post_meta[k])
 
         if "group" in post_meta:
-            print(groups)
             group = groups[post_meta["group"]]
             group_refs = group["refs"]
             header_content = header_content.replace("{{group_refs}}", group_refs)
@@ -214,8 +217,8 @@ def build_category(posts, category, config, groups):
         for line in post_file:
             if category == 'mp':
                 newline = re.sub(r'(?<!!)\[([^\]]*?)\]\s*\(((?!https?://mp.weixin.qq.com).*?)\)', r'**\1**(\2)', line)
-                if newline != line:
-                    print("Matched non-wechat url: {line} -> {newline}".format(line=line, newline=newline))
+                # if newline != line:
+                #     print("Matched non-wechat url: {line} -> {newline}".format(line=line, newline=newline))
                 line = newline
             output_file.write(line)
 
@@ -252,7 +255,7 @@ def build_gitbook(posts, config, groups):
 
         group = post_meta["group"]
 
-        output_path = os.path.join(build_dir, group, os.path.basename(post))
+        output_path = os.path.join(build_dir, group, os.path.basename(post).removeprefix(f"{group}-"))
         print(f"Build {post} into {output_path}")
         header_file.seek(0)
         footer_file.seek(0)
@@ -273,7 +276,6 @@ def build_gitbook(posts, config, groups):
                 header_content = header_content.replace("{{" + k + "}}", post_meta[k])
 
         if "group" in post_meta:
-            print(groups)
             group = groups[post_meta["group"]]
             group_refs = group["refs"]
             header_content = header_content.replace("{{group_refs}}", group_refs)
@@ -307,6 +309,18 @@ def build_gitbook(posts, config, groups):
 
     header_file.close()
     footer_file.close()
+    
+    for group, value in groups.items():
+        print(f"Generate Summary for {group}")
+        output_path = os.path.join(build_dir, group, "SUMMARY.md")
+
+        with open(output_path, 'w') as summary_file:
+            summary_file.write("# Table of contents\n\n")
+            metas = value["metas"]
+            metas.sort(key = lambda e: e["title_in_group"])
+            for meta in metas:
+                summary_file.write(f"* [{meta['title_in_group']}]({meta['file_name'].removeprefix(group + '-')}.md)\n")
+
     print(f"Build {category} successfully.")
 
 
