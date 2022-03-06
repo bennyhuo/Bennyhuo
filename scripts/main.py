@@ -2,6 +2,7 @@ import os
 import re
 import shutil
 import sys
+from unicodedata import category
 
 import yaml
 
@@ -175,6 +176,88 @@ def build_category(posts, category, config, groups):
 
         file_name = os.path.basename(post).rsplit('.', 1)[0]
         post_meta = config[file_name]
+
+        # if category == 'csdn':
+        #     # escape '()' for csdn
+        #     post_meta['title'] = post_meta['title'].replace('(', '&#40;').replace(')', '&#41;')
+
+        if category == 'blog':
+            post_meta['tags_str'] = "\n".join(map(lambda e: f"    - {e.lower()}", post_meta['tags'].split("|")))
+
+        header_content = header_file.read()
+        for _, k in enumerate(post_meta):
+            header_content = header_content.replace("{{" + k + "}}", post_meta[k])
+
+        if "group" in post_meta:
+            print(groups)
+            group = groups[post_meta["group"]]
+            group_refs = group["refs"]
+            header_content = header_content.replace("{{group_refs}}", group_refs)
+
+        bilibili_content = ''
+        if 'bilibili_id' in post_meta:
+            bilibili_path = get_part_file_path(category, 'bilibili')
+            if os.path.exists(bilibili_path):
+                bilibili_file = open(bilibili_path, 'r', encoding='UTF-8')
+                if bilibili_file:
+                    bilibili_content = bilibili_file.read().replace("{{bilibili_id}}", post_meta['bilibili_id'])
+            
+        header_content = header_content.replace("{{bilibili}}", bilibili_content)
+
+        output_file.write(header_content)
+        output_file.write('\n')
+
+        for line in post_file:
+            if category == 'mp':
+                newline = re.sub(r'(?<!!)\[([^\]]*?)\]\s*\(((?!https?://mp.weixin.qq.com).*?)\)', r'**\1**(\2)', line)
+                if newline != line:
+                    print("Matched non-wechat url: {line} -> {newline}".format(line=line, newline=newline))
+                line = newline
+            output_file.write(line)
+
+        output_file.write('\n')
+        output_file.write(footer_file.read())
+
+        output_file.close()
+        post_file.close()
+
+    header_file.close()
+    footer_file.close()
+    print(f"Build {category} successfully.")
+
+
+def build_gitbook(posts, config, groups):
+    category = "gitbook"
+    print(f"Build {category}.")
+    header = get_part_file_path(category, 'header')
+    header_file = open(header, 'r', encoding='UTF-8')
+    footer = get_part_file_path(category, 'footer')
+    footer_file = open(footer, 'r', encoding='UTF-8')
+
+    build_dir = get_build_dir(category)
+    if os.path.exists(build_dir):
+        shutil.rmtree(build_dir)
+    os.makedirs(build_dir)
+
+    for post in posts:
+        file_name = os.path.basename(post).rsplit('.', 1)[0]
+        post_meta = config[file_name]
+
+        if "group" not in post_meta:
+            continue
+
+        group = post_meta["group"]
+
+        output_path = os.path.join(build_dir, os.path.basename(post))
+        print(f"Build {post} into {output_path}")
+        header_file.seek(0)
+        footer_file.seek(0)
+
+        if os.path.exists(output_path):
+            os.remove(output_path)
+
+        post_file = open(post, 'r', encoding='UTF-8')
+        output_file = open(output_path, 'w', encoding='UTF-8')
 
         # if category == 'csdn':
         #     # escape '()' for csdn
