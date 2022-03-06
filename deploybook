@@ -1,0 +1,10 @@
+BASE_DIR=$(cd $(dirname $0) && pwd -P)
+
+cd $BASE_DIR"/source/build/gitbook"
+
+for dir in */ ; do
+    echo "deploy '$dir'"
+    cd $dir
+    bash $BASE_DIR/scripts/push_book.sh
+    cd -
+done
