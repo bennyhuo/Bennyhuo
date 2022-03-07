@@ -6,6 +6,8 @@
 
 ==  Java|Java17 ==
 
+<Java17-Updates>
+
 朋友们大家好，我是 bennyhuo，今天我们来聊聊 Java 17 的更新。
 
 Java 17 更新了，作为一个 10 年的 Java 程序员，还是有亿点点兴奋的，Kotlin 的群里面也是各种讨论 Java 的新特性。

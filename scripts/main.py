@@ -150,7 +150,9 @@ def build_groups(config):
                 meta["title_in_group"] = meta["title"]
 
     for group, value in groups.items():
-        value["refs"] = "\n".join([ f"- [{meta['title']}](https://www.bennyhuo.com/{meta['date']}/{meta['file_name']}/)" for meta in value["metas"]])
+        metas = value["metas"]
+        metas.sort(key = lambda e: int(e["title_in_group"].split(".")[0]))
+        value["refs"] = "\n".join([ f"- [{meta['title']}](https://www.bennyhuo.com/{meta['date']}/{meta['file_name']}/)" for meta in metas])
 
     return groups
 
@@ -290,6 +292,8 @@ def build_gitbook(posts, config, groups):
             
         header_content = header_content.replace("{{bilibili}}", bilibili_content)
 
+        header_content = header_content.replace("> \n", "")
+
         output_file.write(header_content)
         output_file.write('\n')
 
@@ -317,7 +321,6 @@ def build_gitbook(posts, config, groups):
         with open(output_path, 'w') as summary_file:
             summary_file.write("# Table of contents\n\n")
             metas = value["metas"]
-            metas.sort(key = lambda e: e["title_in_group"])
             for meta in metas:
                 summary_file.write(f"* [{meta['title_in_group']}]({meta['file_name'].removeprefix(group + '-')}.md)\n")
 

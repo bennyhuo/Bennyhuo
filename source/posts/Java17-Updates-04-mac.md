@@ -6,9 +6,7 @@
 
 ==  Java|Java17|mac ==
 
-* [Java 17 更新（1）：更快的 LTS 节奏](https://www.bennyhuo.com/2021/09/26/Java17-Updates-01-intro/)
-* [Java 17 更新（2）：没什么存在感的 strictfp 这回算是回光返照了](https://www.bennyhuo.com/2021/09/26/Java17-Updates-02-strictfp/)
-* [Java 17 更新（3）：随机数生成器来了一波稳稳的增强](https://www.bennyhuo.com/2021/09/27/Java17-Updates-03-random/)  
+<Java17-Updates>
 
 关于 mac 的更新一共两条，我们来一一介绍给大家。
 

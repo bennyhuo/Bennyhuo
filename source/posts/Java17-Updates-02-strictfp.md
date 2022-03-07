@@ -6,7 +6,7 @@
 
 ==  Java|Java17|strictfp ==
 
-* [Java 17 更新（1）：更快的 LTS 节奏](https://www.bennyhuo.com/2021/09/26/Java17-Updates-01-intro/)
+<Java17-Updates>
 
 我们今天聊的内容来自于 **JEP 306: Restore Always-Strict Floating-Point Semantics**。看到这个提案的标题的时候，我就知道很多人懵了。这玩意历史感太强了，说实话我也没怎么接触过。
 
