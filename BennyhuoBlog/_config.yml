@@ -160,3 +160,16 @@ symbols_count_time:
 popularPosts:
   cache:
     path: hexo-popular-related-posts-cached.json
+
+
+leancloud_counter_security:
+  enable_sync: true
+  app_id: FicBFjnnYPST748WV6dmgumh-gzGzoHsz
+  app_key: 9GE81hTRn176FdLAdUrJBWON
+  # Required for apps from CN region
+  server_url: # <your server url>
+  # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
+  # If you don't care about security in leancloud counter and just want to use it directly
+  # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
+  username: bennyhuo@kotliner.cn # Will be asked while deploying if is left blank
+  password: Helloleancloud2.*

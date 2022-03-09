@@ -541,11 +541,3 @@ understanding-kotlin-coroutines:
   keywords: Kotlin 协程 书
   tags: 'Kotlin|Coroutines '
   title: 我写了一本书，《深入理解 Kotlin 协程》
-use-mavencentral-when-jcenter-sunset:
-  abstract: 这还真是个大新闻。以后我们只能发 Maven 中央仓库了。
-  date: 2021/04/12
-  date_time: 2021/04/12
-  file_name: use-mavencentral-when-jcenter-sunset
-  keywords: 开源 JCenter maven
-  tags: 'JCenter|Maven '
-  title: JCenter 要下线了，我们的开源库要怎么发到 Maven Central 上？
