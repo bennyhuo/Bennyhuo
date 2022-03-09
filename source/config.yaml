@@ -261,6 +261,16 @@ coroutines-start-mode:
   keywords: Kotlin 协程 启动模式
   tags: ''
   title: 破解 Kotlin 协程(2) - 协程启动篇
+cpp-coroutines-01-intro:
+  abstract: C++ 20 当中正式对协程做出了初步的支持，尽管这些 API 并不是很友好。
+  date: 2022/03/09
+  date_time: 2022/03/09 23:03:56
+  file_name: cpp-coroutines-01-intro
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 205
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（1）：C++ 协程概览
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06
