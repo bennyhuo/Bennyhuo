@@ -1,12 +1,19 @@
 WORKING_DIR=$(cd $(basename .) && pwd -P)
 BRANCH_NAME=$(basename $WORKING_DIR)
 
-TEMP_DIR_NAME=".deploy"
-mkdir $TEMP_DIR_NAME
+TEMP_DIR_NAME="$1/.deploy"
+if [ ! -d $TEMP_DIR_NAME ]
+then 
+    mkdir $TEMP_DIR_NAME
+fi
 cd $TEMP_DIR_NAME
 
-git init
-git remote add origin https://github.com/bennyhuo/Books.git
+if [ ! -d '.git' ]
+then
+    git init
+    git remote add origin https://github.com/bennyhuo/Books.git
+fi
+
 git fetch
 git checkout $BRANCH_NAME
 
