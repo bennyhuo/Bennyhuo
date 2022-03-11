@@ -124,7 +124,137 @@ struct Generator {
 };
 ```
 
+接下来就是如何获取协程内部传出来的值的问题了。同样，本着有事儿找 promise_type 的原则，我们可以直接给它定义一个 value 成员：
 
+```cpp
+struct Generator {
+  struct promise_type {
+    int value;
+
+    ...
+  };
+
+  std::coroutine_handle<promise_type> handle;
+
+  int next() {
+    handle.resume();
+    // 通过 handle 获取 promise，然后再取到 value
+    return handle.promise().value;
+  }
+};
+```
+
+## 协程内部挂起并传值
+
+现在的问题就是如何从协程内部传值给 promise_type 了。
+
+我们再来观察一下最终实现的效果：
+
+```cpp
+Generator sequence() {
+  int i = 0;
+  while (true) {
+    co_await i++;
+  }
+}
+```
+
+特别需要注意的是 `co_await i++;` 这一句，我们发现 `co_await` 后面的是一个整型值，而不是我们在前面的文章当中提到的满足等待体（awaiter）条件的类型，这种情况下该怎么办呢？
+
+实际上，对于 `co_await <expr>` 表达式当中 `expr` 的处理，C++ 有一套完善的流程：
+
+1. 如果 promise_type 当中定义了 await_transform 函数，那么先通过 `promise.await_transform(expr)` 来对 expr 做一次转换，得到的对象称为 awaitable；否则 awaitble 就是 expr 本身。
+2. 接下来使用 awaitable 对象来获取等待体（awaiter）。如果 awaitable 对象有 `operator co_await` 运算符重载，那么等待体就是 `operator co_await(awaitable)`，否则等待体就是 awaitable 对象本身。
+
+听上去，我们要么给 promise_type 实现一个 `await_tranform(int)` 函数，要么就为整型实现一个 `operator co_await` 的运算符重载，二者选一个就可以了。
+
+### 方案一：await_transform
+
+代码比较简单：
+
+```cpp
+struct Generator {
+  struct promise_type {
+    int value;
+
+    // 传值的同时要挂起，值存入 value 当中
+    std::suspend_always await_transform(int value) {
+      this->value = value;
+      return {};
+    }
+
+    ...
+  };
+
+  std::coroutine_handle<promise_type> handle;
+
+  int next() {
+    handle.resume();
+
+  // 外部调用者或者恢复者可以通过读取 value
+    return handle.promise().value;
+  }
+};
+```
+
+定义了 `await_transform` 函数之后，`co_await expr` 就相当于 `co_await promise.await_transform(expr)` 了。
+
+至此，我们的例子就可以运行了：
+
+```cpp
+Generator sequence() {
+  int i = 0;
+  while (true) {
+    co_await i++;
+  }
+}
+
+int main() {
+  auto gen = sequence();
+  for (int i = 0; i < 5; ++i) {
+    std::cout << gen.next() << std::endl;
+  }
+}
+```
+
+运行结果如下：
+
+```
+0
+1
+2
+3
+4
+```
+
+### 方案二：实现 operator co_await
+
+这个方案就是给 int 定义 operator co_await 的重载：
+
+```cpp
+auto operator co_await(int value) {
+  struct IntAwaiter {
+    int value;
+
+    bool await_ready() const noexcept {
+      return false;
+    }
+    void await_suspend(std::coroutine_handle<Generator::promise_type> handle) const {
+      handle.promise().value = value;
+    }
+    void await_resume() {  }
+  };
+  return IntAwaiter{.value = value};
+}
+```
+
+当然，这个方案对于我们这个特定的场景下是行不通的，因为在 C++ 当中我们是无法给基本类型定义运算符重载的。不过，如果我们遇到的情况不是基本类型，那么运算符重载的思路也自然是没有问题的。
+
+
+
+## 使用 co_yield
+
+## 协程的销毁
 
 ## 小结
 
