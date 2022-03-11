@@ -1,6 +1,0 @@
-[submodule "KotlinCN"]
-	path = KotlinCN
-	url = https://e.coding.net/bennyhuo/KotlinCN.git
-[submodule "BennyhuoBlog"]
-	path = BennyhuoBlog
-	url = https://e.coding.net/bennyhuo/BennyhuoBlog.git
