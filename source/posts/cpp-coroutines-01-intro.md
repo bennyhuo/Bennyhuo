@@ -140,7 +140,7 @@ coroutine_handle.resume();
 
 * 返回 void 类型或者返回 true，表示当前协程挂起之后将执行权还给当初调用或者恢复当前协程的函数。
 * 返回 false，则恢复执行当前协程。注意此时不同于 await_ready 返回 false 的情形，此时协程已经挂起，await_suspend 返回 false 相当于挂起又立即恢复。
-* 返回其他协程的 coroutine_handle 对象，这时候返回的 coroutine_handle 对应的协程被恢复执行。注意这一点非常有趣，为 C++ 协程直接支持**对称调用**提供了基础。有关**对称协程**和**非对称协程**的内容我们将在后面专门讨论。
+* 返回其他协程的 coroutine_handle 对象，这时候返回的 coroutine_handle 对应的协程被恢复执行。
 * 抛出异常，此时当前协程恢复执行，并在当前协程当中抛出异常。
 
 可见，await_suspend 支持的情况非常多，也相对复杂。实际上这也是 C++ 协程当中最为核心的函数之一了。
