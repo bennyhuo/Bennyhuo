@@ -300,6 +300,64 @@ struct Generator {
 }
 ```
 
+### 折叠值的 fold 
+
+Generator 会生成很多值，如果我们需要对这些值做一些整体的处理，并最终得到一个值，那么我们就需要折叠函数 fold：
+
+```cpp
+template<typename T>
+struct Generator {
+  ...
+
+  template<typename R, typename F>
+  R fold(R initial, F f) {
+    R acc = initial;
+    while (has_next()) {
+      acc = f(acc, next());
+    }
+    return acc;
+  }
+}
+```
+
+它需要一个初始值，函数 f 接收两个参数，分别是 acc 和序列生成器当前迭代的元素，每次经过 f 做运算得到的结果会作为下次迭代的 acc 传入，直到最后 acc 作为 fold 的返回值返回。
+
+我们可以很方便地使用 fold 求和或者求取阶乘，例如：
+
+```cpp
+// result: 720
+auto result = Generator<int>::from(1, 2, 3, 4, 5, 6)
+  .fold(1, [](auto acc, auto i){ 
+    return acc * i;  // 计算阶乘
+  });
+```
+
+### 求和函数 sum
+
+求和本身可以用前面的 fold 来实现，当然我们也可以直接给出 sum 函数的定义：
+
+```cpp
+template<typename T>
+struct Generator {
+  ...
+
+  T sum() {
+    T sum = 0;
+    while (has_next()) {
+      sum += next();
+    }
+    return sum;
+  }
+}
+```
+
+用例：
+
+```cpp
+// result: 21
+auto result = Generator<double>::from(1.0, 2.0, 3.0, 4, 5, 6.0f).sum();
+```
+
 ### 过滤部分值的 filter
 
 你几乎可以在任何看到 map/flat_map 的场合看到 filter，毕竟有些值我们根本不需要。
@@ -384,7 +442,49 @@ fibonacci().take_while([](auto i){
 0 1 1 2 3 5 8 13 21 34 55 89
 ```
 
+## 函数的调用时机
+
+前面给出了这么多函数的实现，目的主要是为了~~凑字数~~让大家充分理解 C++ 协程的妙处。为了进一步确认大家对于前面例子的理解程度，我们再给出一个例子，请大家思考这当中的每一个 lambda 分别调用几次，以及输出什么：
+
+```cpp
+Generator<int>::from(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    .filter([](auto i) {
+      std::cout << "filter: " << i << std::endl;
+      return i % 2 == 0;
+    })
+    .map([](auto i) {
+      std::cout << "map: " << i << std::endl;
+      return i * 3;
+    })
+    .flat_map([](auto i) -> Generator<int> {
+      std::cout << "flat_map: " << i << std::endl;
+      for (int j = 0; j < i; ++j) {
+        co_yield j;
+      }
+    }).take(3)
+    .for_each([](auto i) {
+      std::cout << "for_each: " << i << std::endl;
+    });
+```
+
+大家在分析的时候，请牢记 Generator 生成的序列是懒序列，只要最终访问到的时候才会生成。
+
+这意味着中间的 map 其中根本不会主动消费 Generator，flat_map 也不会，filter 也不会，take 也不会。只有 for_each 调用的时候，才会真正需要知道 Generator 当中都有什么。
+
+输出的结果如下：
+
+```
+filter: 1
+filter: 2
+map: 2
+flat_map: 6
+for_each: 0
+for_each: 1
+for_each: 2
+```
+
+> **提示**：大家可以返回去再看一下我们给出的函数的实现，找一下哪些当中用到了 `co_yield`，哪些没有用到，以及这两类函数有什么区别。
 
 ## 小结
 
-
+本文我们对前文当中的序列生成器做了泛化，使它能够支持任意类型的序列生成。此外，我们也针对序列生成器添加了一系列的函数式的支持，以帮助读者进一步深入理解协程的工作机制。
