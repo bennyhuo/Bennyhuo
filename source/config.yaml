@@ -281,6 +281,16 @@ cpp-coroutines-02-generator:
   position: 183
   tags: 'C++|Coroutines '
   title: 渡劫 C++ 协程（2）：实现一个序列生成器
+cpp-coroutines-03-functional:
+  abstract: 我们还可以对序列生成器产生的数据流做进一步的筛选和处理，而这一切都可以基于协程去实现。
+  date: 2022/03/14
+  date_time: 2022/03/14 16:03:21
+  file_name: cpp-coroutines-03-functional
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 267
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（3）：序列生成器的泛化和函数式变换
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06
