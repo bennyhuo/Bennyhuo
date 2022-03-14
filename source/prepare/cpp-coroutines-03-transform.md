@@ -123,6 +123,36 @@ auto generator = Generator<int>::from({1, 2, 3, 4});
 
 不错，看上去需要写的内容少很多了。
 
+不过，如果这对花括号也不用写的话，那就完美了。想要做到这一点，我们需要用到 C++ 17 的折叠表达式（fold expression）的特性，实现如下：
+
+```cpp
+template<typename T>
+struct Generator {
+  ...
+
+  template<typename ...TArgs>
+  Generator static from(TArgs ...args) {
+    (co_yield args, ...);
+  }
+}
+```
+
+注意这里的模板参数包（template parameters pack）不能用递归的方式去调用 from，因为那样的话我们会得到非常多的 Generator 对象。
+
+用法如下：
+
+```cpp
+auto generator = Generator<int>::from(1, 2, 3, 4);
+```
+
+这下看上去完美多了。
+
+## 实现 map 和 flat_map
+
+熟悉函数式编程的读者可能已经意识到了，我们定义的 Generator 实际上已经非常接近 Monad 的定义了。那我们是不是可以给它实现 map 和 flat_map 呢？
+
+map 就是将 Generator 当中的 T 映射成一个新的类型 U，得到一个新的 `Generator<U>`
+
 
 ## 小结
 
