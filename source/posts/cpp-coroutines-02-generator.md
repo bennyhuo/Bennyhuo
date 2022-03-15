@@ -437,6 +437,66 @@ struct Generator {
 };
 ```
 
+### 问题 3：复制对象导致协程被销毁
+
+这个问题确切地说是**问题 2**的解决方案不完善引起的。
+
+我们在 Generator 的析构函数当中销毁协程，这本身没有什么问题，但如果我们把 Generator 对象做一下复制，例如从一个函数当中返回，情况可能就会变得复杂。例如：
+
+```cpp
+Generator returns_generator() {
+  auto g = sequence();
+  if (g.has_next()) {
+    std::cout << g.next() << std::endl;
+  }
+  return g;
+}
+
+int main() {
+  auto generator = returns_generator();
+  for (int i = 0; i < 15; ++i) {
+    if (generator.has_next()) {
+      std::cout << generator.next() << std::endl;
+    } else {
+      break;
+    }
+  }
+  return 0;
+}
+```
+
+这段代码乍一看似乎没什么问题，但由于我们把 `g` 当做返回值返回了，这时候 `g` 这个对象就发生了一次复制，然后临时对象被销毁。接下来的事儿大家就很容易想到了，运行结果如下：
+
+```
+0
+-572662307
+
+Process finished with exit code -1073741819 (0xC0000005)
+```
+
+为了解决这个问题，我们需要妥善地处理 Generator 的复制构造器：
+
+```cpp
+struct Generator {
+  ...
+
+  explicit Generator(std::coroutine_handle<promise_type> handle) noexcept
+      : handle(handle) {}
+
+  Generator(Generator &&generator) noexcept
+      : handle(std::exchange(generator.handle, {})) {}
+
+  Generator(Generator &) = delete;
+  Generator &operator=(Generator &) = delete;
+
+  ~Generator() {
+    if (handle) handle.destroy();
+  }
+}
+```
+
+我们只提供了右值复制构造器，对于左值复制构造器，我们直接删除掉以禁止使用。原因也很简单，对于每一个协程实例，都有且仅能有一个 Generator 实例与之对应，因此我们只支持移动对象，而不支持复制对象。
+
 ## 使用 co_yield
 
 序列生成器这个需求的实现其实有个更好的选择，那就是使用 `co_yield`。`co_yield` 就是专门为向外传值来设计的，如果大家对其他语言的协程有了解，也一定见到过各种 `yield` 的实现。
