@@ -291,6 +291,16 @@ cpp-coroutines-03-functional:
   position: 267
   tags: 'C++|Coroutines '
   title: 渡劫 C++ 协程（3）：序列生成器的泛化和函数式变换
+cpp-coroutines-04-task:
+  abstract: 协程主要用来降低异步任务的编写复杂度，异步任务各式各样，但归根结底就是一个结果的获取。
+  date: 2022/03/19
+  date_time: 2022/03/19 16:03:08
+  file_name: cpp-coroutines-04-task
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 248
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（4）：通用异步任务 Task
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06
