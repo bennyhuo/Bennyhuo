@@ -222,7 +222,7 @@ class AsyncExecutor : public AbstractExecutor {
 
 LooperExecutor 稍微复杂一些，它通常出现在主线程为事件循环的场景，例如 UI 相关应用的开发场景。
 
-考虑到我本身不希望引入 UI 相关的开发概念，这里直接给出一个简单的单线程事件循环的实现，并以此来实现 LooperExecutor：
+考虑到我本身不希望引入 UI 相关的开发概念，这里直接给出一个简单的单线程事件循环，并以此来实现 LooperExecutor：
 
 ```cpp
 class LooperExecutor : public AbstractExecutor {
@@ -231,16 +231,27 @@ class LooperExecutor : public AbstractExecutor {
   std::mutex queue_lock;
   std::queue<std::function<void()>> executable_queue;
 
-  volatile bool is_active = true;
+  // true 的时候是工作状态，如果要关闭事件循环，就置为 false
+  std::atomic<bool> is_active;
   std::thread work_thread;
 
   // 处理事件循环
   void run_loop() {
-    while (is_active || !executable_queue.empty()) {
+    // 检查当前事件循环是否是工作状态，或者队列没有清空
+    while (is_active.load(std::memory_order_relaxed) || !executable_queue.empty()) {
       std::unique_lock lock(queue_lock);
       if (executable_queue.empty()) {
+        // 队列为空，需要等待新任务加入队列或者关闭事件循环的通知
         queue_condition.wait(lock);
+        // 如果队列为空，那么说明收到的是关闭的通知
+        if (executable_queue.empty()) {
+          // 现有逻辑下此处用 break 也可
+          // 使用 continue 可以再次检查状态和队列，方便将来扩展
+          continue;
+        }
       }
+      // 取出第一个任务，解锁再执行。
+      // 解锁非常：func 是外部逻辑，不需要锁保护；func 当中可能请求锁，导致死锁
       auto func = executable_queue.front();
       executable_queue.pop();
       lock.unlock();
@@ -252,6 +263,7 @@ class LooperExecutor : public AbstractExecutor {
  public:
 
   LooperExecutor() {
+    is_active.store(true, std::memory_order_relaxed);
     work_thread = std::thread(&LooperExecutor::run_loop, this);
   }
 
@@ -260,34 +272,115 @@ class LooperExecutor : public AbstractExecutor {
   }
 
   void execute(std::function<void()> &&func) override {
-    std::lock_guard lock(queue_lock);
-    if (is_active) {
+    std::unique_lock lock(queue_lock);
+    if (is_active.load(std::memory_order_relaxed)) {
       executable_queue.push(func);
+      lock.unlock();
+      // 通知队列，主要用于队列之前为空时调用 wait 等待的情况
+      // 通知不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
       queue_condition.notify_one();
     }
   }
 
   void shutdown(bool wait_for_complete = true) {
-    is_active = false;
+    // 修改后立即生效，在 run_loop 当中就能尽早（加锁前）就检测到 is_active 的变化
+    is_active.store(false, std::memory_order_relaxed);
+
     if (wait_for_complete) {
+      // 先通知 run_loop 函数当中的 wait，避免因队列已空导致后续 join 时阻塞
+      queue_condition.notify_all();
       if (work_thread.joinable()) {
         work_thread.join();
       }
     } else {
-      std::lock_guard lock(queue_lock);
       // clear queue.
+      std::unique_lock lock(queue_lock);
+      // 清空任务队列
       decltype(executable_queue) empty_queue;
       std::swap(executable_queue, empty_queue);
       if (work_thread.joinable()) {
         work_thread.detach();
       }
+      lock.unlock();
+      // 通知不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
+      queue_condition.notify_all();
     }
   }
 };
 ```
+各位读者可以参考代码注释来理解其中的逻辑。简单来说就是：
+1. 当队列为空时，Looper 的线程通过 `wait` 来实现阻塞等待。
+2. 有新任务加入时，通过 `notify_one` 来通知 `run_loop` 继续执行。
 
+## 小试牛刀
 
-## 
+这次我们基于上一篇文章当中的 demo 加入调度器的支持：
+
+```cpp
+// 使用了 Async 调度器
+// 这意味着每个恢复的位置都会通过 std::async 上执行
+Task<int, AsyncExecutor> simple_task2() {
+  debug("task 2 start ...");
+  using namespace std::chrono_literals;
+  std::this_thread::sleep_for(1s);
+  debug("task 2 returns after 1s.");
+  co_return 2;
+}
+
+// 使用了 NewThread 调度器
+// 这意味着每个恢复的位置都会新建一个线程来执行
+Task<int, NewThreadExecutor> simple_task3() {
+  debug("in task 3 start ...");
+  using namespace std::chrono_literals;
+  std::this_thread::sleep_for(2s);
+  debug("task 3 returns after 2s.");
+  co_return 3;
+}
+
+// 使用了 Looper 调度器
+// 这意味着每个恢复的位置都会在同一个线程上执行
+Task<int, LooperExecutor> simple_task() {
+  debug("task start ...");
+  auto result2 = co_await simple_task2();
+  debug("returns from task2: ", result2);
+  auto result3 = co_await simple_task3();
+  debug("returns from task3: ", result3);
+  co_return 1 + result2 + result3;
+}
+
+int main() {
+  auto simpleTask = simple_task();
+  simpleTask.then([](int i) {
+    debug("simple task end: ", i);
+  }).catching([](std::exception &e) {
+    debug("error occurred", e.what());
+  });
+  try {
+    auto i = simpleTask.get_result();
+    debug("simple task end from get: ", i);
+  } catch (std::exception &e) {
+    debug("error: ", e.what());
+  }
+  return 0;
+}
+```
+
+这个例子的代码跟上次不能说完全没有修改吧，那也是几乎没有修改，除了加了调度器的类型作为 `Task` 的模板参数。运行结果如下：
+
+```
+11:46:03.305 [Thread-32620] (main.cpp:40) simple_task: task start ...
+11:46:03.307 [Thread-33524] (main.cpp:24) simple_task2: task 2 start ...
+11:46:04.310 [Thread-33524] (main.cpp:27) simple_task2: task 2 returns after 1s.
+11:46:04.312 [Thread-32620] (main.cpp:42) simple_task: returns from task2:  2
+11:46:04.313 [Thread-42232] (main.cpp:32) simple_task3: in task 3 start ...
+11:46:06.327 [Thread-42232] (main.cpp:35) simple_task3: task 3 returns after 2s.
+11:46:06.329 [Thread-32620] (main.cpp:44) simple_task: returns from task3:  3
+11:46:06.329 [Thread-32620] (main.cpp:51) operator (): simple task end:  6
+11:46:06.330 [Thread-30760] (main.cpp:57) main: simple task end from get:  6
+```
+
+请大家仔细观察，所有 `simple_task` 函数的日志输出都在 id 为 32620 的线程上，这实际上就是我们的 Looper 线程。当然，由于 `simple_task2` 和 `simple_task3` 当中没有挂起点，因此它们只会在 `initial_suspend` 时调度一次。
 
 ## 小结
 
+本文我们终于给 `Task` 添加了调度器的支持。如此一来，我们就可以把 `Task` 绑定到合适的线程调度器上，来应对更加复杂的业务场景了。
