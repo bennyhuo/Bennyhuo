@@ -1,12 +1,27 @@
-#  渡劫 C++ 协程（5）：协程的调度器
+---
+title:  渡劫 C++ 协程（5）：协程的调度器 
+keywords: C++ Coroutines 
+date: 2022/03/20 12:03:19
+description: 
+tags: 
+    - c++
+    - coroutines 
+---
 
-**C++ Coroutines**
+> 协程想要实现异步，很大程度上依赖于调度器的设计。 
 
-> 协程想要实现异步，很大程度上依赖于调度器的设计。
 
-==  C++|Coroutines ==
 
-<cpp-coroutines>
+<!-- more -->
+
+- [渡劫 C++ 协程（0）：前言](https://www.bennyhuo.com/2022/03/06/cpp-coroutines-README/)
+- [渡劫 C++ 协程（1）：C++ 协程概览](https://www.bennyhuo.com/2022/03/09/cpp-coroutines-01-intro/)
+- [渡劫 C++ 协程（2）：实现一个序列生成器](https://www.bennyhuo.com/2022/03/11/cpp-coroutines-02-generator/)
+- [渡劫 C++ 协程（3）：序列生成器的泛化和函数式变换](https://www.bennyhuo.com/2022/03/14/cpp-coroutines-03-functional/)
+- [渡劫 C++ 协程（4）：通用异步任务 Task](https://www.bennyhuo.com/2022/03/19/cpp-coroutines-04-task/)
+- [渡劫 C++ 协程（5）：协程的调度器](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-05-dispatcher/)
+
+
 
 
 ## 调度器的抽象设计
@@ -269,10 +284,6 @@ class LooperExecutor : public AbstractExecutor {
 
   ~LooperExecutor() {
     shutdown(false);
-    // 等待线程执行完，防止出现意外情况
-    if (work_thread.joinable()) {
-      work_thread.join();
-    }
   }
 
   void execute(std::function<void()> &&func) override {
@@ -289,17 +300,26 @@ class LooperExecutor : public AbstractExecutor {
   void shutdown(bool wait_for_complete = true) {
     // 修改后立即生效，在 run_loop 当中就能尽早（加锁前）就检测到 is_active 的变化
     is_active.store(false, std::memory_order_relaxed);
-    if (!wait_for_complete) {    
+
+    if (wait_for_complete) {
+      // 先通知 run_loop 函数当中的 wait，避免因队列已空导致后续 join 时阻塞
+      queue_condition.notify_all();
+      if (work_thread.joinable()) {
+        work_thread.join();
+      }
+    } else {
+      // clear queue.
       std::unique_lock lock(queue_lock);
       // 清空任务队列
       decltype(executable_queue) empty_queue;
       std::swap(executable_queue, empty_queue);
+      if (work_thread.joinable()) {
+        work_thread.detach();
+      }
       lock.unlock();
+      // 通知不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
+      queue_condition.notify_all();
     }
-
-    // 通知 wait 函数，避免 Looper 线程不退出
-    // 不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
-    queue_condition.notify_all();
   }
 };
 ```
@@ -379,3 +399,14 @@ int main() {
 ## 小结
 
 本文我们终于给 `Task` 添加了调度器的支持。如此一来，我们就可以把 `Task` 绑定到合适的线程调度器上，来应对更加复杂的业务场景了。
+
+---
+
+## 关于作者
+
+**霍丙乾 bennyhuo**，Kotlin 布道师，Google 认证 Kotlin 开发专家（Kotlin GDE）；**《深入理解 Kotlin 协程》** 作者（机械工业出版社，2020.6）；前腾讯高级工程师，现就职于猿辅导
+
+* GitHub：https://github.com/bennyhuo
+* 博客：https://www.bennyhuo.com
+* bilibili：[**bennyhuo不是算命的**](https://space.bilibili.com/28615855)
+* 微信公众号：**bennyhuo**

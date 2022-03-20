@@ -301,6 +301,16 @@ cpp-coroutines-04-task:
   position: 248
   tags: 'C++|Coroutines '
   title: 渡劫 C++ 协程（4）：通用异步任务 Task
+cpp-coroutines-05-dispatcher:
+  abstract: 协程想要实现异步，很大程度上依赖于调度器的设计。
+  date: 2022/03/20
+  date_time: 2022/03/20 12:03:19
+  file_name: cpp-coroutines-05-dispatcher
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 186
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（5）：协程的调度器
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06
