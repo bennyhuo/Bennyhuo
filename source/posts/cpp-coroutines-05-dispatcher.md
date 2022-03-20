@@ -270,9 +270,7 @@ class LooperExecutor : public AbstractExecutor {
   ~LooperExecutor() {
     shutdown(false);
     // 等待线程执行完，防止出现意外情况
-    if (work_thread.joinable()) {
-      work_thread.join();
-    }
+    join();
   }
 
   void execute(std::function<void()> &&func) override {
@@ -300,6 +298,12 @@ class LooperExecutor : public AbstractExecutor {
     // 通知 wait 函数，避免 Looper 线程不退出
     // 不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
     queue_condition.notify_all();
+  }
+
+  void join() {
+    if (work_thread.joinable()) {
+      work_thread.join();
+    }
   }
 };
 ```
