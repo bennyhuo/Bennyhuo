@@ -20,6 +20,7 @@ tags:
 - [渡劫 C++ 协程（3）：序列生成器的泛化和函数式变换](https://www.bennyhuo.com/2022/03/14/cpp-coroutines-03-functional/)
 - [渡劫 C++ 协程（4）：通用异步任务 Task](https://www.bennyhuo.com/2022/03/19/cpp-coroutines-04-task/)
 - [渡劫 C++ 协程（5）：协程的调度器](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-05-dispatcher/)
+- [渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-06-sleep/)
 
 
 
@@ -284,6 +285,8 @@ class LooperExecutor : public AbstractExecutor {
 
   ~LooperExecutor() {
     shutdown(false);
+    // 等待线程执行完，防止出现意外情况
+    join();
   }
 
   void execute(std::function<void()> &&func) override {
@@ -300,25 +303,22 @@ class LooperExecutor : public AbstractExecutor {
   void shutdown(bool wait_for_complete = true) {
     // 修改后立即生效，在 run_loop 当中就能尽早（加锁前）就检测到 is_active 的变化
     is_active.store(false, std::memory_order_relaxed);
-
-    if (wait_for_complete) {
-      // 先通知 run_loop 函数当中的 wait，避免因队列已空导致后续 join 时阻塞
-      queue_condition.notify_all();
-      if (work_thread.joinable()) {
-        work_thread.join();
-      }
-    } else {
-      // clear queue.
+    if (!wait_for_complete) {    
       std::unique_lock lock(queue_lock);
       // 清空任务队列
       decltype(executable_queue) empty_queue;
       std::swap(executable_queue, empty_queue);
-      if (work_thread.joinable()) {
-        work_thread.detach();
-      }
       lock.unlock();
-      // 通知不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
-      queue_condition.notify_all();
+    }
+
+    // 通知 wait 函数，避免 Looper 线程不退出
+    // 不需要加锁，否则锁会交给 wait 方导致当前线程阻塞
+    queue_condition.notify_all();
+  }
+
+  void join() {
+    if (work_thread.joinable()) {
+      work_thread.join();
     }
   }
 };

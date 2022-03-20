@@ -311,6 +311,16 @@ cpp-coroutines-05-dispatcher:
   position: 186
   tags: 'C++|Coroutines '
   title: 渡劫 C++ 协程（5）：协程的调度器
+cpp-coroutines-06-sleep:
+  abstract: 如果你想要等待 100ms，你会怎么做？sleep_for(100ms) 吗？
+  date: 2022/03/20
+  date_time: 2022/03/20 22:03:28
+  file_name: cpp-coroutines-06-sleep
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 212
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06
