@@ -190,6 +190,21 @@ struct Task {
 
 接下来我们给出几种简单的调度器实现作为示例，读者有兴趣也可以按照自己的需要设计调度器的实现。
 
+### NoopExecutor
+
+看名字相比大家也能猜个八九不离十，这就是个什么都不干的调度器：
+
+```cpp
+class NoopExecutor : public AbstractExecutor {
+ public:
+  void execute(std::function<void()> &&func) override {
+    func();
+  }
+};
+```
+
+如果我们给 `Task` 搭配这个调度器，`Task` 的执行线程就完全取决于调用者或者恢复者所在的线程了。
+
 ### NewThreadExecutor
 
 顾名思义，每次调度都创建一个新的线程。实现非常简单：
@@ -310,6 +325,22 @@ class LooperExecutor : public AbstractExecutor {
 各位读者可以参考代码注释来理解其中的逻辑。简单来说就是：
 1. 当队列为空时，Looper 的线程通过 `wait` 来实现阻塞等待。
 2. 有新任务加入时，通过 `notify_one` 来通知 `run_loop` 继续执行。
+
+### SharedLooperExecutor
+
+这个其实就是 `LooperExecutor` 的一个马甲，它的作用就是让各个协程共享一个 `LooperExecutor` 实例。
+
+```cpp
+class SharedLooperExecutor : public AbstractExecutor {
+ public:
+  void execute(std::function<void()> &&func) override {
+    static LooperExecutor sharedLooperExecutor;
+    sharedLooperExecutor.execute(std::move(func));
+  }
+};
+```
+
+当然，各位读者也可以发挥自己的想象力，按照类似的方式定义出更加有用或者有趣的调度器。
 
 ## 小试牛刀
 
