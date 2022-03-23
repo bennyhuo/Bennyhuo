@@ -321,6 +321,16 @@ cpp-coroutines-06-sleep:
   position: 212
   tags: 'C++|Coroutines '
   title: 渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep
+cpp-coroutines-07-channel:
+  abstract: 之前我们主要关注的是协程与外部调用者的交互，这次我们也关注一下对等的协程之间的通信。
+  date: 2022/03/22
+  date_time: 2022/03/22 22:03:14
+  file_name: cpp-coroutines-07-channel
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 263
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（7）：用于协程之间消息传递的 Channel
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06
