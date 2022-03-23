@@ -331,6 +331,16 @@ cpp-coroutines-07-channel:
   position: 263
   tags: 'C++|Coroutines '
   title: 渡劫 C++ 协程（7）：用于协程之间消息传递的 Channel
+cpp-coroutines-08-simplehttp:
+  abstract: 截止目前，我们一直专注于构建基于协程 API 的框架支持，这次我们用这些框架来写个简单的示例。
+  date: 2022/03/23
+  date_time: 2022/03/23 22:03:53
+  file_name: cpp-coroutines-08-simplehttp
+  group: cpp-coroutines
+  keywords: C++ Coroutines
+  position: 260
+  tags: 'C++|Coroutines '
+  title: 渡劫 C++ 协程（8）：一个简单的协程使用示例
 cpp-coroutines-README:
   abstract: ''
   date: 2022/03/06

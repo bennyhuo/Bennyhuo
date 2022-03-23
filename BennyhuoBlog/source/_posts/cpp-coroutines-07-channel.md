@@ -254,6 +254,7 @@ struct ReaderAwaiter {
 
 接下来我们给出 `Channel` 当中根据 buffer 的情况来处理读写两端的挂起和恢复的逻辑。
 
+<<<<<<< HEAD
 
 ## 小试牛刀
 
@@ -262,6 +263,311 @@ struct ReaderAwaiter {
 ## 小结
 
 
+=======
+### Channel 的基本结构
+
+我们先来看一下 `Channel` 的基本结构：
+
+```cpp
+template<typename ValueType>
+struct Channel {
+  ... 
+
+  struct ChannelClosedException : std::exception {
+    const char *what() const noexcept override {
+      return "Channel is closed.";
+    }
+  };
+
+  void check_closed() {
+    // 如果已经关闭，则抛出异常
+    if (!_is_active.load(std::memory_order_relaxed)) {
+      throw ChannelClosedException();
+    }
+  }
+ 
+
+  explicit Channel(int capacity = 0) : buffer_capacity(capacity) {
+    _is_active.store(true, std::memory_order_relaxed);
+  }
+
+  // true 表示 Channel 尚未关闭
+  bool is_active() {
+    return _is_active.load(std::memory_order_relaxed);
+  }
+
+  // 关闭 Channel
+  void close() {
+    bool expect = true;
+    // 判断如果已经关闭，则不再重复操作
+    // 比较 _is_active 为 true 时才会完成设置操作，并且返回 true
+    if(_is_active.compare_exchange_strong(expect, false, std::memory_order_relaxed)) {
+      // 清理资源
+      clean_up();
+    }
+  }
+
+  // 不希望 Channel 被移动或者复制
+  Channel(Channel &&channel) = delete;
+  Channel(Channel &) = delete;
+  Channel &operator=(Channel &) = delete;
+
+  // 销毁时关闭
+  ~Channel() {
+    close();
+  }
+
+ private:
+  // buffer 的容量
+  int buffer_capacity;
+  std::queue<ValueType> buffer;
+  // buffer 已满时，新来的写入者需要挂起保存在这里等待恢复
+  std::list<WriterAwaiter<ValueType> *> writer_list;
+  // buffer 为空时，新来的读取者需要挂起保存在这里等待恢复
+  std::list<ReaderAwaiter<ValueType> *> reader_list;
+  // Channel 的状态标识
+  std::atomic<bool> _is_active;
+
+  std::mutex channel_lock;
+  std::condition_variable channel_condition;
+
+  void clean_up() {
+    std::lock_guard lock(channel_lock);
+
+    // 需要对已经挂起等待的协程予以恢复执行
+    for (auto writer : writer_list) {
+      writer->resume();
+    }
+    writer_list.clear();
+
+    for (auto reader : reader_list) {
+      reader->resume();
+    }
+    reader_list.clear();
+
+    // 清空 buffer
+    decltype(buffer) empty_buffer;
+    std::swap(buffer, empty_buffer);
+  }
+};
+```
+
+通过了解 `Channel` 的基本结构，我们已经知道了 `Channel` 当中存了哪些信息。接下来我们就要填之前埋下的坑了：分别是在协程当中读写值用到的 `read` 和 `write` 函数，以及在挂起协程时 Awaiter 当中调用的 `try_push_writer` 和 `try_push_reader`。
+
+### read 和 write
+
+这两个函数也没什么实质的功能，就是把 Awaiter 创建出来，然后填充信息再返回：
+
+```cpp
+template<typename ValueType>
+struct Channel {
+  auto write(ValueType value) {
+    check_closed();
+    return WriterAwaiter<ValueType>{.channel = this, ._value = value};
+  }
+
+  auto operator<<(ValueType value) {
+    return write(value);
+  }
+
+  auto read() {
+    check_closed();
+    return ReaderAwaiter<ValueType>{.channel = this};
+  }
+
+  auto operator>>(ValueType &value_ref) {
+    auto awaiter =  read();
+    // 保存待赋值的变量的地址，方便后续写入
+    awaiter.p_value = &value_ref;
+    return awaiter;
+  }
+
+  ...
+}
+```
+
+这当中除了 `operator>>` 的实现需要多保存一个变量的地址以外，大家只需要注意一下对于 `check_closed` 的调用即可，它的功能很简单：在 `Channel` 关闭之后调用它会抛出 `ChannelClosedException`。
+
+### `try_push_writer` 和 `try_push_reader`
+
+这是 `Channel` 当中最为核心的两个函数了，他们的功能正好相反。
+
+`try_push_writer` 调用时，意味着有一个新的写入者挂起准备写入值到 `Channel` 当中，这时候有以下几种情况：
+1. `Channel` 当中有挂起的读取者，写入者直接将要写入的值传给读取者，恢复读取者，恢复写入者
+2. `Channel` 的 buffer 没满，写入者把值写入 buffer，然后立即恢复执行。
+3. `Channel` 的 buffer 已满，则写入者被存入挂起列表（writer_list）等待新的读取者读取时再恢复。
+
+了解了思路之后，它的实现就不难写出了，具体如下：
+
+```cpp
+void try_push_writer(WriterAwaiter<ValueType> *writer_awaiter) {
+  std::unique_lock lock(channel_lock);
+  check_closed();
+  // 检查有没有挂起的读取者，对应情况 1
+  if (!reader_list.empty()) {
+    auto reader = reader_list.front();
+    reader_list.pop_front();
+    lock.unlock();
+
+    reader->resume(writer_awaiter->_value);
+    writer_awaiter->resume();
+    return;
+  }
+
+  // buffer 未满，对应情况 2
+  if (buffer.size() < buffer_capacity) {
+    buffer.push(writer_awaiter->_value);
+    lock.unlock();
+    writer_awaiter->resume();
+    return;
+  }
+
+  // buffer 已满，对应情况 3
+  writer_list.push_back(writer_awaiter);
+}
+```
+
+相对应的，`try_push_reader` 调用时，意味着有一个新的读取者挂起准备从 `Channel` 当中读取值，这时候有以下几种情况：
+1. `Channel` 当中有挂起的写入者，写入者直接将要写入的值传给读取者，恢复读取者，恢复写入者
+2. `Channel` 的 buffer 非空，读取者从 buffer 当中读取值，然后立即恢复执行。
+3. `Channel` 的 buffer 为空，则读取者被存入挂起列表（reader_list）等待新的写入者写入时再恢复。
+
+接下来是具体的实现：
+
+```cpp
+void try_push_reader(ReaderAwaiter<ValueType> *reader_awaiter) {
+  std::unique_lock lock(channel_lock);
+  check_closed();
+
+  // 有写入者挂起，对应情况 1
+  if (!writer_list.empty()) {
+    auto writer = writer_list.front();
+    writer_list.pop_front();
+    lock.unlock();
+
+    reader_awaiter->resume(writer->_value);
+    writer->resume();
+    return;
+  }
+
+  // buffer 非空，对应情况 2
+  if (!buffer.empty()) {
+    auto value = buffer.front();
+    buffer.pop();
+    lock.unlock();
+
+    reader_awaiter->resume(value);
+    return;
+  }
+
+  // buffer 为空，对应情况 3
+  reader_list.push_back(reader_awaiter);
+}
+```
+
+至此，我们已经完整给出 `Channel` 的实现。
+
+> **说明**：我们当然也可以在 `await_ready` 的时候提前做一次判断，如果命中第 1、2 两种情况可以直接让写入/读取协程不挂起继续执行，这样可以避免写入/读取者的无效挂起。为了方便介绍，本文就不再做相关优化了。
+
+## 小试牛刀
+
+我们终于又实现了一个新的玩具，现在我们来给它通电试试效果。
+
+```cpp
+using namespace std::chrono_literals;
+
+Task<void, LooperExecutor> Producer(Channel<int> &channel) {
+  int i = 0;
+  while (i < 10) {
+    debug("send: ", i);
+    // 或者使用 write 函数：co_await channel.write(i++);
+    co_await (channel << i++);
+    co_await 300ms;
+  }
+
+  channel.close();
+  debug("close channel, exit.");
+}
+
+Task<void, LooperExecutor> Consumer(Channel<int> &channel) {
+  while (channel.is_active()) {
+    try {
+      // 或者使用 read 函数：auto received = co_await channel.read();
+      int received;
+      co_await (channel >> received);
+      debug("receive: ", received);
+      co_await 2s;
+    } catch (std::exception &e) {
+      debug("exception: ", e.what());
+    }
+  }
+
+  debug("exit.");
+}
+
+Task<void, LooperExecutor> Consumer2(Channel<int> &channel) {
+  while (channel.is_active()) {
+    try {
+      auto received = co_await channel.read();
+      debug("receive2: ", received);
+      co_await 3s;
+    } catch (std::exception &e) {
+      debug("exception2: ", e.what());
+    }
+  }
+
+  debug("exit.");
+}
+
+int main() {
+  auto channel = Channel<int>(2);
+  auto producer = Producer(channel);
+  auto consumer = Consumer(channel);
+  auto consumer2 = Consumer2(channel);
+ 
+  // 等待协程执行完成再退出
+  producer.get_result();
+  consumer.get_result();
+  consumer2.get_result();
+
+  return 0;
+}
+```
+
+例子非常简单，我们用一个写入者两个接收者向 `Channel` 当中读写数据，为了让示例更加凌乱，我们还加了一点点延时，运行结果如下：
+
+```
+08:39:58.129 [Thread-26004] (main.cpp:15) Producer: send:  0
+08:39:58.130 [Thread-27716] (main.cpp:31) Consumer: receive:  0
+08:39:58.443 [Thread-26004] (main.cpp:15) Producer: send:  1
+08:39:58.444 [Thread-17956] (main.cpp:45) Consumer2: receive2:  1
+08:39:58.759 [Thread-26004] (main.cpp:15) Producer: send:  2
+08:39:59.071 [Thread-26004] (main.cpp:15) Producer: send:  3
+08:39:59.382 [Thread-26004] (main.cpp:15) Producer: send:  4
+08:40:00.145 [Thread-27716] (main.cpp:31) Consumer: receive:  4
+08:40:00.454 [Thread-26004] (main.cpp:15) Producer: send:  5
+08:40:01.448 [Thread-17956] (main.cpp:45) Consumer2: receive2:  5
+08:40:01.762 [Thread-26004] (main.cpp:15) Producer: send:  6
+08:40:02.152 [Thread-27716] (main.cpp:31) Consumer: receive:  6
+08:40:02.464 [Thread-26004] (main.cpp:15) Producer: send:  7
+08:40:04.164 [Thread-27716] (main.cpp:31) Consumer: receive:  7
+08:40:04.460 [Thread-17956] (main.cpp:45) Consumer2: receive2:  2
+08:40:04.475 [Thread-26004] (main.cpp:15) Producer: send:  8
+08:40:04.787 [Thread-26004] (main.cpp:15) Producer: send:  9
+08:40:06.169 [Thread-27716] (main.cpp:31) Consumer: receive:  9
+08:40:06.481 [Thread-26004] (main.cpp:22) Producer: close channel, exit.
+08:40:07.464 [Thread-17956] (main.cpp:52) Consumer2: exit.
+08:40:08.181 [Thread-27716] (main.cpp:38) Consumer: exit.
+```
+
+结果我就不分析了。
+
+## 小结
+
+本文给出了 C++ 协程版的 `Channel` 的 demo 实现，这进一步证明了 C++ 协程的基础 API 的设计足够灵活，能够支撑非常复杂的需求场景。
+
+当然，本文给出的 `Channel` 仍然有个小小的限制，那就是需要在持有 `Channel` 实例的协程退出之前关闭，因为我们在 `Channel` 当中持有了已经挂起的读写协程的 `Awaiter` 的指针，一旦协程销毁，这些 `Awaiter` 也会被销毁，`Channel` 在关闭时试图恢复这些读写协程时就会出现程序崩溃（访问了野指针）。不过，这个问题我不想解决了，因为它并不影响我向大家介绍 C++ 协程的 API 的使用方法。
+>>>>>>> 241a2ff176da497980f1b8bdd21dcf137325e28f
 
 ---
 
