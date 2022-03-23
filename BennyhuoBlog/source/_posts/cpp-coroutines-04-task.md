@@ -21,6 +21,7 @@ tags:
 - [渡劫 C++ 协程（4）：通用异步任务 Task](https://www.bennyhuo.com/2022/03/19/cpp-coroutines-04-task/)
 - [渡劫 C++ 协程（5）：协程的调度器](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-05-dispatcher/)
 - [渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-06-sleep/)
+- [渡劫 C++ 协程（7）：用于协程之间消息传递的 Channel](https://www.bennyhuo.com/2022/03/22/cpp-coroutines-07-channel/)
 
 
 
@@ -398,7 +399,136 @@ struct Task {
 };
 ```
 
-至此，我们完成了 `Task` 的第一个版本的实现，这个版本的实现当中尽管我们对 `Task` 的结果做了加锁，但考虑到目前我们仍没有提供线程切换的能力，因此这实际上是一个无调度器版本的 `Task` 实现。
+现在我们完成了 `Task` 的第一个通用版本的实现，这个版本的实现当中尽管我们对 `Task` 的结果做了加锁，但考虑到目前我们仍没有提供线程切换的能力，因此这实际上是一个无调度器版本的 `Task` 实现。
+
+## Task 的 void 特化
+
+前面讨论的 `Task` 有一个作为返回值类型的模板参数 `ResultType`。实际上有些时候我们只是希望一段任务可以异步执行完，而不关注它的结果，这时候 `ResultType` 就需要是 `void`。例如：
+
+```cpp
+Task<void> Producer(Channel<int> &channel) {
+  ...
+}
+```
+
+但很快你就会发现问题。编译器会告诉你模板实例化错误，因为我们没法用 `void` 来声明变量；编译器还会告诉你协程体里面如果没有返回值，你应该提供为 `promise_type` 提供 `return_void` 函数。
+
+看来情况没有那么简单。当然也没有那么复杂。C++ 的模板经常会遇到这种需要特化的情况，我们只需要对之前的 `Task<ResultType>` 版本的定义稍作修改，就可以给出 `Task<void>` 的版本：
+
+```cpp
+template<>
+struct Task<void> {
+  // 用 void 作为第一个模板参数实例化 TaskPromise
+  using promise_type = TaskPromise<void>;
+
+  // 返回 void
+  void get_result() {
+    // 因为是 void，因此不用 return
+    // 这时这个函数的作用就是阻塞当前线程等待协程执行完成
+    handle.promise().get_result();
+  }
+
+  // func 的类型参数 void()，注意之前这个模板类型构造器还有个参数 ResultType
+  Task &then(std::function<void()> &&func) {
+    handle.promise().on_completed([func](auto result) {
+      try {
+        // 我们也会对 result 做 void 版本的实例化，这里只是检查有没有异常抛出
+        result.get_or_throw();
+        func();
+      } catch (std::exception &e) {
+        // ignore.
+      }
+    });
+    return *this;
+  }
+
+  Task &catching(std::function<void(std::exception &)> &&func) {
+    handle.promise().on_completed([func](auto result) {
+      try {
+        result.get_or_throw();
+      } catch (std::exception &e) {
+        func(e);
+      }
+    });
+    return *this;
+  }
+  ...
+};
+```
+
+你会发现变化的只是跟结果相关的部分。相应的，`TaskPromise` 也需要做出修改：
+
+```cpp
+template<>
+struct TaskPromise<void> {
+  ...
+
+  // 注意 Task 的模板参数
+  Task<void> get_return_object() {
+    return Task{std::coroutine_handle<TaskPromise>::from_promise(*this)};
+  }
+
+  ...
+
+  // 返回值类型改成 void
+  void get_result() {
+    ...
+    // 不再需要 return
+    result->get_or_throw();
+  }
+
+  void unhandled_exception() {
+    std::lock_guard lock(completion_lock);
+    // Result 的模板参数变化
+    result = Result<void>(std::current_exception());
+    completion.notify_all();
+    notify_callbacks();
+  }
+
+  // 不再是 return_value 了
+  void return_void() {
+    std::lock_guard lock(completion_lock);
+    result = Result<void>();
+    completion.notify_all();
+    notify_callbacks();
+  }
+
+  // 注意 Result 的模板参数 void 
+  void on_completed(std::function<void(Result<void>)> &&func) {
+    ... 
+  }
+
+ private:
+  // 注意 Result 的模板参数 void
+  std::optional<Result<void>> result;
+  std::list<std::function<void(Result<void>)>> completion_callbacks;
+
+  ...
+};
+```
+
+还有 `Result` 也有对应的 `void` 实例化版本，其实就是把存储返回值相关的逻辑全部删掉，只保留异常相关的部分：
+
+```cpp
+template<>
+struct Result<void> {
+
+  explicit Result() = default;
+
+  explicit Result(std::exception_ptr &&exception_ptr) : _exception_ptr(exception_ptr) {}
+
+  void get_or_throw() {
+    if (_exception_ptr) {
+      std::rethrow_exception(_exception_ptr);
+    }
+  }
+
+ private:
+  std::exception_ptr _exception_ptr;
+};
+```
+
+至此，我们进一步完善了 `Task` 对不同类型的结果的支持，理论上我们可以使用 `Task` 来构建各式各样的协程了。
 
 ## 小试牛刀
 

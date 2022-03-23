@@ -21,6 +21,7 @@ tags:
 - [渡劫 C++ 协程（4）：通用异步任务 Task](https://www.bennyhuo.com/2022/03/19/cpp-coroutines-04-task/)
 - [渡劫 C++ 协程（5）：协程的调度器](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-05-dispatcher/)
 - [渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-06-sleep/)
+- [渡劫 C++ 协程（7）：用于协程之间消息传递的 Channel](https://www.bennyhuo.com/2022/03/22/cpp-coroutines-07-channel/)
 
 
 
@@ -206,6 +207,21 @@ struct Task {
 
 接下来我们给出几种简单的调度器实现作为示例，读者有兴趣也可以按照自己的需要设计调度器的实现。
 
+### NoopExecutor
+
+看名字相比大家也能猜个八九不离十，这就是个什么都不干的调度器：
+
+```cpp
+class NoopExecutor : public AbstractExecutor {
+ public:
+  void execute(std::function<void()> &&func) override {
+    func();
+  }
+};
+```
+
+如果我们给 `Task` 搭配这个调度器，`Task` 的执行线程就完全取决于调用者或者恢复者所在的线程了。
+
 ### NewThreadExecutor
 
 顾名思义，每次调度都创建一个新的线程。实现非常简单：
@@ -327,6 +343,20 @@ class LooperExecutor : public AbstractExecutor {
 1. 当队列为空时，Looper 的线程通过 `wait` 来实现阻塞等待。
 2. 有新任务加入时，通过 `notify_one` 来通知 `run_loop` 继续执行。
 
+### SharedLooperExecutor
+
+这个其实就是 `LooperExecutor` 的一个马甲，它的作用就是让各个协程共享一个 `LooperExecutor` 实例。
+
+```cpp
+class SharedLooperExecutor : public AbstractExecutor {
+ public:
+  void execute(std::function<void()> &&func) override {
+    static LooperExecutor sharedLooperExecutor;
+    sharedLooperExecutor.execute(std::move(func));
+  }
+};
+```
+
 ## 小试牛刀
 
 这次我们基于上一篇文章当中的 demo 加入调度器的支持：
@@ -399,6 +429,9 @@ int main() {
 ## 小结
 
 本文我们终于给 `Task` 添加了调度器的支持。如此一来，我们就可以把 `Task` 绑定到合适的线程调度器上，来应对更加复杂的业务场景了。
+
+读者也可以发挥自己的想象力，按照类似的方式定义出更加有用或者有趣的调度器。当然，本文给出的调度器没有做调度优化，有兴趣的读者也可以自己尝试
+
 
 ---
 
