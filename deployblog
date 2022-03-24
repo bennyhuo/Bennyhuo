@@ -6,4 +6,10 @@ cp -r $BASE_DIR"/source/build/blog/." $BASE_DIR"/BennyhuoBlog/source/_posts"
 
 cd $BASE_DIR"/BennyhuoBlog"
 # 2. deploy blog
-hexo d -g
+hexo g
+
+# 3. build & copy book
+$BOOK_DIR/scripts/syncbook.sh
+
+# 4. deploy book
+hexo d

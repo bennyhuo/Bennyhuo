@@ -22,6 +22,7 @@ tags:
 - [渡劫 C++ 协程（5）：协程的调度器](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-05-dispatcher/)
 - [渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-06-sleep/)
 - [渡劫 C++ 协程（7）：用于协程之间消息传递的 Channel](https://www.bennyhuo.com/2022/03/22/cpp-coroutines-07-channel/)
+- [渡劫 C++ 协程（8）：一个简单的协程使用示例](https://www.bennyhuo.com/2022/03/23/cpp-coroutines-08-simplehttp/)
 
 
 
@@ -357,11 +358,6 @@ class SharedLooperExecutor : public AbstractExecutor {
 };
 ```
 
-<<<<<<< HEAD
-当然，各位读者也可以发挥自己的想象力，按照类似的方式定义出更加有用或者有趣的调度器。
-
-=======
->>>>>>> 241a2ff176da497980f1b8bdd21dcf137325e28f
 ## 小试牛刀
 
 这次我们基于上一篇文章当中的 demo 加入调度器的支持：

@@ -1,35 +1,44 @@
 const getConfig = require("vuepress-bar");
 
+const rootDir = "book"
+
 const { nav, sidebar } = getConfig({
     addReadMeToFirstGroup: false
 });
 
-console.log(sidebar)
+const bookTitles = {
+    "Java17 Updates": "Java 17 版本更新",
+    "Cpp Coroutines": "渡劫 C++ 协程",
+    "Swift Coroutines": "闲话 Swift 协程"
+}
 
 const sideBarContent = sidebar.filter((e) => e != '').map((e) => {
     return {
-        text: e.title,
+        text: bookTitles[e.title] ?? e.title,
         collapsible: true,
         children: [...e.children.filter((path) => path != "" && path != `${e.title}/index`).map((path) => {
-            console.log(path)
             return `/${path}`
         })]
     }
 }).reduce((obj, current) => {
-    obj['/'] = [...obj['/'], current]
+    obj[`/`] = [...obj[`/`], current]
     return obj
 }, {
-    "/": [{ text: 'Benny Huo 的专栏', collapsible: true, link: "/" }]
+    [`/`]: [{ text: '内容介绍', collapsible: true, link: "/" }]
 });
 
 
 const sideBar = { ...sideBarContent }
 
+console.log(sideBar)
+
 module.exports = {
-    title: '编程指南',
+    title: 'Benny Huo 的专栏',
+    logo: "/assets/avatar.jpg",
+    base: `/${rootDir}/`,
     description: '',
     themeConfig: {
-        docsDir: 'docs',
+        docsDir: `docs`,
         sidebar: sideBar,
         sidebarDepth: 1
     }

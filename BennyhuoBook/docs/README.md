@@ -2,9 +2,9 @@
 
 ## 专栏目录
 
-* [**白话 Java 17 版本更新**](https://book.bennyhuo.com/v/java17-updates/)（已完结）
-* [**闲话 Swift 协程**](https://book.bennyhuo.com/v/swift-coroutines/)（已完结）
-* [**渡劫 C++ 协程**](https://book.bennyhuo.com/v/cpp-coroutines/)（连载中）
+* [**白话 Java 17 版本更新**](https://www.bennyhuo.com/book/java17-updates/)（已完结）
+* [**闲话 Swift 协程**](https://www.bennyhuo.com/book/swift-coroutines/)（已完结）
+* [**渡劫 C++ 协程**](https://www.bennyhuo.com/book/cpp-coroutines/)（连载中）
 
 ## 技术书籍
 

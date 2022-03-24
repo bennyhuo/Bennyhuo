@@ -1,3 +1,41 @@
 :root {
   scroll-behavior: smooth;
 }
+
+.page img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.router-link-exact-active {
+  background-color: #f6f6f6;
+}
+
+.sidebar-item:not(.sidebar-heading) + .sidebar-item-children {
+  background-color: #f6f6f6;
+  padding-left: 2em;
+}
+
+
+:root {
+  // brand colors
+  --c-brand: #3e49af;
+  --c-brand-light: #646dbe;
+}
+
+html.dark {
+  // brand colors
+  --c-brand: #6674f0;
+  --c-brand-light: #747dca;
+
+  .router-link-exact-active {
+    background-color: #030303;
+  }
+  
+  .sidebar-item:not(.sidebar-heading) + .sidebar-item-children {
+    background-color: #030303;
+    padding-left: 2em;
+  }
+}

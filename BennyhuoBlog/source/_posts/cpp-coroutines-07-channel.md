@@ -22,6 +22,7 @@ tags:
 - [渡劫 C++ 协程（5）：协程的调度器](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-05-dispatcher/)
 - [渡劫 C++ 协程（6）：基于协程的挂起实现无阻塞的 sleep](https://www.bennyhuo.com/2022/03/20/cpp-coroutines-06-sleep/)
 - [渡劫 C++ 协程（7）：用于协程之间消息传递的 Channel](https://www.bennyhuo.com/2022/03/22/cpp-coroutines-07-channel/)
+- [渡劫 C++ 协程（8）：一个简单的协程使用示例](https://www.bennyhuo.com/2022/03/23/cpp-coroutines-08-simplehttp/)
 
 
 
@@ -254,16 +255,6 @@ struct ReaderAwaiter {
 
 接下来我们给出 `Channel` 当中根据 buffer 的情况来处理读写两端的挂起和恢复的逻辑。
 
-<<<<<<< HEAD
-
-## 小试牛刀
-
-
-
-## 小结
-
-
-=======
 ### Channel 的基本结构
 
 我们先来看一下 `Channel` 的基本结构：
@@ -567,7 +558,6 @@ int main() {
 本文给出了 C++ 协程版的 `Channel` 的 demo 实现，这进一步证明了 C++ 协程的基础 API 的设计足够灵活，能够支撑非常复杂的需求场景。
 
 当然，本文给出的 `Channel` 仍然有个小小的限制，那就是需要在持有 `Channel` 实例的协程退出之前关闭，因为我们在 `Channel` 当中持有了已经挂起的读写协程的 `Awaiter` 的指针，一旦协程销毁，这些 `Awaiter` 也会被销毁，`Channel` 在关闭时试图恢复这些读写协程时就会出现程序崩溃（访问了野指针）。不过，这个问题我不想解决了，因为它并不影响我向大家介绍 C++ 协程的 API 的使用方法。
->>>>>>> 241a2ff176da497980f1b8bdd21dcf137325e28f
 
 ---
 
