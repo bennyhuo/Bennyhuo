@@ -16,4 +16,5 @@ rm $SRC_DIR/*/SUMMARY.md
 cd $BOOK_DIR
 npm run docs:build
 
+mkdir $BASE_DIR/../BennyhuoBlog/public/book/
 cp -R $BOOK_DIR/docs/.vuepress/dist/* $BASE_DIR/../BennyhuoBlog/public/book/
