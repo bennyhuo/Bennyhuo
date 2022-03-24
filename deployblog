@@ -9,7 +9,7 @@ cd $BASE_DIR"/BennyhuoBlog"
 hexo g
 
 # 3. build & copy book
-$BOOK_DIR/scripts/syncbook.sh
+$BASE_DIR/scripts/syncbook.sh
 
 # 4. deploy book
 hexo d
