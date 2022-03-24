@@ -1,0 +1,21 @@
+{
+  "name": "mario-books",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.35"
+  },
+  "dependencies": {
+    "vuepress-bar": "^0.3.6"
+  }
+}
