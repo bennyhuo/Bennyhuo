@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/ 
+Allow: /resources/ 
+Allow: /about/ 
+
+Sitemap: https://www.bennyhuo.com/sitemap.xml
+Sitemap: https://www.bennyhuo.com/baidusitemap.xml
+
