@@ -127,11 +127,11 @@
   </entry>
   <entry>
     <title>如何为 Gradle 的 KTS 脚本添加扩展？</title>
-    <url>/2021/04/18/Add-extensions-to-build-scripts/</url>
+    <url>/2021/04/17/Add-extensions-to-build-scripts/</url>
     <content><![CDATA[<blockquote>
 <p>本质上还是要搞清楚 KTS 是怎么运行的 </p>
 </blockquote>
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1BU4y1b7Wk&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1BU4y1b7Wk&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
@@ -1376,11 +1376,11 @@
   </entry>
   <entry>
     <title>[Android Studio 技巧] 快捷键的使用</title>
-    <url>/2021/05/10/android-studio-shortcuts/</url>
+    <url>/2021/05/09/android-studio-shortcuts/</url>
     <content><![CDATA[<blockquote>
 <p>有关 Android Studio 快捷键，看这个视频就够了 </p>
 </blockquote>
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1g64y1279B&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1g64y1279B&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
@@ -1650,7 +1650,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1vv4y1A7fX&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1vv4y1A7fX&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -1834,7 +1834,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1ug411d7Xy&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1ug411d7Xy&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -1985,7 +1985,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1dB4y1X7mY&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1dB4y1X7mY&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -2140,7 +2140,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV163411g7np&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV163411g7np&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -2247,7 +2247,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1TW4y1k7gp&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1TW4y1k7gp&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -2347,7 +2347,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV15v4y1g7Nu&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV15v4y1g7Nu&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -2435,7 +2435,7 @@
 </blockquote>
 <span id="more"></span>
 
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1oA4y1R7jn&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1oA4y1R7jn&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2022/03/06/cpp-coroutines-00-foreword/">渡劫 C++ 协程（0）：前言</a></li>
@@ -3015,11 +3015,11 @@
   </entry>
   <entry>
     <title>快速迁移 Gradle 脚本至 KTS</title>
-    <url>/2021/04/18/gradle-migrate-to-kts/</url>
+    <url>/2021/04/17/gradle-migrate-to-kts/</url>
     <content><![CDATA[<blockquote>
 <p>接下来我们就把这个示例工程的 Gradle 脚本用 KTS 改写 </p>
 </blockquote>
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1Kf4y1p7zq&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1Kf4y1p7zq&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
@@ -3210,11 +3210,11 @@
   </entry>
   <entry>
     <title>Gradle 创建 Task 的写法不是 Groovy 的标准语法吧？</title>
-    <url>/2021/04/12/gradle-task-syntax/</url>
+    <url>/2021/04/11/gradle-task-syntax/</url>
     <content><![CDATA[<blockquote>
 <p>任务名居然是以标识符的形式写出来的，你们难道没有觉得奇怪吗？ </p>
 </blockquote>
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1ib4y1D74X&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1ib4y1D74X&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
@@ -7008,11 +7008,11 @@
   </entry>
   <entry>
     <title>重构代码的时候千万小心，SAM 转换可能会引发一个奇怪的运行时类不能访问的异常</title>
-    <url>/2021/06/04/sam-meets-package-visibility/</url>
+    <url>/2021/06/03/sam-meets-package-visibility/</url>
     <content><![CDATA[<blockquote>
 <p>SAM 转换是很香，不过还是要小心遇到坑 </p>
 </blockquote>
-<iframe class="bilibili"  src="//player.bilibili.com/player.html?aid=290197027&bvid=BV1wB4y1g79W&cid=325923583&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="bilibili"  src="//player.bilibili.com/player.html?bvid=BV1wB4y1g79W&autoplay=0&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
