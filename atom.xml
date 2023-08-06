@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.bennyhuo.com/"/>
-  <updated>2023-08-05T20:00:04.197Z</updated>
+  <updated>2023-08-06T20:00:04.656Z</updated>
   <id>https://www.bennyhuo.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>接下来的一些想法</title>
-    <link href="https://www.bennyhuo.com//2023/08/05/roadmap-2023/"/>
-    <id>https://www.bennyhuo.com//2023/08/05/roadmap-2023/</id>
-    <published>2023-08-05T20:08:03.000Z</published>
-    <updated>2023-08-05T20:00:04.197Z</updated>
+    <link href="https://www.bennyhuo.com//2023/08/06/roadmap-2023/"/>
+    <id>https://www.bennyhuo.com//2023/08/06/roadmap-2023/</id>
+    <published>2023-08-06T20:08:04.000Z</published>
+    <updated>2023-08-06T20:00:04.656Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>想法很多，需要慢慢花时间去落实。 </p></blockquote><span id="more"></span><p>朋友们好，我是 bennyhuo。</p><p>这篇文章我准备聊聊接下来我想做的一些事情，让关注我的朋友们能够大概知道我在公众号、B站等平台接下来会输出哪些方面的内容。</p><h2 id="内容选题"><a href="#内容选题" class="headerlink" title="内容选题"></a>内容选题</h2><p>内容选题会尽量专注于编程语言特性。</p><p>首先，最重要的就是 Kotlin 相关的专题内容。目前在考虑中的一个专题是 Kotlin 与 Swift 核心特性的对比和分析。Kotlin 方向的内容我会花比较多的时间研究，内容也会偏向于进阶。</p><p>其次，我会对 Java、C++ 的新特性保持关注，除了更新《Java 核心技术》的读书视频以外，目前计划中有一个专题是 Java 18-21 新特性介绍（Java 17 的新特性专题文章已经发布）。相比之下，C++ 的内容做起来会更耗费精力，毕竟 C++ 比 Java 的新特性更多，也更复杂，因此暂时会优先考虑把《现代 C++ 核心特性解析》的读书视频做完。</p><p>此外，《Rust 官方电子书》和 《Effective Python》 的读书视频也在持续更新。</p><p>暂时没有开新坑的计划，所以大家可以踏实地等我更新这些视频。</p><h2 id="内容形式"><a href="#内容形式" class="headerlink" title="内容形式"></a>内容形式</h2><p>前面其实已经提到了，内容的形式主要分为文章和视频。我会优先考虑视频的更新，尽量保证两天一更，不过，可能每个月会休息几天。在不适合录制视频的情况下（比如嗓子不舒服的时候），我会抽空撰写专题文章，所以文章的发布频率可能会相对低一些。</p><p>以上都是公开的内容。知识星球也会每月发布一期会员视频，会员视频的内容以学习思考、工作方法之类的方向为主，与公开的内容有一定的定位差异。我也在考虑将一部分专题文章放到知识星球作为会员专题文章，不过暂时还没有确定具体操作形式。</p><h2 id="发布平台"><a href="#发布平台" class="headerlink" title="发布平台"></a>发布平台</h2><p>在催更微信群的朋友应该知道我最近这几天一直在打磨批量发布视频的工具。这个工具目前已经支持了将视频批量发布到 B站、YouTube、抖音、微信公众号（也会同步到视频号）四个平台，因此后续的视频发布终于可以轻松实现多平台同时发布了。</p><p>不管你习惯使用哪个平台，你都可以通过搜索 “<strong>霍丙乾 bennyhuo</strong>” 找到我的账号，收看我的视频内容。近期，我会陆续将存量的视频发布到抖音和微信公众号上，尽快与 B 站和 YouTube 逐步实现同步。</p><p>文章则会按照优先级在我的个人网站（<a href="https://www.bennyhuo.com)、微信公众号和掘金发布./">https://www.bennyhuo.com）、微信公众号和掘金发布。</a></p><h2 id="一点愿景"><a href="#一点愿景" class="headerlink" title="一点愿景"></a>一点愿景</h2><p>我不是计算机专业毕业的，我学到的很多计算机相关的知识都来自于互联网上各位前辈的无私奉献。其中对我影响最大的是 <a href="https://space.bilibili.com/2884629">oeasy 老师</a>，他现在还在 B 站持续发布新的视频教程来帮助大家。我一直觉得能坚持做这样一件事实在是太酷了。</p><p>我希望把事情做得纯粹一些，因此你不会在我的公众号看到 “几年心血总结出这篇八股文”、“阿里 P8 教你面试” 之类的广告，也不会在我的视频里面看到我明示大家投币三连求关注的转场动画。</p><p>希望我现在发布的内容也能对大家有所帮助。十几年后说起来，有过这么个人曾经影响过你。</p><hr><h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，预计 2023 Q3）；前腾讯高级工程师，现就职于猿辅导</p><ul><li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li><li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li><li>bilibili：<a href="https://space.bilibili.com/28615855"><strong>霍丙乾 bennyhuo</strong></a></li><li>微信公众号：<strong>霍丙乾 bennyhuo</strong></li></ul>]]></content>
     
