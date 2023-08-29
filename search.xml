@@ -8447,7 +8447,6 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/48cc2b74-2ef8-40db-8418-9d9756bfdf14/media/20230828215609.png"></p>
 <p>当然，现在大家稍微做一些功课就会看到“千万不要在简历中写精通 XXX“ 之类的警告，不知道大家有没有想过，为什么写精通就是不行呢？</p>
 <h2 id="什么是精通？"><a href="#什么是精通？" class="headerlink" title="什么是精通？"></a>什么是精通？</h2><p>要搞清楚这个问题，先得搞清楚什么是精通。</p>
-<p>精通有两个含义，在提及“精通 XXX”的语境下，应该是下面的含义：</p>
 <blockquote>
 <p><strong>精通</strong>： 透彻通晓。</p>
 <p>晋 左思 《魏都赋》：“硕画精通，目无匪制，推锋积纪，鋩气弥鋭。” 唐 李咸用 《赠陈望尧》诗：“若説精通事艺长，词人争及孝廉郎。”《醒世恒言·刘小官雌雄兄弟》：“不过数月，经书词翰，无不精通。”如：他精通英语。</p>
@@ -8492,7 +8491,8 @@
 <li><a href="https://github.com/bennyhuo/Klue">Klue</a></li>
 </ul>
 <p>不仅如此，经过两年的努力，我又写了一本书：《深入实践 Kotlin 元编程》。</p>
-<p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/48cc2b74-2ef8-40db-8418-9d9756bfdf14/media/20230828215014.png"></p>
+<p><a href="https://item.jd.com/10081757341486.html"><img src="https://kotlinblog-1251218094.costj.myqcloud.com/48cc2b74-2ef8-40db-8418-9d9756bfdf14/media/20230828215014.png" alt="深入实践 Kotlin 元编程"></a></p>
+<p><a href="https://item.jd.com/10081757341486.html">&gt;&gt;&gt;点击查看详情&lt;&lt;&lt;</a></p>
 <p>这本书的内容可以说是躺在 Kotlin 和 Java 编译器的源码上写完的。如果几年后有机会再出去面试，不管是问我 Java、Kotlin 的反射的工作机制还是 APT 和 KSP 的实现细节，甚至 Kotlin 编译器插件的内部原理，我都能说的头头是道。</p>
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/48cc2b74-2ef8-40db-8418-9d9756bfdf14/media/20230828222941.png"></p>
 <p>既然如此，我觉得我在简历上写个熟练掌握 Kotlin 应该问题不大，不过显然让面试官自己得出结论效果会更好，而我只会说我啥也不会。</p>
