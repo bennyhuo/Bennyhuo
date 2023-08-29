@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.bennyhuo.com//2023/08/29/new-book-metaprogramming/</loc>
+    <loc>https://www.bennyhuo.com//2022/03/27/cpp-coroutines-09-http/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
-    <loc>https://www.bennyhuo.com//2022/12/31/summary-2022/</loc>
+    <loc>https://www.bennyhuo.com//2022/03/27/cpp-coroutines-10-postscript/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
-    <loc>https://www.bennyhuo.com//2023/05/13/roadmap-2023/</loc>
+    <loc>https://www.bennyhuo.com//2019/03/31/kotlin-coroutines-00-forword/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
-    <loc>https://www.bennyhuo.com//2023/03/29/new-name-and-new-journey/</loc>
+    <loc>https://www.bennyhuo.com//2019/04/01/basic-coroutines/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
-    <loc>https://www.bennyhuo.com//2022/01/20/summary-2021/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/02/12/swift-coroutines-07-globalactor/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/02/12/swift-coroutines-08-tasklocal/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/02/16/swift-coroutines-09-interop/</loc>
+    <loc>https://www.bennyhuo.com//2019/04/08/coroutines-start-mode/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
@@ -73,7 +61,119 @@
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
+    <loc>https://www.bennyhuo.com//2022/03/14/cpp-coroutines-03-functional/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/19/cpp-coroutines-04-task/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/20/cpp-coroutines-05-dispatcher/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/20/cpp-coroutines-06-sleep/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/22/cpp-coroutines-07-channel/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/27/cpp-coroutines-08-awaiter/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-08-sealedclass/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-09-foreignapi-memory/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-10-foreignapi-callfunction/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-11-vector/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-12-contextserialfilter/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/06/cpp-coroutines-00-foreword/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/09/cpp-coroutines-01-intro/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/03/11/cpp-coroutines-02-generator/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/09/25/Java17-Updates-00-foreword/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/09/26/Java17-Updates-01-intro/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/09/26/Java17-Updates-02-strictfp/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/09/27/Java17-Updates-03-random/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/09/27/Java17-Updates-04-mac/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/09/28/Java17-Updates-05-removed/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-06-internals/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-07-switch/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
     <loc>https://www.bennyhuo.com//2019/12/01/coroutine-implementations/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2023/03/29/new-name-and-new-journey/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/01/20/summary-2021/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/12/31/summary-2022/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2022/02/16/swift-coroutines-09-interop/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2023/05/13/roadmap-2023/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bennyhuo.com//2023/08/29/new-book-metaprogramming/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
@@ -105,111 +205,11 @@
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
-    <loc>https://www.bennyhuo.com//2022/03/22/cpp-coroutines-07-channel/</loc>
+    <loc>https://www.bennyhuo.com//2022/02/12/swift-coroutines-07-globalactor/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
-    <loc>https://www.bennyhuo.com//2022/03/27/cpp-coroutines-08-awaiter/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/27/cpp-coroutines-09-http/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/27/cpp-coroutines-10-postscript/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2019/03/31/kotlin-coroutines-00-forword/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2019/04/01/basic-coroutines/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2019/04/08/coroutines-start-mode/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/09/cpp-coroutines-01-intro/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/11/cpp-coroutines-02-generator/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/14/cpp-coroutines-03-functional/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/19/cpp-coroutines-04-task/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/20/cpp-coroutines-05-dispatcher/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/20/cpp-coroutines-06-sleep/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-07-switch/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-08-sealedclass/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-09-foreignapi-memory/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-10-foreignapi-callfunction/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-11-vector/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-12-contextserialfilter/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2022/03/06/cpp-coroutines-00-foreword/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/09/25/Java17-Updates-00-foreword/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/09/26/Java17-Updates-01-intro/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/09/26/Java17-Updates-02-strictfp/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/09/27/Java17-Updates-03-random/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/09/27/Java17-Updates-04-mac/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/09/28/Java17-Updates-05-removed/</loc>
-    <lastmod>2023-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bennyhuo.com//2021/10/02/Java17-Updates-06-internals/</loc>
+    <loc>https://www.bennyhuo.com//2022/02/12/swift-coroutines-08-tasklocal/</loc>
     <lastmod>2023-08-29</lastmod>
   </url>
   <url>
