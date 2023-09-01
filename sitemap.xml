@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.bennyhuo.com/2023/08/29/new-book-metaprogramming/</loc>
+    
+    <lastmod>2023-09-01T20:00:04.061Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.bennyhuo.com/2022/03/27/cpp-coroutines-09-http/</loc>
     
     <lastmod>2023-08-29T20:00:04.559Z</lastmod>
@@ -297,13 +304,6 @@
   
   <url>
     <loc>https://www.bennyhuo.com/2023/05/13/roadmap-2023/</loc>
-    
-    <lastmod>2023-08-29T20:00:04.543Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.bennyhuo.com/2023/08/29/new-book-metaprogramming/</loc>
     
     <lastmod>2023-08-29T20:00:04.543Z</lastmod>
     
