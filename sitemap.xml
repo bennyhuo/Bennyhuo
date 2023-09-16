@@ -2,23 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.bennyhuo.com/about/index.html</loc>
-    
-    <lastmod>2023-09-16T14:03:15.991Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.bennyhuo.com/project/kotlin-metaprogramming.html</loc>
     
-    <lastmod>2023-09-16T14:03:15.991Z</lastmod>
+    <lastmod>2023-09-16T14:02:46.719Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.bennyhuo.com/README.html</loc>
+    <loc>https://www.bennyhuo.com/about/index.html</loc>
     
-    <lastmod>2023-09-16T14:03:15.991Z</lastmod>
+    <lastmod>2023-09-16T14:02:46.718Z</lastmod>
     
   </url>
   
