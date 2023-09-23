@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.bennyhuo.com/2023/09/04/Java-New-00-foreword/</loc>
+    
+    <lastmod>2023-09-23T20:00:03.392Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.bennyhuo.com/2023/09/23/Java-New-01-var/</loc>
+    
+    <lastmod>2023-09-23T20:00:03.392Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.bennyhuo.com/project/kotlin-metaprogramming.html</loc>
     
     <lastmod>2023-09-16T14:02:46.719Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://www.bennyhuo.com/about/index.html</loc>
     
     <lastmod>2023-09-16T14:02:46.718Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.bennyhuo.com/2023/09/04/Java-New-00-foreword/</loc>
-    
-    <lastmod>2023-09-04T20:00:04.203Z</lastmod>
     
   </url>
   

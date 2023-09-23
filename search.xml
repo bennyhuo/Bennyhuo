@@ -8522,6 +8522,7 @@
 
 <ul>
 <li><a href="https://www.bennyhuo.com/2023/09/04/Java-New-00-foreword/">现代 Java（0）：前言</a></li>
+<li><a href="https://www.bennyhuo.com/2023/09/23/Java-New-01-var/">现代 Java（1）：Java 也支持类型推导了？</a></li>
 </ul>
 <p>2014 年初 Java 8 就发布了，Java 迎来了其历史上继 5 之后的第二次史诗级更新。我们不妨列举一下 Java 5 和 Java 8 的主要特性来感受一下更新的力度。</p>
 <p>Java 5 的主要更新：</p>
@@ -8582,6 +8583,78 @@
 <p>从语法特性的角度来看，Java 17 是非常有诱惑力的。不过，相较难以量化的开发效率上的提升，架构师们往往更看重程序运行效率的提升。我们有理由相信，携带了虚拟线程和分代 ZGC 的 Java 21 将会是一个更加有说服力的版本。</p>
 <p>Java 最近几年的更新无疑是令人兴奋和激动的。尽管比起它的最有力的竞争者 Kotlin 而言，Java 在语法特性上仍显得非常保守，但看看 C++ 近几年的更新就可以知道，语言特性的稳健何尝又不是对现存的 Java 开发者的一种友好呢？</p>
 <p>接下来，我准备写一系列文章来介绍一下 Java 8 以来的重要语法特性更新，希望可以在一定程度上帮助大家了解现代 Java 的语法特性的发展。</p>
+<hr>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<ul>
+<li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
+<li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
+<li>bilibili：<a href="https://space.bilibili.com/28615855"><strong>霍丙乾 bennyhuo</strong></a></li>
+<li>微信公众号：<strong>霍丙乾 bennyhuo</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java17</tag>
+        <tag>Java8</tag>
+        <tag>Java21</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>现代 Java（1）：Java 也支持类型推导了？</title>
+    <url>//2023/09/23/Java-New-01-var/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<span id="more"></span>
+
+
+
+<ul>
+<li><a href="https://www.bennyhuo.com/2023/09/04/Java-New-00-foreword/">现代 Java（0）：前言</a></li>
+<li><a href="https://www.bennyhuo.com/2023/09/23/Java-New-01-var/">现代 Java（1）：Java 也支持类型推导了？</a></li>
+</ul>
+<p>类型推导是现代编程语言必备的能力，我们现在很少能够看到不支持类型推导的主流编程语言了。当然，C 语言是个例外。</p>
+<p>类型推导就是编译器根据上下文信息对变量的类型进行推算的能力，最典型的例子莫过于 C++ 当中的这个场景了：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::vector&lt;std::map&lt;std::string, std::vector&lt;<span class="type">int</span>&gt;&gt;&gt; values;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">for</span> (std::vector&lt;std::map&lt;std::string, std::vector&lt;<span class="type">int</span>&gt;&gt;&gt;::iterator i = values.<span class="built_in">begin</span>(); i &lt; values.<span class="built_in">end</span>(); ++i) &#123;</span><br><span class="line">  ...   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，for 循环中的 i 的类型非常长，写起来繁琐之外，还很难写对这一度让 C++ 的开发者极度难受。不过，从 C++ 11 开始，类型推导的引入让事情变得简单了起来：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> i = values.<span class="built_in">begin</span>(); i &lt; values.<span class="built_in">end</span>(); ++i) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>i 的类型使用 <code>auto</code> 关键字替代，这样编译器就会根据 i 的初始化表达式 <code>values.begin()</code> 的类型推断出来。</p>
+<p>现代编程语言基本上都在类型推导上做足了功夫，我们甚至可以认为一门不具备编译时类型推导的语言是不够现代化的。</p>
+<p>下面是 Kotlin 当中的类型推导：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 完整的变量定义</span></span><br><span class="line"><span class="keyword">val</span> s: String = <span class="string">&quot;Hello World&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略类型</span></span><br><span class="line"><span class="keyword">val</span> s = <span class="string">&quot;Hello World&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>变量 <code>s</code> 的类型可以通过初始化的表达式推断出来，因此可以省略。绝大多数编程语言在对变量的类型进行推断时，都只对变量定义时的初始化表达式做了分析。</p>
+<p>当然也有例外。</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s</span>;</span><br><span class="line">    </span><br><span class="line">s = <span class="string">&quot;hello world&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Rust 允许先把变量定义出来，在后面根据对该变量的使用情况进行变量类型的推导。示例代码中变量 <code>s</code> 在定义时并没有声明类型，也没有进行初始化，Rust 编译器通过分析后面对 <code>s</code> 的赋值，推断出 <code>s</code> 的类型是 <code>&amp;str</code>。这在 Kotlin 当中是不行的。</p>
+<p>Rust 编译器通过上下文推断类型的能力在下面的例子当中用处更大。</p>
+<p>我们先给出 Kotlin 版本的写法：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> multiply2 = &#123; i: <span class="built_in">Int</span> -&gt; i * <span class="number">2</span> &#125;</span><br><span class="line">multiply2(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在这段 Kotlin 代码中，Lambda 表达式 <code>multiply2</code> 的参数 <code>i</code> 的类型必须显式地写出来，不然编译器就无法推断出 <code>multiply2</code> 的类型了。</p>
+<p>但等价的代码在 Rust 当中是这样的：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">multiply2</span> = |i| i * <span class="number">2</span>;</span><br><span class="line"><span class="title function_ invoke__">multiply2</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意 <code>|i|</code> 是 Rust 的 Lambda 表达式（或者闭包）的参数列表，我们发现 <code>i</code> 的类型并不需要明确地写出来，编译器通过分析后面的实参 <code>10</code> 即可推断出 <code>i</code> 的类型为 <code>i32</code> 了。</p>
+<p>这个例子还可以继续延伸。不管是 Kotlin 还是 Rust，<code>multiply2</code> 都是一个确定的类型，也就是说在上述代码之后追加一句 <code>multiply2(30.0)</code>，编译器就会抱怨说 <code>30.0</code> 是 <code>Double</code>（Kotlin）/ <code>f64</code>（Rust） 类型 ，而 <code>multiply2</code> 需要的是 <code>Int</code>（Kotlin）/<code>i32</code>（Rust）类型。不过，事情总有例外。</p>
+<p>下面是使用 C++ 编写的等价代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> multiply2 = [](<span class="keyword">auto</span> i) &#123; <span class="keyword">return</span> i * <span class="number">2</span>; &#125;;</span><br><span class="line"><span class="built_in">multiply2</span>(<span class="number">10</span>);</span><br><span class="line"><span class="built_in">multiply2</span>(<span class="number">30.0</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>multiply2</code> 的参数 <code>i</code> 的类型是 <code>auto</code>，它自身的类型也是 <code>auto</code>，这意味着它们的类型需要编译器来推导。接下来我们分别把 <code>10</code> 和 <code>30.0</code> 传给 <code>multiply2</code>，然后我们就会发现，这都是合法的。这表明 <code>multiply2</code> 针对不同的类型会有不同的实现。对于 C++ 而言，<code>auto</code> 不仅仅是用于类型推导的关键字，很多时候我们把它当做模板的一种特殊形式来看待，似乎更容易理解。</p>
+<p>说了这么多，那 Java 的类型推导是哪一种呢？</p>
+<p>答案是：都不如。Java 从 Java 10 开始新增了 <code>var</code> 关键字来简化变量定义时的类型，仅此而已。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>这里的 <code>var</code> 相当于 <code>ArrayList&lt;String&gt;</code>。</p>
+<p>那么，我们能不能用 <code>var</code> 来定义 Lambda 表达式呢？答案是，不能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">multiply2</span> <span class="operator">=</span> (<span class="type">int</span> i) -&gt; i * <span class="number">2</span>;</span><br><span class="line">^^^</span><br><span class="line">---------------------------------------------------------------------</span><br><span class="line">Error: Cannot infer type: lambda expression <span class="keyword">requires</span> an explicit target type</span><br><span class="line">---------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>如果我们在 Java 中试图使用 <code>var</code> 来定义一个变量，并使用 Lambda 表达式来初始化，就会得到上面的错误。当然，这个错误并不是 <code>var</code> 的问题，而是 Java 对函数类型的支持问题。这个话题我们将在后面的文章中详细探讨，这里就不再展开说明了。</p>
+<p>需要说明的是，Java 的 var 只能用于局部变量的定义，不能用于类成员的定义，这一点倒是与 C++ 的 auto 有一些相似了。</p>
+<p>通过与其他编程语言的对比我们不难发现，Java 在类型推断上仍然处于萌芽状态，后面的路还很长。</p>
 <hr>
 <h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
 <ul>
