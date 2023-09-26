@@ -8630,7 +8630,7 @@
 <p>这里的 <code>var</code> 相当于 <code>ArrayList&lt;String&gt;</code>。</p>
 <p><code>var</code> 只能用于局部变量的定义，不能用于类成员的定义，这一点与 C++ 的 <code>auto</code> 非常相似。</p>
 <blockquote>
-<p><strong>说明</strong> 在 Java 正式支持 <code>var</code> 关键字之前，著名的元编程框架 <a href="https://projectlombok.org/">Lombok</a> 就通过编译时修改 Java 语法树为 Java 添加了 <code>var</code> 关键字的支持，有兴趣的读者可以参考 Lombok 的官方文档：<a href="https://projectlombok.org/features/var%E3%80%82">https://projectlombok.org/features/var。</a></p>
+<p><strong>说明</strong> 在 Java 正式支持 <code>var</code> 关键字之前，著名的元编程框架 <a href="https://projectlombok.org/">Lombok</a> 就通过编译时修改 Java 语法树为 Java 添加了 <code>var</code> 关键字的支持，有兴趣的读者可以参考 Lombok 的官方文档：<a href="https://projectlombok.org/features/var">https://projectlombok.org/features/var</a>。</p>
 </blockquote>
 <h3 id="类型后置"><a href="#类型后置" class="headerlink" title="类型后置"></a>类型后置</h3><p>C++ 和 Java 的变量声明中类型都在变量名前面，通常又被称为类型前置的形式。这类语言的特点是在语言诞生之初并没有类型推断的语法设计。</p>
 <p>随着开发者对类型推断的需求的日益增长，业界编程语言设计的优秀实践的不断积累，越来越多的新语言选择了类型后置的形式。</p>
@@ -8667,7 +8667,7 @@
 <p>Java 当中除了 <code>?:</code> 表达式以外，还从 Java 12 开始支持了 Switch 表达式（Java 14 正式支持） ，因此 Java 中的表达式类型推断也是值得探讨的内容。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">x</span> <span class="operator">=</span> <span class="string">&quot;...&quot;</span>;</span><br><span class="line"><span class="type">var</span> <span class="variable">y</span> <span class="operator">=</span> <span class="keyword">switch</span> (x) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;A&quot;</span> -&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;B&quot;</span> -&gt; <span class="number">2.0</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;C&quot;</span> -&gt; <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="keyword">default</span> -&gt; <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>在这个 switch 表达式中，四个分支表达式的值类型分别为 int(Integer)、double(Double)、String、ArrayList<String>。这意味着整体表达式的返回值 <code>y</code> 的类型只能是其中的一个，从数学的角度来讲，<code>y</code> 的类型为这四种类型的交集，Java 的类型系统中也确实存在交集类型的概念，即：</p>
+<p>在这个 switch 表达式中，四个分支表达式的值类型分别为 <code>int</code>(<code>Integer</code>)、<code>double</code>(<code>Double</code>)、<code>String</code>、<code>ArrayList&lt;String&gt;</code>。这意味着整体表达式的返回值 <code>y</code> 的类型只能是其中的一个，从数学的角度来讲，<code>y</code> 的类型为这四种类型的交集，Java 的类型系统中也确实存在交集类型的概念，即：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer &amp; Double &amp; String &amp; ArrayList&lt;String&gt;</span><br></pre></td></tr></table></figure>
 
 <p>交集类型的计算结果其实就是这些类型的公共父类，因此 <code>y</code> 在编译时的类型为 <code>Serializable</code>。</p>
