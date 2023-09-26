@@ -3695,11 +3695,14 @@
 <li><a href="https://www.bennyhuo.com/2019/10/19/coroutine-why-so-called-lightweight-thread/">破解 Kotlin 协程（12）：协程为什么被称为『轻量级线程』？</a></li>
 <li><a href="https://www.bennyhuo.com/2019/12/01/coroutine-implementations/">破解 Kotlin 协程（13）：协程的几类常见的实现</a></li>
 </ul>
-<p>这份前言是 2022 年后补的，文章则主要是 2019 年写的。也许将来有时间也可以把<strong>破解 Kotlin 协程</strong>修订一下。</p>
 <p>最近我因缘际会写了<a href="https://www.bennyhuo.com/book/swift-coroutines/"><strong>闲话 Swift 协程</strong></a>和<a href="https://www.bennyhuo.com/book/cpp-coroutines/"><strong>渡劫 C++ 协程</strong></a>系列文章来介绍 Swift 协程和 C++ 协程，写完之后又把它们整理成电子书的形式发布了出来。<strong>破解 Kotlin 协程</strong>系列文章自然也可以成为其中的一员。</p>
-<p>Kotlin 1.3 是在 2018 年底发布的，随着 Kotlin 协程框架的正式发布，Kotlin 官方也终于把语言层面的协程特性扶正了。</p>
-<p>协程即便是现在也不能算是一个特别容易上手的特性，更何况当时官方自己的文档还一塌糊涂呢。基于这个现状，我持续地写了十几篇文章来介绍 Kotlin 协程的相关特性以及框架的使用，这也就是大家即将要看到的<strong>破解 Kotlin 协程</strong>系列文章了。</p>
-<p>这些文章的撰写并不容易，因为所有的知识来源基本上就是 Kotlin 标准库和 Kotlin 协程库的源码。你甚至可以想象到那时候官方源码当中的注释都有可能是错的，我也几次向 Kotlin 协程库提了 issue。这些文章后来也成为我在 2020 年出版的<a href="https://item.jd.com/12898592.html"><strong>《深入理解 Kotlin 协程》</strong></a>一书的第六章的主要内容基础。</p>
+<p>这份前言是 2022 年后补的，文章则主要是 2019 年基于 Kotlin 1.3 撰写的。随着 Kotlin 协程的快速迭代，这些文章中的有些内容已经过时，读者需要在阅读的过程中自行甄别。</p>
+<p>Kotlin 1.3 是在 2018 年底发布的，随着 Kotlin 协程框架的正式发布，Kotlin 官方也终于把语言层面的协程特性扶正了。协程即便在现在也不能算是一个特别容易上手的特性，更何况当时官方自己的文档还一塌糊涂呢。基于当时的情况，我持续地写了十几篇文章来介绍 Kotlin 协程的相关特性以及框架的使用，这也就是大家即将要看到的<strong>破解 Kotlin 协程</strong>系列文章了。</p>
+<p>这些文章的撰写并不容易，因为所有的知识来源基本上就是 Kotlin 标准库和 Kotlin 协程库的源码。你甚至可以想象到那时候官方源码当中的注释都有可能是错的，我也几次向 Kotlin 协程库提了 issue。</p>
+<p>这些文章后来也成为我在 2020 年出版的<a href="https://item.jd.com/12898592.html"><strong>《深入理解 Kotlin 协程》</strong></a>一书的第六章的主要内容基础。</p>
+<blockquote>
+<p><strong>说明</strong> 如果你想要深入了解 Kotlin 协程的运行机制和实现细节，建议直接阅读<a href="https://item.jd.com/12898592.html"><strong>《深入理解 Kotlin 协程》</strong></a>，书中对 Kotlin 协程的原理和实现做了详细的剖析和介绍，甚至带着读者还一步一步完成了一个简化版的协程框架。</p>
+</blockquote>
 <hr>
 <h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
 <ul>
