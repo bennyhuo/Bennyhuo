@@ -1,8 +1,8 @@
 # 基本信息 Basic Information
 
-前腾讯客户端高级工程师、猿辅导（看云集团）资深客户端工程师。[Google 开发者专家（GDE）](https://g.dev/bennyhuo)，Kotlin 方向。
+腾讯视频高级工程师。曾就职于腾讯地图、猿辅导（看云集团）。[Google 开发者专家（GDE）](https://g.dev/bennyhuo)，Kotlin 方向。
  
-Former Tencent Senior Android Developer. Now work at Kanyun. Inc. [Google Developer Expert (GDE)](https://g.dev/bennyhuo) in Kotlin.
+Tencent Senior Developer. [Google Developer Expert (GDE)](https://g.dev/bennyhuo) in Kotlin.
 
 # 个人频道 Channels
 
@@ -35,6 +35,12 @@ Aug 2023 **[Kotlin Metaprogramming in Action](https://item.jd.com/10081757341486
 
 # 大会分享 Talks
 
+* 2024.06 Google IO Extend & 北京 KUG： **[Compose 是如何实现跨平台的？](https://www.bilibili.com/video/BV1yf421B77T/)**
+* 2024.02 GDG 社区说： **[TensorFlow Lite 在小猿口算中的应用与实践](https://www.bilibili.com/video/BV1Ny42167LB/)**
+* 2023.12 机械工业出版社： **[我们对 Java 有哪些常见的误区？](https://www.bilibili.com/video/BV14e41167CM/)**
+* 2023.11 GDG DevFest： **[使用 Kotlin 元编程技术提升开发效率](https://www.bilibili.com/video/BV1mN411j7tp/)**
+* 2023.10 JetBrains 码上道： **[Kotlin 开发者的首“锈”：Rust 到底香不香？](https://www.bilibili.com/video/BV1yg4y1d7P6/)**
+* 2023.06 Java 核心技术大会： **[Java 的现代化 - 包袱、挑战和革新](https://www.bilibili.com/video/BV1j8411S779/)**
 * 2023.05 北京 KUG: **[你想知道的 Jetpack Compose 的编译器黑魔法](https://www.bilibili.com/video/BV1ck4y1j7Pa/)**
 * 2023.04 GDG 社区说: **[如何开发一款 Kotlin 编译器插件？](https://www.bilibili.com/video/BV1Rm4y127hj/)**
 * 2022.09 GDG 社区说: **[KLUE：Kotlin 多平台特性的妙用：统一 JS 调用 Native 函数的体验](https://www.bilibili.com/video/BV1ye4y1Y728)**
@@ -45,6 +51,12 @@ Aug 2023 **[Kotlin Metaprogramming in Action](https://item.jd.com/10081757341486
 * 2018.11 2018 JetBrains 北京开发者大会: **[如何优雅的使用 Kotlin Data Class](https://v.qq.com/x/page/n08227okqh9.html)**
 * 2017.11 2017 Android 技术大会: **[效率的抉择 - 将 Kotlin 投入 Android 应用开发当中 ](http://play.itdks.com/watch/3740769?player=)**
 
+- Jun 2024, Google IO Extend & Beijing KUG： **[Internals of Compose Multiplatform](https://www.bilibili.com/video/BV1yf421B77T/)**
+- Feb 2024, GDG CTalk: **[TensorFlow Lite in 小猿口算](https://www.bilibili.com/video/BV1Ny42167LB/)**
+- Dec 2023 Mechanical Industry Press： **[Most Common Misconceptions About Java](https://www.bilibili.com/video/BV14e41167CM/)**
+- Nov 2023, GDG DevFest： **[Improving Development Efficiency with Kotlin Metaprogramming](https://www.bilibili.com/video/BV1mN411j7tp/)**
+- Oct 2023, JetBrains Talk Code: **[The First “Rust” for Kotlin Developers: Is Rust Really That Good?](https://www.bilibili.com/video/BV1yg4y1d7P6/)**
+- Jun 2023, Core Java Conference: **[The Modernization of Java - Burdens, Challenges, and Innovations](https://www.bilibili.com/video/BV1j8411S779/)**
 - May 2023, Beijing KUG: **[Secrets in the Compiler Plugin of Jetpack Compose You Want to Know](https://www.bilibili.com/video/BV1ck4y1j7Pa/)**
 - Apr 2023, GDG CTalk: **[How to Develop a Kotlin Compiler Plugin?](https://www.bilibili.com/video/BV1Rm4y127hj/)**
 - Sep 2022, GDG CTalk: **[KLUE: Unified Experience of Calling Native Functions from JS with Kotlin Multiplatform](https://www.bilibili.com/video/BV1ye4y1Y728)**
