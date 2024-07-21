@@ -302,7 +302,7 @@
 <p>对于 Java 新特性的期待，除了前面提到的 Loom 项目当中所带来的对协程的支持以外，还有 Valhalla 项目当中对于值类型的支持。遗憾的是，这二者都没有出现在 Java 17 的更新当中。不过，Java 17 也带来不少有用的内容，例如更安全的外部函数访问 API，转正的密封类等等。</p>
 <p>当然，Java 的更新有时候也是看着热闹，真正能够用起来还是需要一些时间的。毕竟想要体验这些新特性，我们还需要升级 JDK 版本。不过，这并不影响我们尽早了解 Java 版本更新的内容。接下来，我们会用一系列文章来详细介绍 Java 17 的更新内容，希望能够为大家做个参考。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -375,7 +375,7 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/6F17BC34.jpg"></p>
 <p>好了，这一篇算是这一系列的开篇，为了降低大家的阅读成本，我会把主要的更新内容，其实就是合入的 JEP 拆成了十几篇文章，后面尽快发出来。另外，有些比较有意思的内容，我也许大概率也会提供配套视频介绍，欢迎大家关注我的 Bilibili 频道：<strong>bennyhuo 不是算命的</strong>。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -448,7 +448,7 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/6F46F0FB.gif"></p>
 <p>好啦，关于 Java 浮点型的语义调整的更新我们就简单介绍这么多。反正说多了也没啥用，知道怎么出去吹牛就行了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -532,7 +532,7 @@
 <p>好啦，关于随机数的更新又讲完啦。你不会又觉得这玩意没啥用吧。</p>
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates-03-random/07E713C6.jpg" alt="img"></p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -601,7 +601,7 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/710ABDBF.jpg"> </p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这两条更新对于 mac 用户来讲还是很有用的，可能会对开发效率的提升影响比较大。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -670,7 +670,7 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/7580BB3C.jpg"></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Java 官方在决定废弃这几个东西的时候，其实也做了广泛的调查，可能主要还是发现没什么人用吧（当然还有的是他们不希望我们用）。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -763,7 +763,7 @@
 <p>顺便说一句，著名的 Unsafe 类不在这一波制裁的名单以内，可能是 Unsafe 应用太广泛了吧，而且 Java 官方也没有找到合适的替代品来满足需求，就先放着了（Unsafe 我们在后面访问堆外内存的内容中还会有介绍）。</p>
 <p>好啦，关于加强控制内部 API 的限制的更新，我们也就介绍这么多，对大家的影响嘛，应该也不大（只要不升级）。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -835,7 +835,7 @@
 <p>稍微提一下，如果想要体验预览特性，需要为 Java 编译器和 Java 运行时添加 <code>--enable-preview</code> 参数。</p>
 <p>好，关于预览的 switch 模式匹配我们就先介绍这么多。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -909,7 +909,7 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/746A07D3.gif"></p>
 <p>好啦，有关密封类的更新我们就介绍这么多。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1028,7 +1028,7 @@
 <p>这个例子当中我们使用 ConfinedScope 来开辟内存，由于这个 scope 在 try-resource 语句结束之后就会被关闭，因此其中开辟的内存也会在语句结束的时候理解回收。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Java 17 为访问堆外内存提供了一套较为完成的 API，试图简化 Java 代码操作堆外内存的难度。从实际的使用体验来看，安全性确实可以得到一定程度上的保障，不过易用性嘛，倒是保持了 Java 的传统，这个我们在下一篇文章当中还会提及。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1161,7 +1161,7 @@
 <p>就目前的情况来讲，其实我更愿意用 JNI，不安全怎么了，小心点儿不就行了嘛。算了，写什么垃圾 Java，直接写 C++ 不香吗？</p>
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/88F3D38D.gif"></p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1224,7 +1224,7 @@
 <p>不管怎么样，这套东西还在很早期的孵化阶段，API 好用就行，性能的事儿后面会解决的（反正我又不会用到)。</p>
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/893AABA9.jpg"></p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1303,7 +1303,7 @@
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/6c8656be-f0d8-432e-9bfd-94a1fbd7cd6c/media/Java17-Updates/00DC34EC.gif"></p>
 <p>讲到这儿，我们总算是把 Java 17 的主要更新介绍了一遍。除了这些大的更新以外，还有一些小的 Bugfix 和优化，我就不一一列举了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1629,7 +1629,7 @@
 <p><strong>说明</strong>：C++ 23 有望基于协程提供不少有用的支持，例如与异步任务密不可分的 executor、network 等等，不过这些内容我暂时不会在后面的文章当中涉及，等 C++ 23 正式发布之后再做补充。</p>
 </blockquote>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1813,7 +1813,7 @@
 <h3 id="final-suspend"><a href="#final-suspend" class="headerlink" title="final_suspend"></a>final_suspend</h3><p>当协程执行完成或者抛出异常之后会先清理局部变量，接着调用 final_suspend 来方便开发者自行处理其他资源的销毁逻辑。final_suspend 也可以返回一个等待体使得当前协程挂起，但之后当前协程应当通过 coroutine_handle 的 destroy 函数来直接销毁，而不是 resume。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们介绍了一些 C++ 协程的各种概念和约定，看似介绍了非常多的内容，但因为示例较少又感觉什么都没介绍。大家不要着急，C++ 协程的概念基本上就这么多，剩下的文章我们都将基于一个或多个具体的场景展开来介绍如何运用 C++ 协程来解决问题。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -1861,7 +1861,7 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">auto</span> generator = <span class="built_in">sequence</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i) &#123;</span><br><span class="line">    std::cout &lt;&lt; generator.<span class="built_in">next</span>() &lt;&lt; std::endl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><code>generator</code> 的类型就是我们即将实现的序列生成器类型 <code>Generator</code>，结合上一篇文章当中对于协程返回值类型的介绍，我们先大致给出它的定义：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">promise_type</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开始执行时直接挂起等待外部调用 resume 获取下一个值</span></span><br><span class="line">    <span class="function">std::suspend_always <span class="title">initial_suspend</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &#123;&#125;; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行结束后不需要挂起</span></span><br><span class="line">    <span class="function">std::suspend_never <span class="title">final_suspend</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> &#123;&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 为了简单，我们认为序列生成器当中不会抛出异常，这里不做任何处理</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">unhandled_exception</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造协程的返回值类型</span></span><br><span class="line">    <span class="function">Generator <span class="title">get_return_object</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> Generator&#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 没有返回值</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">return_void</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ???.<span class="built_in">resume</span>();</span><br><span class="line">    <span class="keyword">return</span> ???;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">promise_type</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开始执行时不挂起，执行到第一个挂起点</span></span><br><span class="line">    <span class="function">std::suspend_never <span class="title">initial_suspend</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &#123;&#125;; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行结束后不需要挂起</span></span><br><span class="line">    <span class="function">std::suspend_never <span class="title">final_suspend</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> &#123;&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 为了简单，我们认为序列生成器当中不会抛出异常，这里不做任何处理</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">unhandled_exception</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造协程的返回值类型</span></span><br><span class="line">    <span class="function">Generator <span class="title">get_return_object</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> Generator&#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 没有返回值</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">return_void</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ???.<span class="built_in">resume</span>();</span><br><span class="line">    <span class="keyword">return</span> ???;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>代码当中有两处我们标注为 ???，表示暂时还不知道怎么处理。</p>
 <p>第一个是我们想要在 Generator 当中 resume 协程的话，需要拿到 coroutine_handle，这个要怎么做到呢？</p>
@@ -1920,7 +1920,7 @@
 
 <p>我们定义一个成员 state 来记录协程执行的状态，状态的类型一共三种，只有 READY 的时候我们才能拿到值。</p>
 <p>接下来改造 <code>next</code> 函数，同时增加 <code>has_next</code> 函数来描述协程是否仍然可以有值传出：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">has_next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 协程已经执行完成</span></span><br><span class="line">    <span class="keyword">if</span> (handle.<span class="built_in">done</span>()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 协程还没有执行完成，并且下一个值还没有准备好</span></span><br><span class="line">    <span class="keyword">if</span> (!handle.<span class="built_in">promise</span>().is_ready) &#123;</span><br><span class="line">      handle.<span class="built_in">resume</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (handle.<span class="built_in">done</span>()) &#123;</span><br><span class="line">      <span class="comment">// 恢复执行之后协程执行完，这时候必然没有通过 co_await 传出值来</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="comment">// 此时一定有值，is_ready 为 true </span></span><br><span class="line">      <span class="comment">// 消费当前的值，重置 is_ready 为 false</span></span><br><span class="line">      handle.<span class="built_in">promise</span>().is_ready = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">return</span> handle.<span class="built_in">promise</span>().value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">ExhaustedException</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">has_next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 协程已经执行完成</span></span><br><span class="line">    <span class="keyword">if</span> (!handle || handle.<span class="built_in">done</span>()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 协程还没有执行完成，并且下一个值还没有准备好</span></span><br><span class="line">    <span class="keyword">if</span> (!handle.<span class="built_in">promise</span>().is_ready) &#123;</span><br><span class="line">      handle.<span class="built_in">resume</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (handle.<span class="built_in">done</span>()) &#123;</span><br><span class="line">      <span class="comment">// 恢复执行之后协程执行完，这时候必然没有通过 co_await 传出值来</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="comment">// 此时一定有值，is_ready 为 true </span></span><br><span class="line">      <span class="comment">// 消费当前的值，重置 is_ready 为 false</span></span><br><span class="line">      handle.<span class="built_in">promise</span>().is_ready = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">return</span> handle.<span class="built_in">promise</span>().value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">ExhaustedException</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>这样外部使用时就需要先通过 has_next 来判断是否有下一个值，然后再去读取了：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">auto</span> generator = <span class="built_in">sequence</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">15</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (generator.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      std::cout &lt;&lt; generator.<span class="built_in">next</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1931,7 +1931,7 @@
 
 <p>这看上去似乎问题不大，因为我们在前面通过 <code>has_next</code> 的判断保证了读取值的安全性。</p>
 <p>但实际上情况并非如此。我们在 <code>has_next</code> 当中调用了 <code>coroutine_handle::done</code> 来判断协程体是否执行完成，判断之前很可能协程已经销毁，<code>coroutine_handle</code> 这时候都已经是无效的了：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">has_next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 如果协程已经执行完成，理论上协程的状态已经销毁，handle 指向的是一个无效的协程</span></span><br><span class="line">  <span class="comment">// 如果 handle 本身已经无效，因此 done 函数的调用此时也是无效的</span></span><br><span class="line">  <span class="keyword">if</span> (handle.<span class="built_in">done</span>()) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">has_next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 如果协程已经执行完成，理论上协程的状态已经销毁，handle 指向的是一个无效的协程</span></span><br><span class="line">  <span class="comment">// 如果 handle 本身已经无效，因此 done 函数的调用此时也是无效的</span></span><br><span class="line">  <span class="keyword">if</span> (!handle || handle.<span class="built_in">done</span>()) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>因此为了让协程的状态的生成周期与 <code>Generator</code> 一致，我们必须将协程的销毁交给 <code>Generator</code> 来处理：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">class</span> <span class="title class_">ExhaustedException</span>: std::exception &#123; &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">promise_type</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 总是挂起，让 Generator 来销毁</span></span><br><span class="line">    <span class="function">std::suspend_always <span class="title">final_suspend</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> &#123;&#125;; &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  ~<span class="built_in">Generator</span>() &#123;</span><br><span class="line">    <span class="comment">// 销毁协程</span></span><br><span class="line">    handle.<span class="built_in">destroy</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -1964,7 +1964,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文围绕序列生成器这个经典的协程案例介绍了协程的销毁、co_await 运算符、await_transform 以及 yield_value 的用法。</p>
 <p>说出来你可能不信，如果这篇文章你能够完全理解，那么相信你对 C++ 协程特性的了解已经比较全面了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2039,7 +2039,7 @@
 <p>这下看上去完美多了。</p>
 <h2 id="实现-map-和-flat-map"><a href="#实现-map-和-flat-map" class="headerlink" title="实现 map 和 flat_map"></a>实现 map 和 flat_map</h2><p>熟悉函数式编程的读者可能已经意识到了，我们定义的 Generator 实际上已经非常接近 Monad 的定义了。那我们是不是可以给它实现 map 和 flat_map 呢？</p>
 <h3 id="实现-map"><a href="#实现-map" class="headerlink" title="实现 map"></a>实现 map</h3><p>map 就是将 Generator 当中的 T 映射成一个新的类型 U，得到一个新的 <code>Generator&lt;U&gt;</code>。下面我们给出第一个版本的 map 实现：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span></span><br><span class="line"><span class="function">  Generator&lt;U&gt; <span class="title">map</span><span class="params">(std::function&lt;U(T)&gt; f)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 判断 this 当中是否有下一个元素</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="comment">// 使用 next 读取下一个元素</span></span><br><span class="line">      <span class="comment">// 通过 f 将其变换成 U 类型的值，再使用 co_yield 传出</span></span><br><span class="line">      <span class="function"><span class="keyword">co_yield</span> <span class="title">f</span><span class="params">(next())</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span></span><br><span class="line"><span class="function">  Generator&lt;U&gt; <span class="title">map</span><span class="params">(std::function&lt;U(T)&gt; f)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 将 this 的所有权移动到新创建的 Generator 内部，确保生命周期的一致性</span></span><br><span class="line">    <span class="keyword">auto</span> up_stream = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">// 判断 this 当中是否有下一个元素</span></span><br><span class="line">    <span class="keyword">while</span> (up_stream.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="comment">// 使用 next 读取下一个元素</span></span><br><span class="line">      <span class="comment">// 通过 f 将其变换成 U 类型的值，再使用 co_yield 传出</span></span><br><span class="line">      <span class="function"><span class="keyword">co_yield</span> <span class="title">f</span><span class="params">(up_stream.next())</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>参数 <code>std::function&lt;U(T)&gt;</code> 当中的模板参数 <code>U(T)</code> 是个模板构造器，放到这里就表示这个函数的参数类型为 <code>T</code>，返回值类型为 <code>U</code>。</p>
 <p>接下来我们给出用法：</p>
@@ -2048,7 +2048,7 @@
 <p>通过 map 函数，我们将 <code>Generator&lt;int&gt;</code> 转换成了 <code>Generator&lt;std::string&gt;</code>，外部使用 <code>generator_str</code> 就会得到字符串。</p>
 <p>当然，这个实现有个小小的缺陷，那就是 map 函数的模板参数 U 必须显式提供，如上例中的 <code>&lt;std::string&gt;</code>，这是因为我们在定义 map 时用到了模板构造器，这使得类型推断变得复杂。</p>
 <p>为了解决这个问题，我们就要用到模板的一些高级特性了，下面给出第二个版本的 map 实现：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">  Generator&lt;std::<span class="type">invoke_result_t</span>&lt;F, T&gt;&gt; <span class="built_in">map</span>(F f) &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="function"><span class="keyword">co_yield</span> <span class="title">f</span><span class="params">(next())</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">  Generator&lt;std::<span class="type">invoke_result_t</span>&lt;F, T&gt;&gt; <span class="built_in">map</span>(F f) &#123;</span><br><span class="line">    <span class="keyword">auto</span> up_steam = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">while</span> (up_steam.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="function"><span class="keyword">co_yield</span> <span class="title">f</span><span class="params">(up_steam.next())</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>注意，这里我们直接用模板参数 <code>F</code> 来表示转换函数 f 的类型。map 本身的定义要求 <code>F</code> 的参数类型是 <code>T</code>，然后通过 <code>std::invoke_result_t&lt;F, T&gt;</code> 类获取 <code>F</code> 的返回值类型。</p>
 <p>这样我们在使用时就不需要显式的传入模板参数了：</p>
@@ -2058,7 +2058,7 @@
 <p>前面提到的 map 是元素到元素的映射，而 flap_map 是元素到 Generator 的映射，然后将这些映射之后的 Generator 再展开（flat），组合成一个新的 Generator。这意味如果一个 Generator 会传出 5 个值，那么这 5 个值每一个值都会映射成一个新的 Generator，，得到的这 5 个 Generator 又会整合成一个新的 Generator。</p>
 <p>由此可知，map 不会使得新 Generator 的值的个数发生变化，flat_map 会。</p>
 <p>下面我们给出 flat_map 的实现：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">  <span class="comment">// 返回值类型就是 F 的返回值类型</span></span><br><span class="line">  <span class="function">std::<span class="type">invoke_result_t</span>&lt;F, T&gt; <span class="title">flat_map</span><span class="params">(F f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="comment">// 值映射成新的 Generator</span></span><br><span class="line">      <span class="keyword">auto</span> generator = <span class="built_in">f</span>(<span class="built_in">next</span>());</span><br><span class="line">      <span class="comment">// 将新的 Generator 展开</span></span><br><span class="line">      <span class="keyword">while</span> (generator.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">        <span class="keyword">co_yield</span> generator.<span class="built_in">next</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">  <span class="comment">// 返回值类型就是 F 的返回值类型</span></span><br><span class="line">  <span class="function">std::<span class="type">invoke_result_t</span>&lt;F, T&gt; <span class="title">flat_map</span><span class="params">(F f)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 将 this 的所有权移动到新创建的 Generator 内部，确保生命周期的一致性</span></span><br><span class="line">    <span class="keyword">auto</span> up_steam = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">while</span> (up_steam.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="comment">// 值映射成新的 Generator</span></span><br><span class="line">      <span class="keyword">auto</span> generator = <span class="built_in">f</span>(up_steam.<span class="built_in">next</span>());</span><br><span class="line">      <span class="comment">// 将新的 Generator 展开</span></span><br><span class="line">      <span class="keyword">while</span> (generator.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">        <span class="keyword">co_yield</span> generator.<span class="built_in">next</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>为了加深大家的理解，我们给出一个小例子：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Generator&lt;<span class="type">int</span>&gt;::<span class="built_in">from</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">    <span class="comment">// 返回值类型必须显式写出来，表明这个函数是个协程</span></span><br><span class="line">    .<span class="built_in">flat_map</span>([](<span class="keyword">auto</span> i) -&gt; Generator&lt;<span class="type">int</span>&gt; &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; ++j) &#123;</span><br><span class="line">        <span class="comment">// 在协程当中，我们可以使用 co_yield 传值出来</span></span><br><span class="line">        <span class="keyword">co_yield</span> j; </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .for_each([](<span class="keyword">auto</span> i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">        std::cout &lt;&lt; std::endl;</span><br><span class="line">      &#125;</span><br><span class="line">      std::cout &lt;&lt; <span class="string">&quot;* &quot;</span>;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
@@ -2090,15 +2090,15 @@
 
 <h3 id="过滤部分值的-filter"><a href="#过滤部分值的-filter" class="headerlink" title="过滤部分值的 filter"></a>过滤部分值的 filter</h3><p>你几乎可以在任何看到 map/flat_map 的场合看到 filter，毕竟有些值我们根本不需要。</p>
 <p>想要实现这个过滤，只需要一个条件判断，下面我们给出 fitler 的实现：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span></span><br><span class="line"><span class="function">  Generator <span class="title">filter</span><span class="params">(F f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      T value = <span class="built_in">next</span>();</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">f</span>(value)) &#123;</span><br><span class="line">        <span class="keyword">co_yield</span> value;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span></span><br><span class="line"><span class="function">  Generator <span class="title">filter</span><span class="params">(F f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> up_steam = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">while</span> (up_steam.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      T value = up_steam.<span class="built_in">next</span>();</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">f</span>(value)) &#123;</span><br><span class="line">        <span class="keyword">co_yield</span> value;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="截取前-n-个值的-take-n"><a href="#截取前-n-个值的-take-n" class="headerlink" title="截取前 n 个值的 take(n)"></a>截取前 n 个值的 take(n)</h3><p>序列生成器往往与<strong>懒序列</strong>同时出现，因为<strong>懒序列</strong>之所以<strong>懒</strong>，往往是因为它的长度可能很长（甚至无限，例如斐波那契数列），一次性将所有的值加载出来会比较影响性能。</p>
 <p>对于这种很长的懒序列，我们最终能用到的值可能并不多，因此我们需要一个函数 <code>take(n)</code> 对序列的前 <code>n</code> 个做截取。</p>
 <p>它的实现也是显而易见的：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function">Generator <span class="title">take</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i++ &lt; n &amp;&amp; <span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="function"><span class="keyword">co_yield</span> <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function">Generator <span class="title">take</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> up_steam = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i++ &lt; n &amp;&amp; up_steam.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      <span class="keyword">co_yield</span> up_steam.<span class="built_in">next</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="截取到指定条件的-take-while"><a href="#截取到指定条件的-take-while" class="headerlink" title="截取到指定条件的 take_while"></a>截取到指定条件的 take_while</h3><p>take_while 的实现就好像是 filter 与 take(n) 的一个结合：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span></span><br><span class="line"><span class="function">  Generator <span class="title">take_while</span><span class="params">(F f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      T value = <span class="built_in">next</span>();</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">f</span>(value)) &#123;</span><br><span class="line">        <span class="keyword">co_yield</span> value;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Generator</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span></span><br><span class="line"><span class="function">  Generator <span class="title">take_while</span><span class="params">(F f)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> up_steam = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">while</span> (up_steam.<span class="built_in">has_next</span>()) &#123;</span><br><span class="line">      T value = up_steam.<span class="built_in">next</span>();</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">f</span>(value)) &#123;</span><br><span class="line">        <span class="keyword">co_yield</span> value;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>例如我们想要截取小于 100 的所有斐波那契数列：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fibonacci</span>().<span class="built_in">take_while</span>([](<span class="keyword">auto</span> i)&#123;</span><br><span class="line">  <span class="keyword">return</span> i &lt; <span class="number">100</span>;</span><br><span class="line">&#125;).for_each([](<span class="keyword">auto</span> i)&#123;</span><br><span class="line">  std::cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -2117,9 +2117,19 @@
 <blockquote>
 <p><strong>提示</strong>：大家可以返回去再看一下我们给出的函数的实现，找一下哪些当中用到了 <code>co_yield</code>，哪些没有用到，以及这两类函数有什么区别。</p>
 </blockquote>
+<h2 id="Generator-的所有权"><a href="#Generator-的所有权" class="headerlink" title="Generator 的所有权"></a>Generator 的所有权</h2><p>在前面的函数实现中，有部分函数会在一开始转移 this 的所有权：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> up_steam = std::<span class="built_in">move</span>(*<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这是为什么呢？</p>
+<p>因为 this 很有可能是一个泛左值，在函数返回之后会立即销毁。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Generator&lt;<span class="type">int</span>&gt; generator = Generator&lt;<span class="type">int</span>&gt;::<span class="built_in">from</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>).<span class="built_in">map</span>([](<span class="type">int</span> i) &#123;</span><br><span class="line">  <span class="keyword">return</span> i * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">generator.for_each([](<span class="keyword">auto</span> i) &#123;</span><br><span class="line">  std::cout &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>map 函数的 this 实际上是 from 函数的返回值，这个返回值会在 map 函数返回之后立即进行析构。如果我们不在 map 内部转移 this 的所有权，那么 this 对应的协程也会随着 from 的返回值的析构而销毁。有关这个问题的讨论，也可以参见这个 issue：<a href="https://github.com/bennyhuo/CppCoroutines/issues/4">03 中对右值 Generator 进行函数式变换析构的问题</a>。</p>
+<p>还有一个小问题，为什么有些函数不需要转移 this 的所有权呢？</p>
+<p>这些函数包括 sum、for_each、fold 等等，在这些函数内部 this 的值就会被消费完毕，因此 Generator 是否销毁对后续的程序执行没有任何影响。事实上，细心的读者可能已经发现，这些函数还有一个非常显著的特征：它们的返回值都不是 Generator。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们对前文当中的序列生成器做了泛化，使它能够支持任意类型的序列生成。此外，我们也针对序列生成器添加了一系列的函数式的支持，以帮助读者进一步深入理解协程的工作机制。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2226,7 +2236,7 @@
 <p>由于我们的任务在执行过程中没有进行任何线程切换，因此各个 <code>Task</code> 的执行实际上是串行的，就如同我们调用普通函数一样。当然，这显然不是我们的最终目的，下一篇我们就来介绍如何给 <code>Task</code> 增加调度器的支持。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们详细介绍了无调度器版本的 <code>Task</code> 的实现。尽管程序尚未真正实现异步执行，但至少从形式上，我们已经非常接近协程最神奇的地方了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2326,7 +2336,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们终于给 <code>Task</code> 添加了调度器的支持。如此一来，我们就可以把 <code>Task</code> 绑定到合适的线程调度器上，来应对更加复杂的业务场景了。</p>
 <p>读者也可以发挥自己的想象力，按照类似的方式定义出更加有用或者有趣的调度器。当然，本文给出的调度器没有做调度优化，有兴趣的读者也可以自己尝试</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2414,7 +2424,7 @@
 <p>另外，由于这里的 <code>co_await 1s</code> 这样的操作都是挂起点，因此恢复时也会用协程的调度器去调度。可以看到，<code>simple_task2</code> 的两行日志的线程都是 <code>26892</code>，这大概是因为 <code>std::async</code> 背后是一个线程池，两次调度都调度到了同一个线程上，当然这个完全取决于 <code>std::async</code> 的实现。而 <code>simple_task3</code> 的两行日志就分别运行在 <code>16816</code> 和 <code>26756</code>，因为它的调度器是 <code>NewThreadExecutor</code>，每次都会新起一个线程来实现调度。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文结合前面的 <code>Task</code> 的内容进一步给出了无阻塞式的 sleep 实现。通过本文的探讨，相信大家族在感慨 C++ 协程的设计真的是如此的灵活的同时，也进一步深入了解了 C++ 协程的用法。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2530,7 +2540,7 @@
 <p>结果我就不分析了。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文给出了 C++ 协程版的 <code>Channel</code> 的 demo 实现，这进一步证明了 C++ 协程的基础 API 的设计足够灵活，能够支撑非常复杂的需求场景。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2683,7 +2693,7 @@
 <p>可见 <code>FakeAwaiter</code> 并不能满足与 <code>Awaiter</code> 的父子类关系，因此无法作为 <code>AwaiterImpl</code> 的模板实参。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文介绍了一种实现较为通用的 Awaiter 的方法，目的在于增加现有 <code>Task</code> 框架的扩展性，避免通过频繁改动 <code>TaskPromise</code> 来新增功能。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2738,7 +2748,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文的内容相对轻松，因为我们终于停止了基于协程的基础 API 的探索。</p>
 <p>实际上，如果你发现你用到的某些 API 提供了异步回调，你完全可以使用 <code>Awaiter</code> 对其提供 <code>co_await</code> 的支持。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -2783,7 +2793,7 @@
 <p>我当时为了让读者能够深入理解 Kotlin 协程框架的设计，干脆自己动手实现了一个简版的协程框架 <a href="https://github.com/bennyhuo/CoroutineLite">CoroutineLite</a>。而<strong>渡劫 C++ 协程</strong>的核心内容也是在尝试通过自己实现 C++ 的协程框架来深入理解 C++ 协程。按照这个思路，我们还可以继续深入探索，例如实现 <code>Task</code> 的取消，为 <code>Task</code> 添加父子关系以实现结构化并发等等能力，只是受限于时间和精力，我决定暂时停止这一次奇妙的探索历程。</p>
 <p>如果想要在生产环境当中使用 C++ 20 提供的协程，我们可能还需要持续关注 C++ 委员会后续对协程的规划和设计。让我们期待将来 C++ 新标准对协程提供更多的支持吧。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -3704,7 +3714,7 @@
 <p><strong>说明</strong> 如果你想要深入了解 Kotlin 协程的运行机制和实现细节，建议直接阅读<a href="https://item.jd.com/12898592.html"><strong>《深入理解 Kotlin 协程》</strong></a>，书中对 Kotlin 协程的原理和实现做了详细的剖析和介绍，甚至带着读者还一步一步完成了一个简化版的协程框架。</p>
 </blockquote>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -3855,7 +3865,7 @@
 <h2 id="6-小结"><a href="#6-小结" class="headerlink" title="6. 小结"></a>6. 小结</h2><p>我们先通过例子来引入，从大家最熟悉的代码到协程的例子开始，演化到协程的写法，让大家首先能从感性上对协程有个认识，最后我们给出了协程的定义，也告诉大家协程究竟能做什么。</p>
 <p>这篇文章没有追求什么内部原理，只是企图让大家对协程怎么用有个第一印象。如果大家仍然感觉到迷惑，不怕，后面我将再用几篇文章从例子入手来带着大家分析协程的运行，而原理的分析，会放到大家能够熟练掌握协程之后再来探讨。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -3999,7 +4009,7 @@
 
 
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -4272,7 +4282,7 @@
 </blockquote>
 <h2 id="5-小结"><a href="#5-小结" class="headerlink" title="5. 小结"></a>5. 小结</h2><p>在这篇文章当中，我们介绍了协程上下文，介绍了拦截器，进而最终引出了我们的调度器，截止目前，我们还有异常处理、协程取消、Anko 对协程的支持等话题没有讲到，如果大家有协程相关想了解的话题，可以留言哈~</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -4429,7 +4439,7 @@
 <h3 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h3><p>join 在父协程被取消时有一个 bug 会导致不抛出取消异常，我在准备本文时发现该问题，目前已经提交到官方并得到了修复，预计合入到 1.2.1 发版，大家有兴趣可以查看这个 issue：<a href="https://github.com/Kotlin/kotlinx.coroutines/issues/1123">No CancellationException thrown when join on a crashed Job</a>。</p>
 <p>当然，这个 bug 对于生成环境的影响很小，大家也不要担心。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -4559,7 +4569,7 @@
 <p>再稍微提一句，协程不是一个简单的东西，毕竟它的原理涉及到对操作系统调度、程序运行机制这样程序界毕竟原始的话题，但你说如果我对前面提到的这些都不是很熟悉或者根本没有接触过，是不是就要跟协程拜拜了呢，其实也不是，只不过如果你对这些都不熟悉，那么可能需要多加练习培养出感觉，而不必一开始就关注原理和细节，依样画葫芦一样可以用的很好，就像大家不知道 RxJava 原理一样可以用的很好一样，协程也可以做到这一点的。</p>
 <p>当然，作为一个有追求的程序员，我们不止要会用，还要用得好，无论如何我们都需要知道来龙去脉，这其中涉及到的基础知识的欠缺也是需要尽快补充的，不能偷懒哈 ：）</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -4680,7 +4690,7 @@
 <h2 id="5-小结"><a href="#5-小结" class="headerlink" title="5. 小结"></a>5. 小结</h2><p>不同以往，我们从这一篇开始毫无保留的为大家尝试揭示协程背后的逻辑，也许一时间可能有些难懂，不过不要紧，你可以使用协程一段时间之后再来阅读这些内容，相信一定会豁然开朗的。</p>
 <p>当然，这一篇内容的安排更多是为后面的序列篇开路，Kotlin 的 <code>Sequence</code> 就是基于协程实现的，它的用法很简单，几乎与普通的 <code>Iterable</code> 没什么区别，因此序列篇我们会重点关注它的内部实现原理，欢迎大家关注。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -4752,7 +4762,7 @@
 <h2 id="3-小结"><a href="#3-小结" class="headerlink" title="3. 小结"></a>3. 小结</h2><p>序列生成器很好的利用了协程的状态机特性，将序列生成的过程从形式上整合到了一起，让程序更加紧凑，表现力更强。本节讨论的序列，某种意义上更像是生产 - 消费者模型中的生产者，而迭代序列的一方则像是消费者，其实在 kotlinx.coroutines 库中提供了更为强大的能力来实现生产 - 消费者模式，我们将在后面的文章当中展示给大家看。</p>
 <p>协程的回调特性可以让我们在实践当中很好的替代传统回调的写法，同时它的状态机特性也可以让曾经的状态机实现获得新的写法，除了序列之外，也许还会有更多有趣的适用场景等待我们去发掘~</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -4909,7 +4919,7 @@
 <p>对于一些 UI 不相关的逻辑，例如批量离线数据下载任务，通常默认的调度器就足够使用了。</p>
 <h2 id="5-小结"><a href="#5-小结" class="headerlink" title="5. 小结"></a>5. 小结</h2><p>这一篇文章，主要是基于我们前面讲了的理论知识，进一步往 Android 的具体实战角度迁移，相比其他类型的应用，Android 作为 UI 程序最大的特点就是异步要协调好 UI 的生命周期，协程也不例外。一旦我们把协程的作用域规则以及协程与 UI 生命周期的关系熟稔于心，那么相信大家使用协程时一定会得心应手的。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -5075,7 +5085,7 @@
 </blockquote>
 <h2 id="9-小结"><a href="#9-小结" class="headerlink" title="9. 小结"></a>9. 小结</h2><p><code>Channel</code> 的出现，应该说为协程注入了灵魂。每一个独立的协程不再是孤独的个体，<code>Channel</code> 可以让他们更加方便的协作起来。实际上 <code>Channel</code> 的概念并不是 Kotlin 原创的，且不说 Golang 里面的 <code>channel</code>，就说 Java NIO 当中也存在 <code>Channel</code> 这样的概念，其实这时候大家很容易就应该想到多路复用，多路复用的时候我们还能像前面那样简单的挂起吗？或者不挂起我们该怎么办呢？且看下回分解。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -5140,7 +5150,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在协程当中，Select 的语义与 Java NIO 或者 Unix 的 IO 多路复用类似，它的存在使得我们可以轻松实现 1 拖 N，实现哪个先来就处理哪个。尽管 Select 和 Channel 比起标准库的协程 API 已经更接近业务开发了，不过个人认为它们仍属于相对底层的 API 封装，在实践当中多数情况下也可以使用 Flow API 来解决。</p>
 <p>而这个 Flow API，完全就是响应式编程的协程版 API，我们简直可以照着 RxJava 来学习它，所以我们下一篇再见吧~~~</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -5340,7 +5350,7 @@
 <p>这比 <code>select</code> 的版本看上去要更简洁明了，每个 Channel 都通过 <code>consumeAsFlow</code> 函数被映射成 Flow，再 merge 成一个 Flow，取第一个元素。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p><code>Flow</code> 是协程当中比较重要的异步工具，它的用法与其他类似的响应式编程框架非常相近，大家可以采取类比的学习方式去了解它的功能。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -5465,7 +5475,7 @@
 <h2 id="6-小结"><a href="#6-小结" class="headerlink" title="6. 小结"></a>6. 小结</h2><p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/9e300468-a645-433d-ae41-60b3eaa97f5a/media/15712891180933.jpg"></p>
 <p>总的来说，不管是异步代码同步化，还是并发代码简洁化，协程的出现其实是为代码从计算机向人类思维的贴近提供了可能。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -5590,7 +5600,7 @@
 <h2 id="3-小结"><a href="#3-小结" class="headerlink" title="3. 小结"></a>3. 小结</h2><p>本文整体上对协程的分类做了较为详细的探讨。不管怎么分类，协程的本质就是程序自己处理挂起和恢复。协程描述了多个程序之间如何通过相互出让运行调度权来完成执行，基于这一对基本的控制转移操作进而衍生出各种异步模型，并发模型例如 <code>async</code>/<code>await</code>，Channel 等。</p>
 <p>相比之下，有朋友抱怨 Kotlin 的协程没有其他语言的 <code>async</code>/<code>await</code> 那么容易上手，也没有 go routine 那么容易使用，原因也很简单，Kotlin 的协程用一个最基本的 <code>suspend</code> 关键字来支持了最基本的挂起恢复逻辑，进而在上层封装，衍生出了以上提到的几乎所有的模型，让我们在 Kotlin 当中可以有机会使用 <code>async</code>/<code>await</code>、Channel，以及最新出的 Flow API，将来还会有更多（也许包括在 issue 中被提到想要重做的 Actor），它想做的事儿太多了，也确实在一步一步地做到。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -6995,7 +7005,7 @@
 </ul>
 <p>感谢大家一如既往的支持。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7152,7 +7162,7 @@
 <p>也欢迎大家关注微信公众号：<strong>Kotlin</strong>。</p>
 <p>2022 继续加油。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7236,7 +7246,7 @@
 <p>也欢迎大家关注微信公众号：<strong>bennyhuo</strong>。</p>
 <p>2023 继续加油。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7278,7 +7288,7 @@
 <p><strong>说明</strong>：最初在 Xcode 13.0 刚发布的时候，Swift 协程需要 iOS 15.0、macOS 12.0 以上；随后在 Xcode 13.2 发布以后，最低版本要求降低到 iOS 13.0、 macOS Catalina（10.15），这样看来线上项目也终于有机会尝试这个新特性了。</p>
 </blockquote>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7364,7 +7374,7 @@
 <p>实际上，对于有一个或两个分支的异步回调，我们都可以很轻松地将其转换为使用 async 修饰的异步函数，进而使用 await 来完成调用。这部分内容我们在后面会专门介绍。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过前面对协程概念的简单介绍，以及 async/await 与回调的使用对比，我们不难发现协程在简化异步代码的实现方面有着巨大的优势。知道了这一点，我们后续就可以逐步深入去了解 Swift 协程的使用场景和实现细节了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7437,7 +7447,7 @@
 <p>注意 Swift 要求对于标记为 throws 的函数需要使用 try 关键字来调用。</p>
 <p>好了，现在我们已经学会如何将异步回调转成异步函数了，距离最终的目标又近了一步。下一篇文章当中我们将介绍如何从程序入口调用异步函数，试着把程序跑起来。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7540,7 +7550,7 @@
 </blockquote>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们主要介绍了如何创建调用异步函数的条件的问题，大家也可以自己体验一下 Swift 的协程了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7685,7 +7695,7 @@
 <p>由于这时候我们创建的 Task 都是不隶属于 TaskGroup 的（即非结构化并发），此时我们要小心处理 Task 取消的情况，以免出现内存泄漏和逻辑错误。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们简单介绍了一下 TaskGroup 的用法，大家可以基于这些内容开始做一些简单的尝试了。结构化并发当中还有一些重要的概念我们将在接下来的几篇文章当中逐步介绍。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7803,7 +7813,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们重点讨论了 Task 的取消的设计，包括取消状态的概念，如何在不同情况下响应取消状态；最后也通过一个简单地例子了解了一下 TaskGroup 的取消。</p>
 <p>大家只需要牢记一点，Task 的取消只是一个状态，需要内部执行逻辑的响应。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -7911,7 +7921,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们主要介绍了 Swift 协程当中的 actor 的基本用法，并重点对属性隔离做了详细介绍。</p>
 <p>有关 actor 的调度器的内容，我们将在下一篇文章当中详细介绍。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8044,7 +8054,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们详细介绍了 GlobalActor 的设计初衷、实现方式以及使用方法，也探讨了 Swift 协程的调度细节，相信读者看到这里时，已经掌握了绝大多数 Swift 协程的相关知识。</p>
 <p>下一篇文章我们将简单介绍一下 TaskLocal 的使用方法。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8150,7 +8160,7 @@
 <p>简单总结一下，TaskLocal 值是存在链表当中的，我们在使用过程中应当避免使用过多的 TaskLocal 值，也应该适当地减少对 TaskLocal 值的访问次数，以避免性能上最坏的情况出现。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们对 TaskLocal 值的使用和实现机制做了剖析。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8269,7 +8279,7 @@
 <p>基于这一点，大家在使用过程中应当尽可能将函数的设计进行简化，避免场景过于复杂而引发令人难以理解的问题。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文我们探讨了 Swift 协程当中的异步函数（async function）与 Objective-C 的互调用问题，其中介绍了 Objective-C 回调自动映射成 Swift 异步函数的条件和细节，以及 Kotlin 挂起函数对 Swift 异步函数的支持。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8418,7 +8428,7 @@
 <p>我希望把事情做得纯粹一些，因此你不会在我的公众号看到 “几年心血总结出这篇八股文”、“阿里 P8 教你面试” 之类的广告，也不会在我的视频里面看到我明示大家投币三连求关注的转场动画。</p>
 <p>希望我现在发布的内容也能对大家有所帮助。十几年后说起来，有过这么个人曾经影响过你。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8501,7 +8511,7 @@
 <p>既然如此，我觉得我在简历上写个熟练掌握 Kotlin 应该问题不大，不过显然让面试官自己得出结论效果会更好，而我只会说：</p>
 <p><img src="https://kotlinblog-1251218094.costj.myqcloud.com/48cc2b74-2ef8-40db-8418-9d9756bfdf14/media/ending.png"></p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8588,7 +8598,7 @@
 <p>接下来，我准备写一系列文章来介绍一下 Java 8 以来的重要语法特性更新，希望可以在一定程度上帮助大家了解现代 Java 的语法特性的发展。</p>
 <p>当然，需要特别说明的是，尽管本系列文章的主角是 Java，但行文之处力求把涉及到的问题解释清楚，难免会经常横向对比其他常见的编程语言，读者如果对涉及到的其他语言不熟悉，只需大致了解即可，无须深究。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8715,7 +8725,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文从变量类型和泛型参数类型的推断两方面对 Java 的相关特性进行了介绍。为了方便读者对类型推断有更全面的认识，我们也列举了其他编程语言的相关特性作为参照。</p>
 <p>综合来看，Java 在类型推断方面做得中规中矩，虽然没有像常见的现代编程语言那样能够做到极致，但也能够应对绝大多数的场景了。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
@@ -8847,7 +8857,7 @@
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>希望大家在 2024 年身体健康，工作顺心。</p>
 <p>2024 继续加油。</p>
 <hr>
-<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；前腾讯高级工程师，现就职于猿辅导</p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p><strong>霍丙乾 bennyhuo</strong>，Google 开发者专家（Kotlin 方向）；<strong>《深入理解 Kotlin 协程》</strong> 作者（机械工业出版社，2020.6）；<strong>《深入实践 Kotlin 元编程》</strong> 作者（机械工业出版社，2023.8）；移动客户端工程师，先后就职于腾讯地图、猿辅导、腾讯视频。</p>
 <ul>
 <li>GitHub：<a href="https://github.com/bennyhuo">https://github.com/bennyhuo</a></li>
 <li>博客：<a href="https://www.bennyhuo.com/">https://www.bennyhuo.com</a></li>
